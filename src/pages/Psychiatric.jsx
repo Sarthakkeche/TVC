@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
 const P = {
-  hero:        "/src/assets/counsalting.jpg",
-  drGill:      "/src/assets/Gill_Japsharan.jpg",
-  drGillIn:    "/src/assets/dr J gill-inside.jpg",
-  consult2:    "/src/assets/Counsalting 2.jpg",
-  interior:    "/src/assets/inetrioir clinic.jpg",
-  inside:      "/src/assets/inside clinic1.jpg",
+  hero:        "/assets/counsalting.jpg",
+  drGill:      "/assets/Gill_Japsharan.jpg",
+  drGillIn:    "/assets/dr J gill-inside.jpg",
+  consult2:    "/assets/Counsalting 2.jpg",
+  interior:    "/assets/inetrioir clinic.jpg",
+  inside:      "/assets/inside clinic1.jpg",
 };
 
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}

@@ -2,13 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const P = {
-  drGillPortrait : "/src/assets/Gill_Japsharan.jpg",
-  drGillInside   : "/src/assets/dr J gill-inside.jpg",
-  clinicInside   : "/src/assets/inside clinic1.jpg",
-  clinicExterior : "/src/assets/clinic1.jpg",
-  receptionist   : "/src/assets/reciptent.jpg",
-  office         : "/src/assets/office.jpg",
-  consulting1    : "/src/assets/counsalting.jpg",
+  drGillPortrait : "/assets/Gill_Japsharan.jpg",
+  drGillInside   : "/assets/dr J gill-inside.jpg",
+  clinicInside   : "/assets/inside clinic1.jpg",
+  clinicExterior : "/assets/clinic1.jpg",
+  receptionist   : "/assets/reciptent.jpg",
+  office         : "/assets/office.jpg",
+  consulting1    : "/assets/counsalting.jpg",
 };
 
 const REASONS = [

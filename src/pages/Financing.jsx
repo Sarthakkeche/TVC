@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
 const P = {
-  drGillPortrait : "/src/assets/Gill_Japsharan.jpg",
-  drGillInside   : "/src/assets/dr J gill-inside.jpg",
-  clinicInside   : "/src/assets/inside clinic1.jpg",
-  clinicInterior : "/src/assets/inetrioir clinic.jpg",
-  consulting1    : "/src/assets/counsalting.jpg",
-  consulting2    : "/src/assets/Counsalting 2.jpg",
-  office         : "/src/assets/office.jpg",
-  receptionist   : "/src/assets/reciptent.jpg",
+  drGillPortrait : "/assets/Gill_Japsharan.jpg",
+  drGillInside   : "/assets/dr J gill-inside.jpg",
+  clinicInside   : "/assets/inside clinic1.jpg",
+  clinicInterior : "/assets/inetrioir clinic.jpg",
+  consulting1    : "/assets/counsalting.jpg",
+  consulting2    : "/assets/Counsalting 2.jpg",
+  office         : "/assets/office.jpg",
+  receptionist   : "/assets/reciptent.jpg",
 };
 
 function useReveal(t = 0.12) {

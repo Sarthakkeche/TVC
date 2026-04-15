@@ -174,7 +174,7 @@ export default function Navbar() {
           `}
         >
           <div className="flex items-center justify-between px-6 py-5 border-b border-[#E8D5BE]">
-            <img src="/src/assets/tri-valley-logo-header.jpeg" alt="Tri-Valley Clinic" className="h-10 w-auto" />
+            <img src="/assets/tri-valley-logo-header.jpeg" alt="Tri-Valley Clinic" className="h-10 w-auto" />
             <button onClick={() => setMenuOpen(false)} className="text-[#7A6556] hover:text-[#B8925A] transition-colors p-1">
               <CloseIcon />
             </button>

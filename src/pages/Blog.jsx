@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
 const P = {
-  drGillPortrait : "/src/assets/Gill_Japsharan.jpg",
-  drGillInside   : "/src/assets/dr J gill-inside.jpg",
-  clinicInside   : "/src/assets/inside clinic1.jpg",
-  clinicInterior : "/src/assets/inetrioir clinic.jpg",
-  consulting1    : "/src/assets/counsalting.jpg",
-  consulting2    : "/src/assets/Counsalting 2.jpg",
-  office         : "/src/assets/office.jpg",
-  emptyTable     : "/src/assets/emptytabel.jpg",
-  magazines      : "/src/assets/magzize.jpg",
+  drGillPortrait : "/assets/Gill_Japsharan.jpg",
+  drGillInside   : "/assets/dr J gill-inside.jpg",
+  clinicInside   : "/assets/inside clinic1.jpg",
+  clinicInterior : "/assets/inetrioir clinic.jpg",
+  consulting1    : "/assets/counsalting.jpg",
+  consulting2    : "/assets/Counsalting 2.jpg",
+  office         : "/assets/office.jpg",
+  emptyTable     : "/assets/emptytabel.jpg",
+  magazines      : "/assets/magzize.jpg",
 };
 
 const CATEGORIES = ["All","Psychiatry","Weight Loss","IV Hydration","TMS","Telehealth","Wellness","Medication"];

@@ -2,21 +2,21 @@ import { useEffect, useRef, useState } from "react";
 
 /* ─── ALL CLINIC PHOTOS ──────────────────────────────────── */
 const P = {
-  drGillPortrait : "/src/assets/Gill_Japsharan.jpg",
-  drGillHead     : "/src/assets/dr j gill.jpg",
-  drGillInside   : "/src/assets/dr J gill-inside.jpg",
-  drGillConsult  : "/src/assets/dr j gill 2.jpg",
-  consulting1    : "/src/assets/counsalting.jpg",
-  consulting2    : "/src/assets/Counsalting 2.jpg",
-  clinicInside   : "/src/assets/inside clinic1.jpg",
-  clinicExterior : "/src/assets/clinic1.jpg",
-  clinicInterior : "/src/assets/inetrioir clinic.jpg",
-  receptionist   : "/src/assets/reciptent.jpg",
-  office         : "/src/assets/office.jpg",
-  emptyTable     : "/src/assets/emptytabel.jpg",
-  magazines      : "/src/assets/magzize.jpg",
-  drGAp          : "/src/assets/dr G ap.jpg",
-  drGWorking     : "/src/assets/dr G working.jpg",
+  drGillPortrait : "/assets/Gill_Japsharan.jpg",
+  drGillHead     : "/assets/dr j gill.jpg",
+  drGillInside   : "/assets/dr J gill-inside.jpg",
+  drGillConsult  : "/assets/dr j gill 2.jpg",
+  consulting1    : "/assets/counsalting.jpg",
+  consulting2    : "/assets/Counsalting 2.jpg",
+  clinicInside   : "/assets/inside clinic1.jpg",
+  clinicExterior : "/assets/clinic1.jpg",
+  clinicInterior : "/assets/inetrioir clinic.jpg",
+  receptionist   : "/assets/reciptent.jpg",
+  office         : "/assets/office.jpg",
+  emptyTable     : "/assets/emptytabel.jpg",
+  magazines      : "/assets/magzize.jpg",
+  drGAp          : "/assets/dr G ap.jpg",
+  drGWorking     : "/assets/dr G working.jpg",
 };
 
 /* ─── SCROLL REVEAL ─────────────────────────────────────── */
