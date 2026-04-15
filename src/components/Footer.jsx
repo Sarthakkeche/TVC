@@ -68,7 +68,7 @@ export default function Footer() {
             <div className="space-y-5 lg:col-span-1">
               <Link to="/">
                 <img
-                  src="/src/assets/tri-valley-logo-header.jpeg"
+                  src="/assets/tri-valley-logo-header.jpeg"
                   alt="Tri-Valley Clinic"
                   className="h-12 w-auto object-contain"
                 />

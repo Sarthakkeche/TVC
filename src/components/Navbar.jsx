@@ -94,7 +94,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
             <img
-              src="/src/assets/tri-valley-logo-header.jpeg"
+              src="/assets/tri-valley-logo-header.jpeg"
               alt="Tri-Valley Clinic"
               className="h-11 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
             />
@@ -325,4 +325,4 @@ function CloseIcon() {
       <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   );
-}
+}    
