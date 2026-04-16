@@ -94,10 +94,11 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 group">
             <img
-              src="/assets/tri-valley-logo-header.jpeg"
-              alt="Tri-Valley Clinic"
-              className="h-11 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
-            />
+  src="/assets/tri-valley-logo-header.png"
+  alt="Tri-Valley Clinic"
+  className="h-12 w-auto object-contain"
+  style={{ mixBlendMode: "multiply" }}  
+/>
           </Link>
 
           {/* Desktop links */}

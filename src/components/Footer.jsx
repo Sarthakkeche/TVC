@@ -68,10 +68,11 @@ export default function Footer() {
             <div className="space-y-5 lg:col-span-1">
               <Link to="/">
                 <img
-                  src="/assets/tri-valley-logo-header.jpeg"
-                  alt="Tri-Valley Clinic"
-                  className="h-12 w-auto object-contain"
-                />
+  src="/assets/tri-valley-logo-header.png"
+  alt="Tri-Valley Clinic"
+  className="h-12 w-auto object-contain"
+  style={{ mixBlendMode: "multiply" }}  
+/>
               </Link>
 
               <p className="text-sm leading-relaxed text-[#7A6556] max-w-[240px]">
