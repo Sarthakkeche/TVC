@@ -1,7 +1,7 @@
 import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
 import { useEffect, useRef, useState } from "react";
-const P={interior:"/assets/inetrioir clinic.jpg",inside:"/assets/inside clinic1.jpg"};
+const P={drGill:"/assets/Gill_Japsharan.jpg",drGillIn:"/assets/dr J gill-inside.jpg",interior:"/assets/inetrioir clinic.jpg",inside:"/assets/inside clinic1.jpg",office:"/assets/office.jpg"};
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 export default function TMS(){
@@ -54,7 +54,7 @@ function WhatIsTMS(){
     </div>
     <div className={`relative transition-all duration-800 delay-200 ${v?"opacity-100 translate-x-0":"opacity-0 translate-x-10"}`}>
       <div className="absolute top-8 -right-4 left-8 bottom-0 bg-[#F0E8DA] -z-10"/><div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]"/>
-      <div className="overflow-hidden" style={{height:"460px"}}><img src={IMAGES.DR_GILL_HERO} alt="Dr. Japsharan Gill, MD" className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 12%"}}/></div>
+      <div className="overflow-hidden" style={{height:"460px"}}><img src={P.drGillIn} alt="Dr. Gill" className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.04]"/></div>
       <div className="absolute -bottom-6 -left-4 bg-[#B8925A] text-[#FDFAF6] px-6 py-5 shadow-xl" style={{animation:"floatBadge 5s ease-in-out infinite"}}><p className="text-2xl font-light mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>FDA-Cleared</p><p className="text-[9px] tracking-[0.2em] uppercase opacity-80">Since 2008 for MDD</p></div>
     </div>
   </div></section>);
@@ -85,7 +85,33 @@ function WaitlistSec(){
   const[ref,v]=useReveal();
   const[form,setForm]=useState({name:"",phone:"",email:"",note:""});
   const[sent,sSent]=useState(false);
-  const handleSubmit=(e)=>{e.preventDefault();if(form.name&&form.email){sSent(true);}};
+  const[sending,setSending]=useState(false);
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    if(!form.name||!form.email) return;
+    setSending(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit",{
+        method:"POST",
+        headers:{"Content-Type":"application/json","Accept":"application/json"},
+        body:JSON.stringify({
+          access_key:"df5ab724-9bdf-459e-94e1-ebb0fe8d520b",
+          name:    form.name,
+          phone:   form.phone,
+          email:   form.email,
+          message: form.note||"No additional notes",
+          subject: `TMS Waitlist — ${form.name} | Tri-Valley Clinic`,
+          _replyto: form.email,
+        }),
+      });
+      if(res.ok){sSent(true);}
+      else{alert("Something went wrong. Please call us at (510) 598-4921.");}
+    } catch {
+      alert("Network error. Please call us at (510) 598-4921.");
+    } finally {
+      setSending(false);
+    }
+  };
   return(<section id="waitlist" className="py-24 px-5 md:px-10" style={{background:"linear-gradient(160deg,#2C1A0E 0%,#3D2B1F 100%)"}}>
     <div className="mx-auto max-w-4xl">
       <div ref={ref} className="text-center mb-12"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-2 h-2 rounded-full bg-[#C9A46A] animate-pulse"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#C9A46A] font-semibold">TMS Launching Soon</span></div><h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Join the <em className="italic text-[#C9A46A]">Waitlist</em></h2><p className={`text-[#A89880] text-base font-light mt-4 max-w-md mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Be among the first patients to receive TMS therapy at Tri-Valley Clinic. We'll contact you as soon as we have an opening date.</p></div>
@@ -98,7 +124,7 @@ function WaitlistSec(){
             <div><label className="text-[10px] tracking-[0.18em] uppercase text-[#B8925A]/70 font-semibold block mb-2">Phone Number</label><input type="tel" placeholder="(510) 000-0000" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="w-full bg-[#FDFAF6]/8 border border-[#E8D5BE]/20 px-4 py-3 text-[#F0E8DA] placeholder-[#7A6556] text-sm focus:outline-none focus:border-[#B8925A] transition-colors duration-300"/></div>
             <div className="md:col-span-2"><label className="text-[10px] tracking-[0.18em] uppercase text-[#B8925A]/70 font-semibold block mb-2">Email Address *</label><input type="email" placeholder="your@email.com" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} required className="w-full bg-[#FDFAF6]/8 border border-[#E8D5BE]/20 px-4 py-3 text-[#F0E8DA] placeholder-[#7A6556] text-sm focus:outline-none focus:border-[#B8925A] transition-colors duration-300"/></div>
             <div className="md:col-span-2"><label className="text-[10px] tracking-[0.18em] uppercase text-[#B8925A]/70 font-semibold block mb-2">Anything You'd Like Us to Know</label><textarea rows={3} placeholder="e.g., medications tried, how long you've had depression..." value={form.note} onChange={e=>setForm({...form,note:e.target.value})} className="w-full bg-[#FDFAF6]/8 border border-[#E8D5BE]/20 px-4 py-3 text-[#F0E8DA] placeholder-[#7A6556] text-sm focus:outline-none focus:border-[#B8925A] transition-colors duration-300 resize-none"/></div>
-            <div className="md:col-span-2"><button type="submit" className="group w-full bg-[#B8925A] text-[#FDFAF6] py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300 flex items-center justify-center gap-3">Join Waitlist — No Commitment <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></button></div>
+            <div className="md:col-span-2"><button type="submit" disabled={sending} className="group w-full bg-[#B8925A] text-[#FDFAF6] py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed">{sending?"Submitting...":(<>Join Waitlist — No Commitment <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></>)}</button></div>
           </form>)}
         </div>
       </div>
