@@ -129,7 +129,7 @@ function HeroSection() {
             Physician-led clinic integrating psychiatry, weight management, IV hydration, TMS, and longevity-focused care to support lasting, whole-body health.
           </p>
           <div className={`flex flex-wrap gap-4 mb-12 transition-all duration-700 ${loaded?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{ transitionDelay:"580ms" }}>
-            <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-all duration-400">
+            <a href="/contact" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-all duration-400">
               <Ph/> Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
             </a>
             <a href="/about" className="group flex items-center gap-3 border border-[#B8925A] text-[#B8925A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] hover:text-[#FDFAF6] transition-all duration-300">
@@ -673,7 +673,7 @@ function TelehealthSection() {
               <li key={t} className="flex items-center gap-3 text-[#A8B89E] text-sm font-light"><span className="w-1.5 h-1.5 rounded-full bg-[#A8C59A] flex-shrink-0"/>{t}</li>
             ))}
           </ul>
-          <a href="tel:5105984921" className="inline-flex items-center gap-3 bg-[#6B7C5E] text-[#F0EDE8] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#7D9170] transition-colors duration-300">
+          <a href="/contact" className="inline-flex items-center gap-3 bg-[#6B7C5E] text-[#F0EDE8] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#7D9170] transition-colors duration-300">
             <Ph/> Book Telehealth Visit
           </a>
         </div>

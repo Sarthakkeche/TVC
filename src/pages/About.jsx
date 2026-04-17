@@ -166,7 +166,7 @@ function HeroSection() {
 
           <div className={`flex flex-wrap gap-4 mb-12 transition-all duration-700 ${on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             style={{ transitionDelay: "580ms" }}>
-            <a href="tel:5105984921"
+            <a href="/contact"
               className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-all duration-400">
               <Ph /> Free Consultation
               <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
