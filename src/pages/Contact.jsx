@@ -73,9 +73,41 @@ function MainSection(){
   const[ref,v]=useReveal();
   const[form,setForm]=useState({name:"",phone:"",email:"",reason:"",message:""});
   const[sent,sSent]=useState(false);
+  const[sending,setSending]=useState(false);
   const[errors,setErrors]=useState({});
+
+  // ✅ Web3Forms — live key connected to contact@trivalleyclinic.com
+
   const validate=()=>{const e={};if(!form.name.trim())e.name="Name is required";if(!form.phone.trim())e.phone="Phone number is required";if(!form.email.trim()||!/\S+@\S+\.\S+/.test(form.email))e.email="Valid email is required";if(!form.reason)e.reason="Please select a reason";if(!form.message.trim())e.message="Message is required";return e;};
-  const handleSubmit=e=>{e.preventDefault();const errs=validate();if(Object.keys(errs).length){setErrors(errs);return;}sSent(true);};
+
+  const handleSubmit=async e=>{
+    e.preventDefault();
+    const errs=validate();
+    if(Object.keys(errs).length){setErrors(errs);return;}
+    setSending(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({
+          access_key: "cae1fa87-e63c-43de-af08-c7702c2aac1f",
+          name:    form.name,
+          phone:   form.phone,
+          email:   form.email,
+          reason:  form.reason,
+          message: form.message,
+          subject: `New Contact Form — ${form.reason} | Tri-Valley Clinic`,
+          _replyto: form.email,
+        }),
+      });
+      if (res.ok) { sSent(true); }
+      else { alert("Something went wrong. Please call us at (510) 598-4921."); }
+    } catch {
+      alert("Network error. Please call us at (510) 598-4921.");
+    } finally {
+      setSending(false);
+    }
+  };
   const Field=({label,error,children})=>(<div><label className="text-[10px] tracking-[0.18em] uppercase text-[#B8925A]/80 font-semibold block mb-2">{label}</label>{children}{error&&<p className="text-red-400 text-[10px] mt-1">{error}</p>}</div>);
   const ic=`w-full bg-[#FDFAF6] border border-[#E8D5BE] px-4 py-3.5 text-sm text-[#2C1A0E] placeholder-[#7A6556]/40 focus:outline-none focus:border-[#B8925A] transition-colors duration-300 rounded-none`;
   return(
@@ -138,8 +170,8 @@ function MainSection(){
                         <input type="checkbox" id="telehealth" className="mt-1 accent-[#B8925A]"/>
                         <label htmlFor="telehealth" className="text-sm text-[#7A6556] font-light cursor-pointer">I'm interested in <span className="text-[#2C1A0E] font-medium">telehealth / virtual appointments</span> (available statewide in California)</label>
                       </div>
-                      <button type="submit" className="group w-full bg-[#2C1A0E] text-[#F0E8DA] py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400 flex items-center justify-center gap-3">
-                        Send Message <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+                      <button type="submit" disabled={sending} className="group w-full bg-[#2C1A0E] text-[#F0E8DA] py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed">
+                        {sending ? "Sending..." : <>Send Message <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></>}
                       </button>
                       <p className="text-[9px] text-[#7A6556]/50 text-center tracking-wider">By submitting you agree to be contacted by Tri-Valley Clinic. This form does not constitute a medical consultation.</p>
                     </form>

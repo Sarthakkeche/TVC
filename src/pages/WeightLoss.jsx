@@ -142,7 +142,7 @@ function HowProgramWorks(){
           ))}
         </div>
         <div className={`mt-14 text-center transition-all duration-700 delay-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
-          <a href="tel:5105984921" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-10 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Start Your Journey <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
+          <a href="/contact" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-10 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Start Your Journey <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
         </div>
       </div>
     </section>
@@ -210,7 +210,7 @@ function EligibilitySection(){
         </div>
         <div className={`mt-8 text-center transition-all duration-700 delay-400 ${v?"opacity-100":"opacity-0"}`}>
           <p className="text-[#7A6556] text-sm font-light mb-5">Not sure if you qualify? Dr. Gill will assess your eligibility during your free consultation.</p>
-          <a href="tel:5105984921" className="inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Check Your Eligibility — Free</a>
+          <a href="/contact" className="inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Check Your Eligibility — Free</a>
         </div>
       </div>
     </section>

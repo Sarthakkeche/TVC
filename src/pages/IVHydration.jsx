@@ -29,7 +29,7 @@ function Hero(){
           <h1 className={`text-[48px] md:text-[62px] xl:text-[74px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>Rehydrate.<br/><em className="italic text-[#C9A46A]">Restore.</em><br/>Revive.</h1>
           <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>Premium intravenous nutrient therapy administered in a spa-like setting at Tri-Valley Clinic. Tailored drip formulas for energy, immunity, beauty, and peak wellness — supervised by Dr. Gill.</p>
           <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
-            <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Book a Session <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
+            <a href="/contact" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Book a Session <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
             <a href="#menu" className="flex items-center gap-3 border border-[#B8925A]/50 text-[#C9A46A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300">View IV Menu ↓</a>
           </div>
           <div className={`flex flex-wrap gap-3 transition-all duration-700 ${on?"opacity-100":"opacity-0"}`} style={{transitionDelay:"640ms"}}>
@@ -86,7 +86,7 @@ function DripsMenu(){
       </div>
       <div className={`mt-10 text-center transition-all duration-700 delay-700 ${v?"opacity-100":"opacity-0"}`}>
         <p className="text-[#7A6556] text-sm font-light mb-5">All prices subject to change. Call for current pricing and custom formula consultations.</p>
-        <a href="tel:5105984921" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-10 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Book Your IV Session <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
+        <a href="/contact" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-10 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Book Your IV Session <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
       </div>
     </div>
   </section>);

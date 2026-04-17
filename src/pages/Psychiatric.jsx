@@ -184,7 +184,7 @@ function DrSection(){
                 <li key={t} className="flex items-start gap-3 text-sm text-[#7A6556]"><span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0 mt-2"/>{t}</li>
               ))}
             </ul>
-            <a href="tel:5105984921" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#2C1A0E] transition-colors duration-300"><Ph/> Book an Evaluation <span className="group-hover:translate-x-1 transition-transform duration-300">→</span></a>
+            <a href="/contact" className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#2C1A0E] transition-colors duration-300"><Ph/> Book an Evaluation <span className="group-hover:translate-x-1 transition-transform duration-300">→</span></a>
           </div>
         </div>
       </div>
