@@ -74,11 +74,11 @@ export default function Footer() {
                 />
               </Link>
               <p className="text-sm leading-relaxed text-[#7A6556] max-w-[240px]">
-                Board-certified psychiatric and wellness care in Fremont, CA — in a space as beautiful as the care itself.
+                 Psychiatric and Wellness care in Fremont, CA — in a space as beautiful as the care itself.
               </p>
               <div className="inline-flex items-center gap-2 bg-[#E8D5BE]/50 border border-[#E8D5BE] px-3 py-2">
                 <CheckIcon />
-                <span className="text-[10px] tracking-[0.16em] uppercase text-[#7A6556]">Board-Certified Psychiatrist</span>
+                <span className="text-[10px] tracking-[0.16em] uppercase text-[#7A6556]">Psychiatrist</span>
               </div>
               <div className="flex items-center gap-2.5 pt-1">
                 {[

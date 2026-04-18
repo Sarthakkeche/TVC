@@ -12,7 +12,8 @@ const IMAGES = {
   // DR_GILL_INSIDE:    "/assets/dr J gill-inside.jpg",
 
   // ── DR. GONDARA ───────────────────────────────────────────────────
-  DR_GONDARA_CARD:    "/assets/dr-gondara-white.jpg",      // white bg solo (new shoot)
+  DR_GONDARA_CARD:    "/assets/Gondara_Shabeg.jpg",         // outdoor portrait (green foliage bg) — About page large portraits
+  DR_GONDARA_WHITE:   "/assets/dr-gondara-white.jpg",       // white bg solo — DoctorAvatars circles only
   DR_GONDARA_WORKING: "/assets/dr2-consulting.jpg",        // Dr. Gondara with patient (new)
 
   // ── BOTH DOCTORS ──────────────────────────────────────────────────

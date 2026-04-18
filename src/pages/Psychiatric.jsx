@@ -109,7 +109,7 @@ function CondSection(){
         </div>
         <div className={`mt-4 text-center transition-all duration-700 delay-900 ${v?"opacity-100":"opacity-0"}`}>
           <p className="text-[#7A6556] text-sm font-light mb-4">Don't see your condition? Call us — we treat many more.</p>
-          <a href="tel:5105984921" className="inline-flex items-center gap-3 border border-[#B8925A]/50 text-[#B8925A] px-8 py-3.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300"><Ph/> Call Dr. Gill's Office</a>
+          <a href="tel:5105984921" className="inline-flex items-center gap-3 border border-[#B8925A]/50 text-[#B8925A] px-8 py-3.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300"><Ph/> Call Our Office</a>
         </div>
       </div>
     </section>

@@ -220,10 +220,10 @@ function HeroSection() {
             <div className="absolute inset-0 translate-x-3 translate-y-3 bg-[#B8925A]/15 -z-10" />
             <span className="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-[#B8925A] z-20" />
             <span className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-[#B8925A] z-20" />
-            <div className="w-[200px] md:w-[240px] overflow-hidden bg-white" style={{ height: "420px" }}>
-              {/* 🔄 Photo 19 → dr-gondara-white.jpg */}
+            <div className="w-[200px] md:w-[240px] overflow-hidden" style={{ height: "420px" }}>
+              {/* Gondara_Shabeg.jpg — outdoor portrait, green foliage */}
               <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Gondara"
-                className="w-full h-full" style={{ objectFit: "contain", objectPosition: "center top", background: "white" }} />
+                className="w-full h-full" style={{ objectFit: "cover", objectPosition: "center 5%" }} />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#2C1A0E]/80 to-transparent px-4 py-4 z-10">
                 <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-base font-light italic">Dr. Gondara</p>
                 <p className="text-[#E8D5BE]/60 text-[8px] tracking-[0.2em] uppercase mt-0.5">President</p>
@@ -379,7 +379,7 @@ function DrGillBioSection() {
 
             <ul className="space-y-3 mb-10">
               {[
-                "Board-Eligible — Psychiatry & Wellness",
+                "Psychiatry & Wellness",
                 "Founder & CEO, Tri-Valley Clinic",
                 "Psychiatry · Medical Weight Management · Advanced Wellness",
                 "GLP-1 / Semaglutide Physician-Supervised Programs",
@@ -477,11 +477,11 @@ function DrGondaraBioSection() {
               <div className="relative">
                 <div className="absolute top-5 -right-5 left-5 bottom-0 bg-[#E8D5BE]/50 -z-10" />
                 <div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]" />
-                <div className="overflow-hidden bg-white" style={{ height: "540px" }}>
-                  {/* dr-gondara-white.jpg — full body, white bg, no cropping with contain */}
+                <div className="overflow-hidden" style={{ height: "540px" }}>
+                  {/* Gondara_Shabeg.jpg — outdoor portrait, green foliage */}
                   <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Gondara"
                     className="w-full h-full transition-transform duration-700 hover:scale-[1.02]"
-                    style={{ objectFit: "contain", objectPosition: "center top" }} />
+                    style={{ objectFit: "cover", objectPosition: "center 5%" }} />
                 </div>
                 <div className="bg-[#2C1A0E] px-5 py-4">
                   <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-lg font-light italic">Dr. Gondara, MD</p>

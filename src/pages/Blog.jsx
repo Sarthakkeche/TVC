@@ -2,30 +2,47 @@ import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
 import { useEffect, useRef, useState } from "react";
 
-const P = {
-  drGillPortrait : "/assets/Gill_Japsharan.jpg",
-  drGillInside   : "/assets/dr J gill-inside.jpg",
-  clinicInside   : "/assets/inside clinic1.jpg",
-  clinicInterior : "/assets/inetrioir clinic.jpg",
-  consulting1    : "/assets/dr2-consulting.jpg"        /* ✅ Dr. Gondara consulting */,
-  consulting2    : "/assets/both-doctors-outdoor.jpg"  /* ✅ Both doctors outdoor */,
-  office         : "/assets/office.jpg",
-  emptyTable     : "/assets/emptytabel.jpg",
-  magazines      : "/assets/magzize.jpg",
-};
+// ❌ P object REMOVED — all banned photos. Using IMAGES registry only.
 
 const CATEGORIES = ["All","Psychiatry","Weight Loss","IV Hydration","TMS","Telehealth","Wellness","Medication"];
 
 const POSTS = [
-  { id:1, category:"Psychiatry",   readTime:"6 min", date:"April 10, 2026", title:"What to Expect at Your First Psychiatric Evaluation", excerpt:"Walking into a psychiatric evaluation for the first time can feel overwhelming. Dr. Gill explains exactly what happens step by step, and why there is nothing to be nervous about.", img: P.drGillInside,   featured: true  },
-  { id:2, category:"Weight Loss",  readTime:"5 min", date:"April 7, 2026",  title:"GLP-1 Medications: What They Are and How They Work",     excerpt:"Semaglutide and Tirzepatide have changed the landscape of medical weight loss. Learn how GLP-1 receptor agonists work and whether you may be a candidate.", img: P.consulting2,   /* both-doctors-outdoor */   featured: false },
-  { id:3, category:"Psychiatry",   readTime:"7 min", date:"April 3, 2026",  title:"ADHD in Adults: Signs You Might Have Missed",            excerpt:"ADHD is widely under-diagnosed in adults, especially women. Discover the often-overlooked symptoms that distinguish adult ADHD from ordinary stress or distraction.", img: P.consulting1,   /* dr2-consulting */  featured: false },
-  { id:4, category:"Telehealth",   readTime:"4 min", date:"March 28, 2026", title:"Telehealth Psychiatry: How It Works in California",      excerpt:"Everything you need to know about accessing psychiatric care from anywhere in California — including what telehealth can and cannot replace.", img: P.clinicInside,  featured: false },
-  { id:5, category:"IV Hydration", readTime:"5 min", date:"March 20, 2026", title:"IV Hydration Therapy: Benefits Beyond the Hangover Cure", excerpt:"IV hydration has evolved far beyond its party-recovery reputation. Learn about the science-backed benefits for energy, immunity, and overall wellness.", img: P.emptyTable,    featured: false },
-  { id:6, category:"Psychiatry",   readTime:"8 min", date:"March 14, 2026", title:"Anxiety vs. Stress: How to Tell the Difference",         excerpt:"Stress is a normal response to life's demands. Anxiety is something different entirely. Dr. Gill outlines the key distinctions and when to seek professional support.", img: P.clinicInterior,featured: false },
-  { id:7, category:"Medication",   readTime:"6 min", date:"March 7, 2026",  title:"Psychiatric Medication Management: Your Questions Answered", excerpt:"Starting a new psychiatric medication raises many questions. Dr. Gill addresses the most common concerns patients bring to their first medication management appointment.", img: P.office,        featured: false },
-  { id:8, category:"TMS",          readTime:"5 min", date:"Feb 28, 2026",   title:"TMS Therapy: A Non-Drug Option for Treatment-Resistant Depression", excerpt:"Transcranial magnetic stimulation is FDA-cleared for depression and requires no medication. Here's what the research shows and who it helps most.", img: P.magazines,    featured: false },
-  { id:9, category:"Wellness",     readTime:"4 min", date:"Feb 20, 2026",   title:"The Link Between Mental Health and Physical Wellness",    excerpt:"Psychiatric health and physical health are inseparable. Dr. Gill explores how conditions like depression and anxiety manifest physically and what to do about it.", img: P.drGillPortrait, featured: false },
+  { id:1, category:"Psychiatry",   readTime:"6 min", date:"April 10, 2026", author:"gill",
+    title:"What to Expect at Your First Psychiatric Evaluation",
+    excerpt:"Walking into a psychiatric evaluation for the first time can feel overwhelming. Dr. Gill or Dr. Gondara explains exactly what happens step by step.",
+    img: IMAGES.DR_GILL_HERO,       imgPos:"center 8%",  featured: true  },
+  { id:2, category:"Weight Loss",  readTime:"5 min", date:"April 7, 2026",  author:"gill",
+    title:"GLP-1 Medications: What They Are and How They Work",
+    excerpt:"Semaglutide and Tirzepatide have changed the landscape of medical weight loss. Learn how GLP-1 receptor agonists work and whether you may be a candidate.",
+    img: IMAGES.DR_GONDARA_CARD,    imgPos:"center 5%",  featured: false },
+  { id:3, category:"Psychiatry",   readTime:"7 min", date:"April 3, 2026",  author:"gondara",
+    title:"ADHD in Adults: Signs You Might Have Missed",
+    excerpt:"ADHD is widely under-diagnosed in adults, especially women. Discover the often-overlooked symptoms that distinguish adult ADHD from ordinary stress or distraction.",
+    img: IMAGES.DR_GONDARA_WORKING, imgPos:"center 10%", featured: false },
+  { id:4, category:"Telehealth",   readTime:"4 min", date:"March 28, 2026", author:"both",
+    title:"Telehealth Psychiatry: How It Works in California",
+    excerpt:"Everything you need to know about accessing psychiatric care from anywhere in California — including what telehealth can and cannot replace.",
+    img: IMAGES.CLINIC_INSIDE,      imgPos:"center top", featured: false },
+  { id:5, category:"IV Hydration", readTime:"5 min", date:"March 20, 2026", author:"gill",
+    title:"IV Hydration Therapy: Benefits Beyond the Hangover Cure",
+    excerpt:"IV hydration has evolved far beyond its party-recovery reputation. Learn about the science-backed benefits for energy, immunity, and overall wellness.",
+    img: IMAGES.BOTH_CLINIC,        imgPos:"center 15%", featured: false },
+  { id:6, category:"Psychiatry",   readTime:"8 min", date:"March 14, 2026", author:"gondara",
+    title:"Anxiety vs. Stress: How to Tell the Difference",
+    excerpt:"Stress is a normal response to life's demands. Anxiety is something different entirely. Dr. Gill or Dr. Gondara outlines the key distinctions.",
+    img: IMAGES.BOTH_OUTDOOR,       imgPos:"center 12%", featured: false },
+  { id:7, category:"Medication",   readTime:"6 min", date:"March 7, 2026",  author:"gill",
+    title:"Psychiatric Medication Management: Your Questions Answered",
+    excerpt:"Starting a new psychiatric medication raises many questions. Dr. Gill or Dr. Gondara addresses the most common concerns patients bring to their first appointment.",
+    img: IMAGES.CLINIC_INDOOR,      imgPos:"center top", featured: false },
+  { id:8, category:"TMS",          readTime:"5 min", date:"Feb 28, 2026",   author:"gondara",
+    title:"TMS Therapy: A Non-Drug Option for Treatment-Resistant Depression",
+    excerpt:"Transcranial magnetic stimulation is FDA-cleared for depression and requires no medication. Here's what the research shows and who it helps most.",
+    img: IMAGES.CLINIC_EXTERIOR,    imgPos:"center center", featured: false },
+  { id:9, category:"Wellness",     readTime:"4 min", date:"Feb 20, 2026",   author:"gill",
+    title:"The Link Between Mental Health and Physical Wellness",
+    excerpt:"Psychiatric health and physical health are inseparable. Dr. Gill or Dr. Gondara explores how conditions like depression and anxiety manifest physically.",
+    img: IMAGES.CLINIC_MAGAZINES,   imgPos:"center center", featured: false },
 ];
 
 function useReveal(t=0.12) {
@@ -82,7 +99,7 @@ function HeroSection() {
         style={{backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,backgroundSize:"180px"}} />
       {/* BG photo */}
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[50%] overflow-hidden">
-        <img src={P.magazines} alt="Tri-Valley Clinic reading"
+        <img src={IMAGES.CLINIC_INDOOR} alt="Tri-Valley Clinic"
           className="w-full h-full object-cover opacity-25" style={{filter:"saturate(0.6)"}} />
         <div className="absolute inset-0" style={{background:"linear-gradient(to right,#2C1A0E 0%,#2C1A0E 15%,transparent 60%)"}} />
         <div className="absolute inset-0" style={{background:"linear-gradient(to top,#2C1A0E 0%,transparent 55%)"}} />
@@ -165,7 +182,8 @@ function FeaturedPost() {
           {/* Image */}
           <div className="relative overflow-hidden" style={{height:"460px"}}>
             <img src={post.img} alt={post.title}
-              className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              style={{objectPosition: post.imgPos || "center top"}} />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#FDFAF6]/10" />
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#B8925A] to-[#C9A46A]" />
             <div className="absolute top-5 left-5">
@@ -189,11 +207,11 @@ function FeaturedPost() {
             {/* Author */}
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-[#E8D5BE]">
               <div className="w-12 h-12 rounded-full overflow-hidden border border-[#E8D5BE]">
-                <img src={P.drGillPortrait} alt="Dr. Gill" className="w-full h-full object-cover object-top" />
+                <img src={IMAGES.DR_GILL_CARD} alt="Dr. Gill" className="w-full h-full object-cover object-top" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Japsharan Gill, MD</p>
-                <p className="text-[10px] tracking-[0.16em] uppercase text-[#B8925A]/70">Founder & CEO · Psychiatry & Wellness</p>
+                <p className="text-sm font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Gill & Dr. Gondara</p>
+                <p className="text-[10px] tracking-[0.16em] uppercase text-[#B8925A]/70">Tri-Valley Clinic · Psychiatry & Wellness</p>
               </div>
             </div>
             <a href={`/blog/${post.id}`}
@@ -276,7 +294,8 @@ function BlogCard({post,delay,vis}) {
       {/* Image */}
       <div className="relative overflow-hidden" style={{height:"220px"}}>
         <img src={post.img} alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108" />
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+          style={{objectPosition: post.imgPos || "center top"}} />
         <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
         {/* Category badge */}
         <div className="absolute top-4 left-4">
@@ -300,9 +319,16 @@ function BlogCard({post,delay,vis}) {
         <div className="flex items-center justify-between pt-4 border-t border-[#E8D5BE]">
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-[#E8D5BE]">
-              <img src={P.drGillPortrait} alt="Dr. Gill" className="w-full h-full object-cover object-top" />
+              <img
+                src={post.author==="gondara" ? IMAGES.DR_GONDARA_CARD : IMAGES.DR_GILL_CARD}
+                alt={post.author==="gondara" ? "Dr. Gondara" : "Dr. Gill"}
+                className="w-full h-full"
+                style={{objectFit:"contain",objectPosition:"center top",background:"white"}}
+              />
             </div>
-            <span className="text-[10px] text-[#7A6556]/70">Dr. Japsharan Gill</span>
+            <span className="text-[10px] text-[#7A6556]/70">
+              {post.author==="gondara" ? "Dr. Shabeg S. Gondara" : post.author==="both" ? "Dr. Gill & Dr. Gondara" : "Dr. Japsharan Gill"}
+            </span>
           </div>
           <span className="text-[#B8925A] text-sm group-hover:translate-x-1 transition-transform duration-300">→</span>
         </div>

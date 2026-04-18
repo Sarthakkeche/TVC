@@ -39,7 +39,7 @@ function Hero(){
             <span className="w-10 h-px bg-[#B8925A]/60"/><span className="text-[10px] tracking-[0.22em] uppercase text-[#A89880] font-light">GLP-1 / Semaglutide · Medical Weight Loss Program</span>
           </div>
           <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>
-            Dr. Gill now offers FDA-approved GLP-1 medication programs including Semaglutide and Tirzepatide — monitored personally by a physician, not a med spa. Safe, effective, and science-backed.
+            Dr. Gill or Dr. Gondara now offers FDA-approved GLP-1 medication programs including Semaglutide and Tirzepatide — monitored personally by a physician, not a med spa. Safe, effective, and science-backed.
           </p>
           <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
             <a href="/contact" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
@@ -52,7 +52,7 @@ function Hero(){
           </div>
         </div>
         <div className={`hidden lg:flex flex-col gap-4 items-end transition-all duration-1000 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:"380ms"}}>
-          {[{val:"FDA",lab:"Approved Medications",sub:"Semaglutide & Tirzepatide"},{val:"MD",lab:"Supervised Program",sub:"Dr. Gill personally monitors"},{val:"Real",lab:"Clinical Results",sub:"Evidence-based approach"}].map((c,i)=>(
+          {[{val:"FDA",lab:"Approved Medications",sub:"Semaglutide & Tirzepatide"},{val:"MD",lab:"Supervised Program",sub:"Dr. Gill or Dr. Gondara personally monitors"},{val:"Real",lab:"Clinical Results",sub:"Evidence-based approach"}].map((c,i)=>(
             <div key={c.lab} className="bg-[#FDFAF6]/8 border border-[#E8D5BE]/15 px-6 py-5 flex items-center gap-5 w-full max-w-xs" style={{animation:`fadeUp 0.8s ease ${0.5+i*0.12}s both`}}>
               <p className="text-3xl text-[#C9A46A] flex-shrink-0" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>{c.val}</p>
               <div><p className="text-[#F0E8DA] text-sm font-medium">{c.lab}</p><p className="text-[#A89880] text-xs font-light mt-0.5">{c.sub}</p></div>
@@ -87,7 +87,7 @@ function WhatAreGLP1s(){
             <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">GLP-1 (glucagon-like peptide-1) receptor agonists are a class of FDA-approved medications that work by mimicking a hormone your body naturally produces after eating. They signal your brain that you're full, slow stomach emptying, and regulate blood sugar — resulting in significant, sustained weight loss when combined with lifestyle changes.</p>
             <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-8">The most well-known GLP-1 medications — Semaglutide (brand names Ozempic, Wegovy) and Tirzepatide (Mounjaro, Zepbound) — have demonstrated 15–22% body weight reduction in clinical trials, making them the most effective non-surgical weight loss treatments ever studied.</p>
             <div className="grid grid-cols-2 gap-4">
-              {[["Semaglutide","Ozempic / Wegovy"],["Tirzepatide","Mounjaro / Zepbound"],["Physician Prescribed","Dr. Gill monitors all patients"],["Monthly Check-ins","Ongoing safety & dosage review"]].map(([t,s])=>(
+              {[["Semaglutide","Ozempic / Wegovy"],["Tirzepatide","Mounjaro / Zepbound"],["Physician Prescribed","Dr. Gill or Dr. Gondara monitors all patients"],["Monthly Check-ins","Ongoing safety & dosage review"]].map(([t,s])=>(
                 <div key={t} className="border border-[#E8D5BE] bg-[#F5EEE4] p-4">
                   <p className="text-[#2C1A0E] font-medium text-sm mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>{t}</p>
                   <p className="text-[#7A6556] text-xs font-light">{s}</p>
@@ -99,7 +99,7 @@ function WhatAreGLP1s(){
             <div className="absolute top-8 -right-4 left-8 bottom-0 bg-[#F0E8DA] -z-10"/>
             <div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]"/>
             <div className="overflow-hidden" style={{height:"460px"}}>
-              <img src={P.interior} alt="Tri-Valley Clinic" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]"/>
+              <img src={IMAGES.BOTH_OUTDOOR} alt="Dr. Gill & Dr. Gondara" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 15%"}}/>
             </div>
             <div className="absolute -bottom-6 -left-4 bg-[#B8925A] text-[#FDFAF6] px-6 py-5 shadow-xl" style={{animation:"floatBadge 5s ease-in-out infinite"}}>
               <p className="text-4xl font-light mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>15–22%</p>
@@ -115,9 +115,9 @@ function WhatAreGLP1s(){
 function HowProgramWorks(){
   const[ref,v]=useReveal();
   const steps=[
-    {n:"01",t:"Free Consultation",   d:"Call Dr. Gill's office for a free 15-minute consultation to discuss your weight loss goals and medical history. We'll verify your insurance and determine if you're a candidate."},
-    {n:"02",t:"Medical Evaluation",  d:"A comprehensive in-person or telehealth evaluation with Dr. Gill — reviewing your health history, current medications, weight history, and any contraindications for GLP-1 therapy."},
-    {n:"03",t:"Personalized Plan",   d:"Dr. Gill creates your individualized treatment plan — selecting the right medication, starting dose, and titration schedule based on your unique physiology and goals."},
+    {n:"01",t:"Free Consultation",   d:"Call Dr. Gill or Dr. Gondara's office for a free 15-minute consultation to discuss your weight loss goals and medical history. We'll verify your insurance and determine if you're a candidate."},
+    {n:"02",t:"Medical Evaluation",  d:"A comprehensive in-person or telehealth evaluation with Dr. Gill or Dr. Gondara — reviewing your health history, current medications, weight history, and any contraindications for GLP-1 therapy."},
+    {n:"03",t:"Personalized Plan",   d:"Dr. Gill or Dr. Gondara creates your individualized treatment plan — selecting the right medication, starting dose, and titration schedule based on your unique physiology and goals."},
     {n:"04",t:"Ongoing Monitoring",  d:"Monthly follow-ups to review your progress, adjust dosage as needed, monitor for side effects, and provide ongoing support throughout your weight loss journey."},
   ];
   return(
@@ -152,7 +152,7 @@ function HowProgramWorks(){
 function CompareSection(){
   const[ref,v]=useReveal();
   const rows=[
-    {f:"Medical Supervision",  doc:"Dr. Gill personally",    spa:"Often an NP/PA",   diy:"None"},
+    {f:"Medical Supervision",  doc:"Dr. Gill or Dr. Gondara personally",    spa:"Often an NP/PA",   diy:"None"},
     {f:"Medication Type",      doc:"FDA-approved RX",        spa:"Varies / compound",diy:"OTC supplements"},
     {f:"Safety Monitoring",    doc:"Monthly labs & check-ins",spa:"Minimal",          diy:"None"},
     {f:"Dosage Adjustments",   doc:"Physician-directed",     spa:"Limited",           diy:"None"},
@@ -169,7 +169,7 @@ function CompareSection(){
         </div>
         <div className={`overflow-hidden border border-[#E8D5BE] transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
           <div className="grid grid-cols-4 bg-[#2C1A0E]">
-            {["Feature","Dr. Gill (TVC) ★","Med Spa","DIY / Online"].map((h,i)=>(
+            {["Feature","Dr. Gill / Dr. Gondara (TVC) ★","Med Spa","DIY / Online"].map((h,i)=>(
               <div key={h} className={`px-4 py-4 text-[10px] tracking-[0.18em] uppercase font-semibold ${i===1?"text-[#C9A46A]":"text-[#E8D5BE]/60"}`}>{h}</div>
             ))}
           </div>
@@ -209,7 +209,7 @@ function EligibilitySection(){
           </div>
         </div>
         <div className={`mt-8 text-center transition-all duration-700 delay-400 ${v?"opacity-100":"opacity-0"}`}>
-          <p className="text-[#7A6556] text-sm font-light mb-5">Not sure if you qualify? Dr. Gill will assess your eligibility during your free consultation.</p>
+          <p className="text-[#7A6556] text-sm font-light mb-5">Not sure if you qualify? Dr. Gill or Dr. Gondara will assess your eligibility during your free consultation.</p>
           <a href="/contact" className="inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Check Your Eligibility — Free</a>
         </div>
       </div>
@@ -220,11 +220,11 @@ function EligibilitySection(){
 function FAQSection(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
   const faqs=[
-    {q:"How much weight can I expect to lose?",             a:"Clinical trials show 15–22% total body weight loss over 68–72 weeks with Semaglutide and Tirzepatide respectively. Individual results vary based on adherence, diet, and activity level. Dr. Gill will set realistic expectations during your evaluation."},
+    {q:"How much weight can I expect to lose?",             a:"Clinical trials show 15–22% total body weight loss over 68–72 weeks with Semaglutide and Tirzepatide respectively. Individual results vary based on adherence, diet, and activity level. Dr. Gill or Dr. Gondara will set realistic expectations during your evaluation."},
     {q:"Does insurance cover GLP-1 medications?",           a:"Coverage varies significantly by plan. Some commercial plans cover GLP-1s when prescribed for obesity with qualifying conditions. Our staff verifies your specific coverage before your first appointment."},
-    {q:"What are the common side effects?",                 a:"The most common side effects are gastrointestinal — nausea, vomiting, and diarrhea — especially during dose escalation. These typically improve over time. Dr. Gill monitors all patients closely and adjusts dosing to minimize discomfort."},
+    {q:"What are the common side effects?",                 a:"The most common side effects are gastrointestinal — nausea, vomiting, and diarrhea — especially during dose escalation. These typically improve over time. Dr. Gill or Dr. Gondara monitors all patients closely and adjusts dosing to minimize discomfort."},
     {q:"How is this different from getting Ozempic online?", a:"Obtaining medications from telehealth mills or unregulated online platforms carries significant risks — no in-person evaluation, no monitoring, and no physician relationship. Dr. Gill provides comprehensive medical supervision with monthly check-ins and real accountability."},
-    {q:"How long do I need to stay on the medication?",     a:"This varies by individual. GLP-1 therapy is most effective as a long-term commitment — most patients see continued weight management with ongoing treatment. Dr. Gill will discuss your long-term plan during your evaluation."},
+    {q:"How long do I need to stay on the medication?",     a:"This varies by individual. GLP-1 therapy is most effective as a long-term commitment — most patients see continued weight management with ongoing treatment. Dr. Gill or Dr. Gondara will discuss your long-term plan during your evaluation."},
   ];
   return(
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
