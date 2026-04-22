@@ -195,13 +195,7 @@ export default function Footer() {
                 </span>
               ))}
             </div>
-            <p className="text-[#7A6556]/40">
-              Designed by{" "}
-              <a href="https://digitalvisibilityconcepts.com" target="_blank" rel="noopener noreferrer"
-                className="hover:text-[#B8925A]/60 transition-colors">
-                Digital Visibility Concepts
-              </a>
-            </p>
+
           </div>
 
           <p className="mt-5 text-[10px] text-[#7A6556]/40 text-center leading-relaxed max-w-3xl mx-auto">

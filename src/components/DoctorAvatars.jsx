@@ -8,14 +8,14 @@ export default function DoctorAvatars({ className = "" }) {
         {
           img: IMAGES.DR_GILL_CARD || "/assets/dr-gill-white.jpg",
           alt: "Dr. Japsharan Gill",
-          name: "Dr. Gill",
+          name: "Dr. Japsharan Gill",
           role: "Founder & CEO",
           pos: "center 15%",
         },
         {
           img: "/assets/dr-gondara-white.jpg",
-          alt: "Dr. Gondara",
-          name: "Dr. Gondara",
+          alt: "Dr. Shabeg Gondara",
+          name: "Dr. Shabeg Gondara",
           role: "President",
           pos: "center 15%",
         },

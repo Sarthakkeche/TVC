@@ -3,14 +3,26 @@ import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
 
 const CONDITIONS=[
-  {id:"anxiety",   label:"Anxiety Disorders",    sub:"GAD · Social · Panic",    desc:"Generalized anxiety, social anxiety, panic disorder, and phobias — diagnosed and treated with evidence-based medication management.",icon:"🧠"},
-  {id:"depression",label:"Major Depression",      sub:"MDD · Persistent",        desc:"From mild depressive episodes to treatment-resistant depression, our physicians provide thorough evaluations and targeted treatment plans.",icon:"💙"},
-  {id:"adhd",      label:"ADHD",                 sub:"Adult Diagnosis",          desc:"Adult ADHD is widely under-diagnosed. We conduct comprehensive evaluations and create management strategies that fit your life.",icon:"⚡"},
-  {id:"ptsd",      label:"PTSD & Trauma",         sub:"Complex · Single Event",  desc:"Providers at Tri-Valley Clinic offer compassionate care for individuals coping with trauma. Trauma can make you feel easily frightened, avoidant, and may increase susceptibility to substance abuse. Treatments include psychotherapy and medications.",icon:"🌿"},
-  {id:"bipolar",   label:"Bipolar Disorder",      sub:"Type I · Type II",        desc:"These individuals experience periods of mania and depression — emotional highs and extreme lows. Untreated bipolar disorder can lead to risk of substance abuse, self-harm, or suicide. If you are considering self-harm or suicide, call 911 for emergency assistance.",icon:"⚖️"},
-  {id:"ocd",       label:"OCD",                   sub:"Obsessive-Compulsive",    desc:"OCD is often mistaken for other conditions. Our physicians accurately diagnose and manage OCD with a treatment approach tailored to the severity and type of your symptoms.",icon:"🔄"},
-  {id:"insomnia",  label:"Insomnia",              sub:"Chronic · Acute",         desc:"Sleep disorders have cascading effects on mental and physical health. We address insomnia with a psychiatric lens — often revealing and treating underlying causes.",icon:"🌙"},
-  {id:"substance", label:"Substance Abuse",       sub:"Dual Diagnosis",          desc:"Mental health and substance use disorders frequently co-occur. We provide integrated dual-diagnosis treatment that addresses both conditions simultaneously.",icon:"🛡️"},
+  {id:"anxiety",label:"Anxiety Disorders",sub:"GAD · Social · Panic",icon:"🧠",
+    desc:"Anxiety disorders are common mental health conditions that can cause ongoing feelings of worry, fear, or unease, even when there is no immediate danger present. People may experience excessive worry, restlessness, difficulty relaxing, or a sense of being on edge. Anxiety can also show up physically — a racing heart, muscle tension, or trouble sleeping. Types include generalized anxiety disorder, social anxiety, panic disorder, and specific phobias. Symptoms may become more noticeable during times of stress and can impact daily routines, relationships, and overall well-being."},
+  {id:"psychosis",label:"Psychosis",sub:"Schizophrenia · Schizoaffective",icon:"🔮",
+    desc:"Psychosis is a mental health condition that affects how a person perceives reality, making it difficult to distinguish what is real from what is not. People may experience hallucinations (seeing or hearing things others do not), delusions (strong beliefs not based in reality), or confused thinking. It may also affect insight, making it harder to recognize that symptoms are part of a health condition. Psychosis can occur on its own or be associated with other mental health conditions, medical issues, or substance use. Symptoms can significantly impact daily functioning, relationships, and safety, and typically require professional evaluation and support."},
+  {id:"depression",label:"Depression",sub:"MDD · Persistent · Postpartum",icon:"💙",
+    desc:"Depression is a common mental health condition that affects how a person thinks, feels, and functions in daily life. Symptoms can range from mild to severe and typically last for at least two weeks or longer. People may experience persistent sadness, loss of interest in activities they once enjoyed, or a general sense of emotional heaviness or disconnection. Common symptoms include feelings of guilt or worthlessness, hopelessness, low energy, changes in sleep or appetite, and difficulty concentrating. Without appropriate support, some individuals may be at increased risk of substance use, self-harm, or suicidal thoughts, especially during periods of severe or prolonged symptoms."},
+  {id:"adhd",label:"ADHD",sub:"Adult Diagnosis & Management",icon:"⚡",
+    desc:"ADHD (Attention-Deficit/Hyperactivity Disorder) is a neurodevelopmental condition that begins in childhood and can continue into adulthood. It can affect attention, energy levels, and impulse control in daily life. People with ADHD may find it harder to stay focused, follow through on tasks, or stay organized. Forgetfulness and procrastination are also common. Some people also feel physically or mentally restless, have difficulty sitting still, or feel like they are constantly on the go. ADHD symptoms often become more noticeable during times of stress, lack of sleep, or when daily demands feel overwhelming."},
+  {id:"ptsd",label:"PTSD & Trauma",sub:"Complex · Single Event",icon:"🌿",
+    desc:"Trauma and chronic stress can change how a person thinks, feels, and responds in everyday life. People may feel more anxious than usual, get startled easily, or feel like they are always on edge. It is also common to avoid certain people, places, or situations that bring up reminders of what happened. Some individuals with PTSD may turn to substances or other behaviors as a way to cope with difficult symptoms. Some people may also experience intrusive memories or trouble sleeping. Our physicians offer compassionate, evidence-based care including psychotherapy coordination and medication management."},
+  {id:"bipolar",label:"Bipolar Disorder",sub:"Type I · Type II",icon:"⚖️",
+    desc:"Bipolar disorder is characterized by significant shifts in mood, energy, and activity levels that affect daily functioning. Individuals may experience periods of elevated mood, increased energy, or feeling unusually high — often referred to as mania or hypomania. These periods are often followed by depressive episodes that can include persistent sadness, low energy, loss of interest, feelings of worthlessness, and difficulty sleeping or concentrating. These mood shifts can affect decision-making, relationships, and overall functioning. Without appropriate treatment, bipolar disorder may be associated with increased risk of substance use, self-harm, or suicidal thoughts. If you are considering self-harm or suicide, call 911 for emergency assistance."},
+  {id:"ocd",label:"OCD",sub:"Obsessive-Compulsive Disorder",icon:"🔄",
+    desc:"OCD is a mental health condition characterized by unwanted, intrusive thoughts (obsessions) and repetitive behaviors or mental acts (compulsions) that a person feels driven to repeat. Individuals may experience persistent thoughts, worries, or fears that feel difficult to control, even when they recognize they are not fully rational. To reduce this distress, a person may engage in repetitive behaviors such as checking, cleaning, counting, or seeking reassurance. These behaviors may temporarily relieve anxiety but often become time-consuming or disruptive. Symptoms can feel more intense during periods of stress and may affect relationships, work, and daily functioning."},
+  {id:"insomnia",label:"Insomnia",sub:"Chronic · Acute",icon:"🌙",
+    desc:"Insomnia is a common sleep-related condition that makes it difficult to fall asleep, stay asleep, or get restful sleep on a regular basis. Individuals may lie awake for long periods at night, wake up frequently, or wake up too early and be unable to return to sleep. Even when enough time is spent in bed, sleep may still feel unrefreshing. Common daytime symptoms include fatigue, irritability, difficulty concentrating, low motivation, and reduced performance. Insomnia can be influenced by stress, anxiety, medical conditions, or lifestyle factors, and symptoms may become more noticeable during periods of increased stress or emotional strain."},
+  {id:"substance",label:"Substance Abuse",sub:"Dual Diagnosis",icon:"🛡️",
+    desc:"Substance use disorders involve the repeated use of alcohol or drugs in a way that begins to affect a person's health, relationships, work, or daily functioning. Over time, it may become difficult to reduce or stop use despite wanting to. Individuals may notice cravings, increased tolerance, withdrawal symptoms, or using substances to cope with stress, anxiety, trauma, or emotional discomfort. Many people experience cycles of stopping and returning to use, especially during periods of stress or emotional difficulty. Without appropriate support, substance use disorders may contribute to worsening mental health symptoms and increased risk of harm. We provide integrated dual-diagnosis treatment that addresses both conditions simultaneously."},
+  {id:"medmgmt",label:"Medication Management",sub:"Monitoring · Adjustment",icon:"💊",
+    desc:"Medication management involves the careful evaluation, prescription, and ongoing monitoring of psychiatric medications to support mental health treatment. Individuals may work with a provider to determine whether medication may help with symptoms such as anxiety, depression, mood instability, inattention, or sleep difficulties. Treatment plans are personalized and adjusted based on response and side effects. Ongoing follow-up is an important part of care and may include monitoring effectiveness, making dosage adjustments, or changing medications when needed. The goal is to help reduce symptoms, improve daily functioning, and support overall emotional well-being in a safe and structured way."},
 ];
 
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
@@ -28,7 +40,7 @@ function Hero(){
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,backgroundSize:"180px"}}/>
       <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[52%] overflow-hidden">
         {/* ✅ dr-gill-outdoor.jpg — clean background, matches WeightLoss style */}
-        <img src={IMAGES.DR_GILL_HERO} alt="Dr. Gill" className="w-full h-full object-cover opacity-35" style={{filter:"saturate(0.70)", objectPosition:"center 12%"}}/>
+        <img src={IMAGES.DR_GILL_HERO} alt="Dr. Japsharan Gill" className="w-full h-full object-cover opacity-35" style={{filter:"saturate(0.70)", objectPosition:"center 12%"}}/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to right,#2C1A0E 0%,#2C1A0E 12%,transparent 58%)"}}/>
         <div className="absolute inset-0" style={{background:"linear-gradient(to top,#2C1A0E 0%,transparent 55%)"}}/>
       </div>
@@ -41,13 +53,13 @@ function Hero(){
       <div className="relative mx-auto max-w-7xl w-full px-5 md:px-10 xl:px-16 pb-20 pt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
         <div>
           <div className={`inline-flex items-center gap-2.5 border border-[#B8925A]/40 bg-[#B8925A]/8 px-4 py-2 mb-7 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"100ms"}}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Dr. Gill & Dr. Gondara · Accepting New Patients</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Dr. Japsharan Gill & Dr. Shabeg Gondara · Accepting New Patients</span>
           </div>
           <h1 className={`text-[48px] md:text-[64px] xl:text-[76px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>
             Psychiatric<br/><em className="italic text-[#C9A46A]">Care That</em><br/>Sees You.
           </h1>
           <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>
-            Comprehensive adult psychiatric evaluations, precise diagnosis, and personalized medication management — delivered by Dr. Gill and Dr. Gondara with warmth and clinical excellence.
+            Comprehensive adult psychiatric evaluations, precise diagnosis, and personalized medication management — delivered by Dr. Japsharan Gill and Dr. Shabeg Gondara with warmth and clinical excellence.
           </p>
           <div className={`flex flex-wrap gap-4 mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
             <a href="/contact" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
@@ -70,9 +82,40 @@ function Hero(){
 }
 
 function Mq(){
-  const items=["Anxiety Disorders","Major Depression","ADHD","PTSD & Trauma","Bipolar Disorder","OCD","Insomnia","Substance Abuse","Medication Management","Psychiatric Evaluations","Next-Day Appointments","Dr. Gill & Dr. Gondara","Free 15-Min Consult"];
+  const items=["Anxiety Disorders","Major Depression","ADHD","PTSD & Trauma","Bipolar Disorder","OCD","Insomnia","Substance Abuse","Medication Management","Psychiatric Evaluations","Next-Day Appointments","Dr. Japsharan Gill & Dr. Shabeg Gondara","Free 15-Min Consult"];
   const rep=[...items,...items];
   return(<div className="bg-[#2C1A0E] py-3.5 overflow-hidden"><div className="flex whitespace-nowrap" style={{animation:"marquee 38s linear infinite",width:"max-content"}}>{rep.map((t,i)=><span key={i} className="inline-flex items-center gap-3 text-[#E8D5BE]/60 text-[10px] tracking-[0.22em] uppercase font-medium px-3">{t}<Dm/></span>)}</div></div>);
+}
+
+function ConditionAccordion({conditions, visible}){
+  const[open,setOpen]=useState(null);
+  return(
+    <div className="space-y-2">
+      {conditions.map((cond,i)=>(
+        <div key={cond.id} className={`border transition-all duration-500 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#F5EEE4] hover:border-[#B8925A]/30"} ${visible?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:`${i*55}ms`,transitionDuration:"600ms"}}>
+          <button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>setOpen(open===i?null:i)}>
+            <div className="flex items-center gap-4">
+              <span className="text-2xl flex-shrink-0">{cond.icon}</span>
+              <div>
+                <h3 className="text-[17px] font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{cond.label}</h3>
+                <p className="text-[10px] tracking-[0.16em] uppercase text-[#B8925A] font-semibold mt-0.5">{cond.sub}</p>
+              </div>
+            </div>
+            <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </span>
+          </button>
+          <div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-[600px] pb-6":"max-h-0"}`}>
+            <div className="px-6 pb-1">
+                {cond.desc.split("\n\n").map((para,pi)=>(
+                  <p key={pi} className="text-[#7A6556] text-sm leading-relaxed font-light mb-3 last:mb-0">{para}</p>
+                ))}
+              </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function CondSection(){
@@ -85,17 +128,7 @@ function CondSection(){
           <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] mb-4 transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Conditions We <em className="italic text-[#B8925A]">Treat</em></h2>
           <p className={`text-[#7A6556] text-lg font-light max-w-xl mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Every condition is treated with a personalized approach — thorough evaluation first, treatment second.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {CONDITIONS.map((c,i)=>(
-            <div key={c.id} className={`group relative bg-[#F5EEE4] border border-[#E8D5BE] p-7 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_14px_48px_rgba(184,146,90,0.13)] hover:border-[#B8925A]/50 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*90}ms`,transitionDuration:"700ms"}}>
-              <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B8925A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"/>
-              <div className="text-3xl mb-4">{c.icon}</div>
-              <h3 className="text-xl text-[#2C1A0E] mb-1" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{c.label}</h3>
-              <p className="text-[10px] tracking-[0.18em] uppercase text-[#B8925A] font-semibold mb-3">{c.sub}</p>
-              <p className="text-[#7A6556] text-sm leading-relaxed font-light">{c.desc}</p>
-            </div>
-          ))}
-        </div>
+        <ConditionAccordion conditions={CONDITIONS} visible={v}/>
         {/* SAMHSA Resource — per Website Fixes doc */}
         <div className={`mt-10 border border-[#E8D5BE] bg-[#F5EEE4] p-6 flex flex-col md:flex-row items-center justify-between gap-5 transition-all duration-700 delay-800 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
           <div>
@@ -119,7 +152,7 @@ function CondSection(){
 function ProcessSection(){
   const[ref,v]=useReveal();
   const steps=[
-    {n:"01",title:"Free Consultation",       desc:"A complimentary 15-minute call with Dr. Gill or Dr. Gondara to discuss your needs and confirm Tri-Valley Clinic is the right fit."},
+    {n:"01",title:"Free Consultation",       desc:"A complimentary 15-minute call with Dr. Japsharan Gill or Dr. Shabeg Gondara to discuss your needs and confirm Tri-Valley Clinic is the right fit."},
     {n:"02",title:"Comprehensive Evaluation", desc:"Your first full appointment — a thorough psychiatric assessment covering history, symptoms, lifestyle, and goals."},
     {n:"03",title:"Personalized Treatment",   desc:"A treatment plan built specifically for you — medication management, monitoring schedule, and adjustments as needed."},
     {n:"04",title:"Ongoing Partnership",      desc:"Regular follow-ups to assess progress, refine treatment, and ensure you feel genuinely supported throughout your care."},
@@ -161,23 +194,23 @@ function DrSection(){
             <div className="absolute top-0 left-0 w-[3px] h-24 bg-[#B8925A]"/>
             <div className="overflow-hidden" style={{height:"460px"}}>
               {/* ✅ Approved inside clinic photo */}
-              <img src={IMAGES.DR_GILL_HERO} alt="Dr. Gill consultation" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 25%"}}/>
+              <img src={IMAGES.DR_GILL_HERO} alt="Dr. Japsharan Gill consultation" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 25%"}}/>
             </div>
             {/* 🔄 Photo 11 — both doctors floating */}
             <div className="absolute -bottom-6 -right-4 md:-right-6 w-[170px] overflow-hidden border-[3px] border-[#FDFAF6] shadow-xl z-10" style={{height:"200px",animation:"floatBadge 5s ease-in-out infinite"}}>
-              <img src={IMAGES.BOTH_OUTDOOR} alt="Dr. Gill and Dr. Gondara" className="w-full h-full object-cover"/>
+              <img src={IMAGES.BOTH_OUTDOOR} alt="Dr. Japsharan Gill and Dr. Shabeg Gondara" className="w-full h-full object-cover"/>
               <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/60 to-transparent"/>
-              <div className="absolute bottom-0 left-0 right-0 p-3"><p className="text-[8px] tracking-[0.18em] uppercase text-[#E8D5BE]/80">Dr. Gill & Dr. Gondara</p></div>
+              <div className="absolute bottom-0 left-0 right-0 p-3"><p className="text-[8px] tracking-[0.18em] uppercase text-[#E8D5BE]/80">Dr. Japsharan Gill & Dr. Shabeg Gondara</p></div>
             </div>
           </div>
           <div className={`transition-all duration-1000 delay-200 ${v?"opacity-100 translate-x-0":"opacity-0 translate-x-12"}`}>
             <div className="flex items-center gap-3 mb-5"><span className="w-8 h-px bg-[#B8925A]"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#B8925A] font-semibold">Why Our Team</span></div>
             <h2 className="text-5xl md:text-6xl text-[#2C1A0E] mb-6" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.1}}>Psychiatry That <em className="italic text-[#B8925A]">Listens First</em></h2>
             <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-5">
-              At Tri-Valley Clinic, Dr. Gill and Dr. Gondara share one commitment: listening completely before prescribing anything. Initial evaluations are longer than the industry standard — because understanding you fully is the first act of treatment.
+              At Tri-Valley Clinic, Dr. Japsharan Gill and Dr. Shabeg Gondara share one commitment: listening completely before prescribing anything. Initial evaluations are longer than the industry standard — because understanding you fully is the first act of treatment.
             </p>
             <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-8">
-              Our patients consistently describe feeling genuinely heard. Dr. Gill (Founder & CEO) and Dr. Gondara (Lead Psychiatrist) combine clinical precision with personal warmth in every appointment.
+              Our patients consistently describe feeling genuinely heard. Dr. Japsharan Gill (Founder & CEO) and Dr. Shabeg Gondara (Lead Psychiatrist) combine clinical precision with personal warmth in every appointment.
             </p>
             <ul className="space-y-3 mb-10">
               {["No double-booking — your time is yours alone","Free 15-minute consultation for all new patients","Next-day appointments after insurance verification","Telehealth available statewide in California","Most major insurance plans accepted"].map(t=>(
@@ -195,8 +228,8 @@ function DrSection(){
 function TestSection(){
   const[ref,v]=useReveal();
   const revs=[
-    {name:"Sarah M.",role:"Fremont",   q:"Dr. Gill finally gave me an ADHD diagnosis after years of being dismissed. She didn't just prescribe — she explained everything."},
-    {name:"James T.",role:"Union City",q:"I've seen many psychiatrists. Dr. Gill is the first who made me feel like a person, not a chart."},
+    {name:"Sarah M.",role:"Fremont",   q:"Dr. Japsharan Gill finally gave me an ADHD diagnosis after years of being dismissed. She didn't just prescribe — she explained everything."},
+    {name:"James T.",role:"Union City",q:"I've seen many psychiatrists. Dr. Japsharan Gill is the first who made me feel like a person, not a chart."},
     {name:"Priya K.",role:"Newark",    q:"The clinic environment alone made a difference. I actually looked forward to my appointments."},
   ];
   return(
@@ -226,11 +259,11 @@ function TestSection(){
 function FAQSection(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
   const faqs=[
-    {q:"Do I need a referral to see Dr. Gill or Dr. Gondara?", a:"Most insurance plans do not require a referral for psychiatric care. When you call to verify your insurance, our staff will confirm whether your plan requires one."},
+    {q:"Do I need a referral to see Dr. Japsharan Gill or Dr. Shabeg Gondara?", a:"Most insurance plans do not require a referral for psychiatric care. When you call to verify your insurance, our staff will confirm whether your plan requires one."},
     {q:"How long is the first psychiatric evaluation?",         a:"Initial evaluations are typically 45–60 minutes. This longer appointment allows for a thorough assessment before any treatment decisions are made."},
     {q:"Will I definitely be prescribed medication?",           a:"Not necessarily. Our physicians evaluate each patient individually. Medication management is only recommended when clinically appropriate for your specific situation."},
     {q:"Can you treat children or teenagers?",                 a:"Tri-Valley Clinic currently specializes in adult psychiatry (18+). For minors, we recommend contacting a child and adolescent psychiatrist."},
-    {q:"What if my condition isn't listed on this page?",      a:"Call us — we treat many conditions beyond the ones listed here. Dr. Gill or Dr. Gondara will discuss your specific needs during your free consultation."},
+    {q:"What if my condition isn't listed on this page?",      a:"Call us — we treat many conditions beyond the ones listed here. Dr. Japsharan Gill or Dr. Shabeg Gondara will discuss your specific needs during your free consultation."},
     {q:"Is there a crisis resource if I need immediate help?",  a:"If you are experiencing a mental health emergency or considering self-harm or suicide, call 911 for emergency assistance. You can also visit SAMHSA's Suicidal Behavior Resources at samhsa.gov."},
   ];
   return(
@@ -268,7 +301,7 @@ function CTA(){
           style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.05}}>
           Take the First<br/><em className="italic text-[#B8925A]">Step Today.</em>
         </h2>
-        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>Dr. Gill and Dr. Gondara offer a free 15-minute consultation — a genuine conversation about how we can help.</p>
+        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>Dr. Japsharan Gill and Dr. Shabeg Gondara offer a free 15-minute consultation — a genuine conversation about how we can help.</p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
           <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400"><Ph/> Call (510) 598-4921 <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
           <a href="/contact" className="flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300">Send a Message</a>

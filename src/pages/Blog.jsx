@@ -9,7 +9,7 @@ const CATEGORIES = ["All","Psychiatry","Weight Loss","IV Hydration","TMS","Teleh
 const POSTS = [
   { id:1, category:"Psychiatry",   readTime:"6 min", date:"April 10, 2026", author:"gill",
     title:"What to Expect at Your First Psychiatric Evaluation",
-    excerpt:"Walking into a psychiatric evaluation for the first time can feel overwhelming. Dr. Gill or Dr. Gondara explains exactly what happens step by step.",
+    excerpt:"Walking into a psychiatric evaluation for the first time can feel overwhelming. Dr. Japsharan Gill or Dr. Shabeg Gondara explains exactly what happens step by step.",
     img: IMAGES.DR_GILL_HERO,       imgPos:"center 8%",  featured: true  },
   { id:2, category:"Weight Loss",  readTime:"5 min", date:"April 7, 2026",  author:"gill",
     title:"GLP-1 Medications: What They Are and How They Work",
@@ -29,11 +29,11 @@ const POSTS = [
     img: IMAGES.BOTH_CLINIC,        imgPos:"center 15%", featured: false },
   { id:6, category:"Psychiatry",   readTime:"8 min", date:"March 14, 2026", author:"gondara",
     title:"Anxiety vs. Stress: How to Tell the Difference",
-    excerpt:"Stress is a normal response to life's demands. Anxiety is something different entirely. Dr. Gill or Dr. Gondara outlines the key distinctions.",
+    excerpt:"Stress is a normal response to life's demands. Anxiety is something different entirely. Dr. Japsharan Gill or Dr. Shabeg Gondara outlines the key distinctions.",
     img: IMAGES.BOTH_OUTDOOR,       imgPos:"center 12%", featured: false },
   { id:7, category:"Medication",   readTime:"6 min", date:"March 7, 2026",  author:"gill",
     title:"Psychiatric Medication Management: Your Questions Answered",
-    excerpt:"Starting a new psychiatric medication raises many questions. Dr. Gill or Dr. Gondara addresses the most common concerns patients bring to their first appointment.",
+    excerpt:"Starting a new psychiatric medication raises many questions. Dr. Japsharan Gill or Dr. Shabeg Gondara addresses the most common concerns patients bring to their first appointment.",
     img: IMAGES.CLINIC_INDOOR,      imgPos:"center top", featured: false },
   { id:8, category:"TMS",          readTime:"5 min", date:"Feb 28, 2026",   author:"gondara",
     title:"TMS Therapy: A Non-Drug Option for Treatment-Resistant Depression",
@@ -41,7 +41,7 @@ const POSTS = [
     img: IMAGES.CLINIC_EXTERIOR,    imgPos:"center center", featured: false },
   { id:9, category:"Wellness",     readTime:"4 min", date:"Feb 20, 2026",   author:"gill",
     title:"The Link Between Mental Health and Physical Wellness",
-    excerpt:"Psychiatric health and physical health are inseparable. Dr. Gill or Dr. Gondara explores how conditions like depression and anxiety manifest physically.",
+    excerpt:"Psychiatric health and physical health are inseparable. Dr. Japsharan Gill or Dr. Shabeg Gondara explores how conditions like depression and anxiety manifest physically.",
     img: IMAGES.CLINIC_MAGAZINES,   imgPos:"center center", featured: false },
 ];
 
@@ -121,7 +121,7 @@ function HeroSection() {
         <div className={`inline-flex items-center gap-2.5 border border-[#B8925A]/40 bg-[#B8925A]/8 px-4 py-2 mb-7 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}
           style={{transitionDelay:"100ms"}}>
           <PenIcon />
-          <span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Expert Insights from Dr. Gill & Team</span>
+          <span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Expert Insights from Dr. Japsharan Gill & Team</span>
         </div>
         <h1 className={`text-[50px] md:text-[66px] xl:text-[80px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}
           style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>
@@ -207,10 +207,10 @@ function FeaturedPost() {
             {/* Author */}
             <div className="flex items-center gap-4 mb-8 pb-8 border-b border-[#E8D5BE]">
               <div className="w-12 h-12 rounded-full overflow-hidden border border-[#E8D5BE]">
-                <img src={IMAGES.DR_GILL_CARD} alt="Dr. Gill" className="w-full h-full object-cover object-top" />
+                <img src={IMAGES.DR_GILL_CARD} alt="Dr. Japsharan Gill" className="w-full h-full object-cover object-top" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Gill & Dr. Gondara</p>
+                <p className="text-sm font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Japsharan Gill & Dr. Shabeg Gondara</p>
                 <p className="text-[10px] tracking-[0.16em] uppercase text-[#B8925A]/70">Tri-Valley Clinic · Psychiatry & Wellness</p>
               </div>
             </div>
@@ -278,7 +278,7 @@ function BlogGrid() {
           <p className="text-[#7A6556] text-sm font-light mb-5">More articles coming from our SEO team soon.</p>
           <a href="tel:5105984921"
             className="inline-flex items-center gap-3 border border-[#B8925A]/50 text-[#B8925A] px-8 py-3.5 text-[10px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300">
-            <PhoneIcon /> Speak with Dr. Gill Directly
+            <PhoneIcon /> Speak with Dr. Japsharan Gill Directly
           </a>
         </div>
       </div>
@@ -321,13 +321,13 @@ function BlogCard({post,delay,vis}) {
             <div className="w-7 h-7 rounded-full overflow-hidden border border-[#E8D5BE]">
               <img
                 src={post.author==="gondara" ? IMAGES.DR_GONDARA_CARD : IMAGES.DR_GILL_CARD}
-                alt={post.author==="gondara" ? "Dr. Gondara" : "Dr. Gill"}
+                alt={post.author==="gondara" ? "Dr. Shabeg Gondara" : "Dr. Japsharan Gill"}
                 className="w-full h-full"
                 style={{objectFit:"contain",objectPosition:"center top",background:"white"}}
               />
             </div>
             <span className="text-[10px] text-[#7A6556]/70">
-              {post.author==="gondara" ? "Dr. Shabeg S. Gondara" : post.author==="both" ? "Dr. Gill & Dr. Gondara" : "Dr. Japsharan Gill"}
+              {post.author==="gondara" ? "Dr. Shabeg S. Gondara" : post.author==="both" ? "Dr. Japsharan Gill & Dr. Shabeg Gondara" : "Dr. Japsharan Gill"}
             </span>
           </div>
           <span className="text-[#B8925A] text-sm group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -383,10 +383,10 @@ function NewsletterSection() {
             Wellness Insights<br /><em className="italic text-[#C9A46A]">In Your Inbox.</em>
           </h2>
           <p className="text-[#A89880] text-base font-light leading-relaxed mb-6">
-            Subscribe for monthly articles from Dr. Gill on mental health, weight loss, and wellness — written in plain language, designed to help.
+            Subscribe for monthly articles from Dr. Japsharan Gill on mental health, weight loss, and wellness — written in plain language, designed to help.
           </p>
           <ul className="space-y-3">
-            {["No spam — ever","One email per month, maximum","Unsubscribe anytime in one click","Expert-written by Dr. Gill & team"].map((t)=>(
+            {["No spam — ever","One email per month, maximum","Unsubscribe anytime in one click","Expert-written by Dr. Japsharan Gill & team"].map((t)=>(
               <li key={t} className="flex items-center gap-3 text-sm text-[#A89880] font-light">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0" />{t}
               </li>
@@ -403,7 +403,7 @@ function NewsletterSection() {
                   <CheckIcon />
                 </div>
                 <h3 className="text-2xl text-[#F0E8DA] mb-2" style={{fontFamily:"'Cormorant Garamond',serif"}}>You're subscribed!</h3>
-                <p className="text-[#A89880] text-sm font-light">Thank you. Watch for your first article from Dr. Gill soon.</p>
+                <p className="text-[#A89880] text-sm font-light">Thank you. Watch for your first article from Dr. Japsharan Gill soon.</p>
               </div>
             ):(
               <>
@@ -455,7 +455,7 @@ function CTASection() {
           style={{ fontFamily: "'Cormorant Garamond',serif", fontWeight: 300, lineHeight: 1.05 }}>
           Ready to Start Your<br /><em className="italic text-[#B8925A]">Journey?</em>
         </h2>
-        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>Your first consultation with Dr. Gill or Dr. Gondara is completely free — no commitment, no pressure.</p>
+        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>Your first consultation with Dr. Japsharan Gill or Dr. Shabeg Gondara is completely free — no commitment, no pressure.</p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400">
             <PhoneIcon /> Call (510) 598-4921

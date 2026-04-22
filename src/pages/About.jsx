@@ -61,8 +61,8 @@ function DoctorAvatars() {
   return (
     <div className="flex justify-center gap-8 mb-10">
       {[
-        { img: IMAGES.DR_GILL_CARD,    alt: "Dr. Japsharan Gill", name: "Dr. Gill",    role: "Founder & CEO"      },
-        { img: "/assets/dr-gondara-white.jpg", alt: "Dr. Gondara", name: "Dr. Gondara", role: "President"  },
+        { img: IMAGES.DR_GILL_CARD,    alt: "Dr. Japsharan Gill", name: "Dr. Japsharan Gill",    role: "Founder & CEO"      },
+        { img: "/assets/dr-gondara-white.jpg", alt: "Dr. Shabeg Gondara", name: "Dr. Shabeg Gondara", role: "President"  },
       ].map((d) => (
         <div key={d.name} className="flex flex-col items-center gap-2">
           <div className="relative">
@@ -156,7 +156,7 @@ function HeroSection() {
           <div className={`flex items-center gap-4 mb-6 transition-all duration-700 ${on ? "opacity-100" : "opacity-0"}`}
             style={{ transitionDelay: "400ms" }}>
             <span className="w-12 h-px bg-[#B8925A]/50" />
-            <span className="text-[10px] tracking-[0.24em] uppercase text-[#7A6556] font-medium">Dr. Japsharan Gill · Founder & CEO &nbsp;|&nbsp; Dr. Gondara · President</span>
+            <span className="text-[10px] tracking-[0.24em] uppercase text-[#7A6556] font-medium">Dr. Japsharan Gill · Founder & CEO &nbsp;|&nbsp; Dr. Shabeg Gondara · President</span>
           </div>
 
           <p className={`text-[#7A6556] text-[17px] leading-relaxed max-w-[440px] font-light mb-10 transition-all duration-700 ${on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
@@ -222,10 +222,10 @@ function HeroSection() {
             <span className="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-[#B8925A] z-20" />
             <div className="w-[200px] md:w-[240px] overflow-hidden" style={{ height: "420px" }}>
               {/* Gondara_Shabeg.jpg — outdoor portrait, green foliage */}
-              <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Gondara"
+              <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Shabeg Gondara"
                 className="w-full h-full" style={{ objectFit: "cover", objectPosition: "center 5%" }} />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#2C1A0E]/80 to-transparent px-4 py-4 z-10">
-                <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-base font-light italic">Dr. Gondara</p>
+                <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-base font-light italic">Dr. Shabeg Gondara</p>
                 <p className="text-[#E8D5BE]/60 text-[8px] tracking-[0.2em] uppercase mt-0.5">President</p>
               </div>
             </div>
@@ -258,7 +258,7 @@ function HeroSection() {
 
 /* ══ 2. MARQUEE ══ */
 function MarqueeStrip() {
-  const items = ["Dr. Japsharan Gill · Founder & CEO", "Dr. Gondara · President", "Psychiatry & Wellness", "15+ Years Experience", "Fremont, CA", "Free Consultation", "Next-Day Appointments", "Telehealth · Statewide CA", "GLP-1 Weight Loss", "IV Hydration", "TMS Therapy · Coming Soon"];
+  const items = ["Dr. Japsharan Gill · Founder & CEO", "Dr. Shabeg Gondara · President", "Psychiatry & Wellness", "15+ Years Experience", "Fremont, CA", "Free Consultation", "Next-Day Appointments", "Telehealth · Statewide CA", "GLP-1 Weight Loss", "IV Hydration", "TMS Therapy · Coming Soon"];
   const rep = [...items, ...items];
   return (
     <div className="bg-[#2C1A0E] py-3.5 overflow-hidden">
@@ -294,7 +294,7 @@ function MissionSection() {
           "Physician-led clinic experience integrating psychiatry, weight management, IV hydration, TMS, and longevity-focused care to support lasting, whole-body health."
         </blockquote>
         <p className={`text-[10px] tracking-[0.28em] uppercase text-[#B8925A] font-semibold transition-all duration-700 delay-300 ${vis ? "opacity-100" : "opacity-0"}`}>
-          — Dr. Japsharan Gill & Dr. Gondara · Tri-Valley Clinic
+          — Dr. Japsharan Gill & Dr. Shabeg Gondara · Tri-Valley Clinic
         </p>
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mt-14 transition-all duration-700 delay-400 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           {["Psychiatry", "Weight Management", "IV Hydration", "TMS Therapy"].map((p, i) => (
@@ -353,7 +353,7 @@ function DrGillBioSection() {
             </div>
           </div>
 
-          {/* RIGHT — Dr. Gill bio */}
+          {/* RIGHT — Dr. Japsharan Gill bio */}
           <div className={`transition-all duration-1000 delay-200 ${vis ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}>
             <div className="flex items-center gap-3 mb-3">
               <span className="w-8 h-px bg-[#B8925A]" />
@@ -395,12 +395,12 @@ function DrGillBioSection() {
             <div className="flex flex-wrap gap-4">
               <a href="/contact"
                 className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#2C1A0E] transition-colors duration-300">
-                <Ph /> Book with Dr. Gill
+                <Ph /> Book with Dr. Japsharan Gill
                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </a>
               <a href="#dr-gondara"
                 className="flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] transition-colors duration-300">
-                Meet Dr. Gondara ↓
+                Meet Dr. Shabeg Gondara ↓
               </a>
             </div>
           </div>
@@ -410,7 +410,7 @@ function DrGillBioSection() {
   );
 }
 
-/* ══ 5. DR. GONDARA — Full biography (equal to Dr. Gill) ══ */
+/* ══ 5. DR. GONDARA — Full biography (equal to Dr. Japsharan Gill) ══ */
 function DrGondaraBioSection() {
   const [ref, vis] = useReveal();
   return (
@@ -419,7 +419,7 @@ function DrGondaraBioSection() {
         {/* Flipped layout — image on right, bio on left */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start">
 
-          {/* LEFT — Dr. Gondara bio */}
+          {/* LEFT — Dr. Shabeg Gondara bio */}
           <div ref={ref} className={`transition-all duration-1000 ${vis ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}>
             <div className="flex items-center gap-3 mb-3">
               <span className="w-8 h-px bg-[#B8925A]" />
@@ -427,19 +427,19 @@ function DrGondaraBioSection() {
             </div>
             <h2 className="text-5xl md:text-6xl text-[#2C1A0E] mb-2"
               style={{ fontFamily: "'Cormorant Garamond',serif", fontWeight: 300, lineHeight: 1.1 }}>
-              Dr.<br /><em className="italic text-[#B8925A]">Gondara, MD</em>
+              Dr. Shabeg<br /><em className="italic text-[#B8925A]">Gondara, MD</em>
             </h2>
             <p className="text-[11px] tracking-[0.28em] uppercase text-[#B8925A] font-bold mb-10">President</p>
 
             <div className="space-y-5 text-[#7A6556] text-[15px] leading-[1.95] font-light">
               <p>
-                Dr. Gondara is a physician specializing in psychiatry, known for his thoughtful, compassionate, and patient-centered approach to care. He is dedicated to providing individualized, evidence-based treatment in a supportive and structured clinical environment.
+                Dr. Shabeg Gondara is a physician specializing in psychiatry, known for his thoughtful, compassionate, and patient-centered approach to care. He is dedicated to providing individualized, evidence-based treatment in a supportive and structured clinical environment.
               </p>
               <p>
                 He conducts comprehensive psychiatric evaluations and offers medication management with careful attention to each patient's unique presentation and goals. His approach emphasizes clarity, collaboration, and long-term stability, with a focus on helping patients achieve functional improvement and emotional well-being.
               </p>
               <p>
-                Dr. Gondara values building strong therapeutic relationships and creating a space where patients feel comfortable, understood, and supported. He is committed to delivering high-quality psychiatric care with professionalism, empathy, and attention to detail.
+                Dr. Shabeg Gondara values building strong therapeutic relationships and creating a space where patients feel comfortable, understood, and supported. He is committed to delivering high-quality psychiatric care with professionalism, empathy, and attention to detail.
               </p>
             </div>
 
@@ -466,12 +466,12 @@ function DrGondaraBioSection() {
 
             <a href="/contact"
               className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#2C1A0E] transition-colors duration-300 self-start inline-flex">
-              <Ph /> Book with Dr. Gondara
+              <Ph /> Book with Dr. Shabeg Gondara
               <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </a>
           </div>
 
-          {/* RIGHT — Dr. Gondara portrait (sticky) */}
+          {/* RIGHT — Dr. Shabeg Gondara portrait (sticky) */}
           <div className={`relative transition-all duration-1000 delay-200 ${vis ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"}`}>
             <div className="sticky top-28 space-y-4">
               <div className="relative">
@@ -479,12 +479,12 @@ function DrGondaraBioSection() {
                 <div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]" />
                 <div className="overflow-hidden" style={{ height: "540px" }}>
                   {/* Gondara_Shabeg.jpg — outdoor portrait, green foliage */}
-                  <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Gondara"
+                  <img src={IMAGES.DR_GONDARA_CARD} alt="Dr. Shabeg Gondara"
                     className="w-full h-full transition-transform duration-700 hover:scale-[1.02]"
                     style={{ objectFit: "cover", objectPosition: "center 5%" }} />
                 </div>
                 <div className="bg-[#2C1A0E] px-5 py-4">
-                  <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-lg font-light italic">Dr. Gondara, MD</p>
+                  <p style={{ fontFamily: "'Cormorant Garamond',serif" }} className="text-[#C9A46A] text-lg font-light italic">Dr. Shabeg Gondara, MD</p>
                   <p className="text-[9px] tracking-[0.2em] uppercase text-[#8A7E78] mt-0.5">President · Tri-Valley Clinic</p>
                 </div>
               </div>
@@ -504,7 +504,7 @@ function ClinicGallerySection() {
   const photos = [
     { src: IMAGES.CLINIC_INSIDE,       label: "Reception & Waiting Area",  span: "lg:col-span-2 lg:row-span-2",
       pos: "object-top" },
-    { src: IMAGES.BOTH_CLINIC,         label: "Dr. Gill & Dr. Gondara",    span: "",
+    { src: IMAGES.BOTH_CLINIC,         label: "Dr. Japsharan Gill & Dr. Shabeg Gondara",    span: "",
       pos: "object-top" },
     { src: IMAGES.DR_GONDARA_WORKING,  label: "Patient Consultation",      span: "",
       pos: "object-center" },
@@ -549,8 +549,8 @@ function ClinicGallerySection() {
 function CredentialsSection() {
   const [ref, vis] = useReveal();
   const cols = [
-    { cat: "Dr. Gill",    items: ["Board-Eligible — Psychiatry & Wellness", "Founder & CEO, Tri-Valley Clinic", "Medical Degree — Ross University School of Medicine", "Licensed Physician — State of California", "GLP-1 · IV Hydration · TMS Programs"] },
-    { cat: "Dr. Gondara", items: ["President, Tri-Valley Clinic", "Comprehensive Psychiatric Evaluations", "Medication Management — Adult Psychiatry", "Patient-Centered Evidence-Based Treatment", "Telehealth — Available Statewide CA"] },
+    { cat: "Dr. Japsharan Gill",    items: ["Board-Eligible — Psychiatry & Wellness", "Founder & CEO, Tri-Valley Clinic", "Medical Degree — Ross University School of Medicine", "Licensed Physician — State of California", "GLP-1 · IV Hydration · TMS Programs"] },
+    { cat: "Dr. Shabeg Gondara", items: ["President, Tri-Valley Clinic", "Comprehensive Psychiatric Evaluations", "Medication Management — Adult Psychiatry", "Patient-Centered Evidence-Based Treatment", "Telehealth — Available Statewide CA"] },
     { cat: "Conditions",  items: ["Anxiety Disorders (GAD, Social, Panic)", "Major Depressive Disorder", "ADHD — Adult Diagnosis & Management", "PTSD & Trauma-Related Disorders", "Bipolar I & II · OCD · Insomnia · Substance Abuse"] },
     { cat: "Telehealth",  items: ["HIPAA-Compliant Secure Video Visits", "Available Statewide — All of California", "Same-Day & Next-Day Scheduling", "Prescription Management Included"] },
   ];
@@ -622,11 +622,11 @@ function StatsSection() {
 function WhySection() {
   const [ref, vis] = useReveal();
   const reasons = [
-    { n: "01", title: "Both Physicians Listen First",   text: "Dr. Gill and Dr. Gondara both share one commitment — listening completely before prescribing anything. Diagnosis comes after understanding." },
+    { n: "01", title: "Both Physicians Listen First",   text: "Dr. Japsharan Gill and Dr. Shabeg Gondara both share one commitment — listening completely before prescribing anything. Diagnosis comes after understanding." },
     { n: "02", title: "Whole-Body Approach",            text: "Psychiatry, weight management, IV hydration, and TMS — deeply connected and treated together, not in isolation." },
     { n: "03", title: "Free First Consultation",        text: "A complimentary 15-minute call to discuss your needs. No pressure, no obligation." },
     { n: "04", title: "No Double-Booking",              text: "Your time is yours. We never overbook or rush. Personalized care is our practice, not just a promise." },
-    { n: "05", title: "Two Physicians · One Mission",   text: "Dr. Gill and Dr. Gondara share one mission — delivering the highest standard of psychiatric care with precision, compassion, and clinical excellence." },
+    { n: "05", title: "Two Physicians · One Mission",   text: "Dr. Japsharan Gill and Dr. Shabeg Gondara share one mission — delivering the highest standard of psychiatric care with precision, compassion, and clinical excellence." },
     { n: "06", title: "Statewide Telehealth",           text: "Available to all California residents via secure video — same expert care, anywhere in the state." },
   ];
   return (
@@ -683,7 +683,7 @@ function CTASection() {
           Ready to Meet<br /><em className="italic text-[#B8925A]">the Team?</em>
         </h2>
         <p className={`text-[#7A6556] text-lg font-light max-w-xl mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          Your first consultation with Dr. Gill or Dr. Gondara is completely free — a genuine 15-minute conversation about your health goals.
+          Your first consultation with Dr. Japsharan Gill or Dr. Shabeg Gondara is completely free — a genuine 15-minute conversation about your health goals.
         </p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <a href="tel:5105984921"

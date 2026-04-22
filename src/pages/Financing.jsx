@@ -39,6 +39,7 @@ function Cursor() {
   );
 }
 
+
 export default function Financing() {
   return (
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
@@ -113,7 +114,7 @@ function Hero() {
 
           <div className={`flex flex-wrap gap-4 mb-10 transition-all duration-700 ${on ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
             style={{ transitionDelay: "540ms" }}>
-            <a href="https://www.withcherry.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://pay.withcherry.com/tri-valley-clinic" target="_blank" rel="noopener noreferrer"
               className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">
               Apply Now — 60 Seconds
               <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
@@ -223,7 +224,7 @@ function HowCherry() {
           ))}
         </div>
         <div className={`mt-14 text-center transition-all duration-700 delay-700 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <a href="https://www.withcherry.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://pay.withcherry.com/tri-valley-clinic" target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-10 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">
             Apply for Cherry Financing
             <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
@@ -234,9 +235,51 @@ function HowCherry() {
   );
 }
 
-/* ══ CHERRY EMBED PLACEHOLDER ══ */
+/* ══ CHERRY WIDGET ══ */
 function CherryEmbed() {
   const [ref, vis] = useReveal();
+
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@200..900&display=swap";
+    document.head.appendChild(link);
+
+    // IIFE creates window._hw queue BEFORE script loads — safe to call init immediately
+    (function(w, d, s, o, f, js, fjs) {
+      w[o] = w[o] || function() { (w[o].q = w[o].q || []).push(arguments); };
+      js = d.createElement(s);
+      fjs = d.getElementsByTagName(s)[0];
+      js.id = o; js.src = f; js.async = 1;
+      fjs.parentNode.insertBefore(js, fjs);
+    })(window, document, "script", "_hw", "https://files.withcherry.com/widgets/widget.js");
+
+    window._hw("init", {
+      debug: false,
+      variables: {
+        slug: "tri-valley-clinic",
+        name: "Tri-Valley Clinic",
+        images: [37],
+        customLogo: "",
+        defaultPurchaseAmount: 1000,
+        customImage: "",
+        imageCategory: "other",
+        language: "en",
+      },
+      styles: {
+        primaryColor: "#c99862",
+        secondaryColor: "#c9986210",
+        fontFamily: "Montserrat",
+        headerFontFamily: "Montserrat",
+      },
+    }, ["hero", "calculator", "howitworks", "faq"]);
+
+    return () => {
+      const existing = document.getElementById("_hw");
+      if (existing) existing.remove();
+    };
+  }, []);
+
   return (
     <section className="py-24 px-5 md:px-10" style={{ background: "linear-gradient(160deg,#2C1A0E 0%,#3D2B1F 100%)" }}>
       <div className="mx-auto max-w-3xl">
@@ -252,34 +295,31 @@ function CherryEmbed() {
             60-second application. No hard credit pull. Instant decision.
           </p>
         </div>
-
-        {/* ─── Cherry embed button placeholder ───
-            Replace this div with your actual Cherry embed code:
-            <div id="cherry-checkout-button"></div>
-            ─────────────────────────────────── */}
-        <div className={`border border-[#E8D5BE]/15 bg-[#F5EEE4]/5 p-12 text-center transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="h-[3px] bg-gradient-to-r from-transparent via-[#B8925A] to-transparent mb-10" />
-          {/* ← PASTE CHERRY EMBED CODE HERE */}
-          <div id="cherry-checkout-button" className="mb-8">
-            <a href="https://www.withcherry.com" target="_blank" rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-12 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300 text-lg">
+        <div className={`border border-[#E8D5BE]/15 bg-[#F5EEE4]/5 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="h-[3px] bg-gradient-to-r from-transparent via-[#B8925A] to-transparent" />
+          <div className="p-8 md:p-12">
+            <div id="all"></div>
+            <div id="hero"></div>
+            <div id="calculator"></div>
+            <div id="howitworks"></div>
+            <div id="testimony"></div>
+            <div id="faq"></div>
+          </div>
+          <div className="h-[3px] bg-gradient-to-r from-transparent via-[#B8925A] to-transparent" />
+          <div className="text-center py-8">
+            <a href="https://pay.withcherry.com/tri-valley-clinic" target="_blank" rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-12 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">
               Apply with Cherry
               <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
             </a>
           </div>
-          <p className="text-[#7A6556] text-xs font-light">
-            Prefer to talk first?{" "}
-            <a href="tel:5105984921" className="text-[#B8925A] underline underline-offset-2 hover:text-[#C9A46A] transition-colors">(510) 598-4921</a>
-            {" "}— our team will walk you through your options.
-          </p>
-          <div className="h-[3px] bg-gradient-to-r from-transparent via-[#B8925A] to-transparent mt-10" />
         </div>
       </div>
     </section>
   );
 }
 
-/* ══ COMPARE TABLE ══ */
+
 function Compare() {
   const [ref, vis] = useReveal();
   const rows = [
@@ -397,11 +437,11 @@ function CTA() {
         </h2>
 
         <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          Cost should never stand between you and feeling better. Apply for Cherry in 60 seconds or call Dr. Gill and Dr. Gondara's office directly.
+          Cost should never stand between you and feeling better. Apply for Cherry in 60 seconds or call Dr. Japsharan Gill and Dr. Shabeg Gondara's office directly.
         </p>
 
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <a href="https://www.withcherry.com" target="_blank" rel="noopener noreferrer"
+          <a href="https://pay.withcherry.com/tri-valley-clinic" target="_blank" rel="noopener noreferrer"
             className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400">
             Apply for Cherry →
           </a>

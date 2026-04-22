@@ -306,9 +306,31 @@ function CTA(){
     <section className="py-28 px-5 md:px-10 relative overflow-hidden text-center" style={{background:"linear-gradient(160deg,#FDFAF6 0%,#F5EEE4 50%,#EDE5D6 100%)"}}>
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 rounded-full pointer-events-none" style={{background:"radial-gradient(circle,rgba(184,146,90,0.14) 0%,transparent 70%)"}}/>
       <div ref={ref} className="relative mx-auto max-w-2xl">
-        <div className={`flex justify-center gap-4 mb-8 transition-all duration-700 ${v?"opacity-100 scale-100":"opacity-0 scale-90"}`}>
-          <div className="relative"><div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#B8925A]/60 shadow-lg">{/* 🔄 Photo 18 */}<img src={IMAGES.DR_GILL_CARD} alt="Dr. Gill" className="w-full h-full object-cover object-top"/></div><span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#6B7C5E] border-2 border-[#F5EEE4]"/></div>
-          <div className="relative"><div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#B8925A]/40 shadow-lg">{/* 🔄 Photo 19 */}<img src="/assets/dr-gondara-white.jpg" alt="Dr. Gondara" className="w-full h-full object-cover" style={{objectPosition:"center 15%"}}/></div><span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#6B7C5E] border-2 border-[#F5EEE4]"/></div>
+        <div className={`flex justify-center gap-8 mb-8 transition-all duration-700 ${v?"opacity-100 scale-100":"opacity-0 scale-90"}`}>
+          <div className="flex flex-col items-center gap-2">
+            <div className="relative">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#B8925A]/60 shadow-lg">
+                <img src={IMAGES.DR_GILL_CARD} alt="Dr. Japsharan Gill" className="w-full h-full object-cover object-top"/>
+              </div>
+              <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#6B7C5E] border-2 border-[#F5EEE4]"/>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.14em] uppercase text-[#2C1A0E] font-semibold">Dr. Japsharan Gill</p>
+              <p className="text-[9px] text-[#B8925A] tracking-wider">Founder & CEO</p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <div className="relative">
+              <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#B8925A]/40 shadow-lg">
+                <img src="/assets/dr-gondara-white.jpg" alt="Dr. Shabeg Gondara" className="w-full h-full object-cover" style={{objectPosition:"center 15%"}}/>
+              </div>
+              <span className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#6B7C5E] border-2 border-[#F5EEE4]"/>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] tracking-[0.14em] uppercase text-[#2C1A0E] font-semibold">Dr. Shabeg Gondara</p>
+              <p className="text-[9px] text-[#B8925A] tracking-wider">President</p>
+            </div>
+          </div>
         </div>
         <div className={`flex items-center justify-center gap-3 mb-6 transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-16 h-px bg-[#B8925A]/40"/><Dm/><span className="w-16 h-px bg-[#B8925A]/40"/></div>
         <h2 className={`text-5xl md:text-[64px] text-[#2C1A0E] mb-5 transition-all duration-700 delay-150 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.05}}>Your First Call<br/><em className="italic text-[#B8925A]">Is Always Free.</em></h2>

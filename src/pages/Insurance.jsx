@@ -8,9 +8,9 @@ const P = {
   clinicInside   : "/assets/inside clinic1.jpg",
   office         : "/assets/office.jpg",
   receptionist   : "/assets/indoor1.jpg"     /* ❌ reciptent BANNED → indoor1 */,
-  drGillInside   : "/assets/dr-gill-outdoor.jpg",   // ✅ replaced Michelle → Dr. Gill outdoor
+  drGillInside   : "/assets/dr-gill-outdoor.jpg",   // ✅ replaced Michelle → Dr. Japsharan Gill outdoor
   drGillPortrait : "/assets/dr-gill-outdoor.jpg",
-  consulting1    : "/assets/dr2-consulting.jpg"  /* ✅ Dr. Gondara consulting */,
+  consulting1    : "/assets/dr2-consulting.jpg"  /* ✅ Dr. Shabeg Gondara consulting */,
   clinicInterior : "/assets/inetrioir clinic.jpg",
 };
 
@@ -434,7 +434,7 @@ function CoverageSection() {
             <div className="absolute top-0 left-0 w-[3px] h-24 bg-[#B8925A]" />
 
             <div className="overflow-hidden" style={{ height: "480px" }}>
-              <img src={P.drGillInside} alt="Dr. Gill at Tri-Valley Clinic"
+              <img src={P.drGillInside} alt="Dr. Japsharan Gill at Tri-Valley Clinic"
                 className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-[1.04]" />
             </div>
 
@@ -622,7 +622,7 @@ function FAQSection() {
   const [open, setOpen] = useState(null);
   const faqs = [
     { q: "How do I know if my insurance is accepted?",            a: "Call us at (510) 598-4921 and our front desk team will verify your insurance within the same business day. We contact your provider directly and confirm your specific mental health benefits, copays, and deductibles — at no cost to you." },
-    { q: "Do I need a referral to see Dr. Gill?",                 a: "Most insurance plans do not require a referral for psychiatric care, but this varies by plan. When you call to verify your insurance, we'll confirm whether a referral is needed for your specific coverage." },
+    { q: "Do I need a referral to see Dr. Japsharan Gill?",                 a: "Most insurance plans do not require a referral for psychiatric care, but this varies by plan. When you call to verify your insurance, we'll confirm whether a referral is needed for your specific coverage." },
     { q: "What is my copay or deductible for psychiatry?",        a: "Copays and deductibles vary widely by insurance plan. Our staff will provide you with a clear breakdown of your expected costs before your first appointment so there are no surprises." },
     { q: "Is telehealth covered by my insurance?",                a: "Most major insurance plans now cover telehealth psychiatric visits in California at the same rate as in-person care. We verify telehealth benefits as part of our standard insurance check." },
     { q: "Is medical weight loss (GLP-1) covered by insurance?",  a: "Coverage for GLP-1 medications and medical weight loss programs varies significantly by plan. Some commercial plans cover physician-supervised weight loss programs. We'll verify your specific benefits when you call." },

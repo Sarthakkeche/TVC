@@ -5,14 +5,14 @@ const P={drGill:"/assets/Gill_Japsharan.jpg",drGillIn:"/assets/dr J gill-inside.
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 export default function TMS(){
-  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}><style>{CSS}</style><Cursor/><Hero/><Mq/><WhatIsTMS/><HowWorks/><WhoFor/><WaitlistSec/><FAQSec/><CTA/></main>);
+  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}><style>{CSS}</style><Cursor/><Hero/><Mq/><WhatIsTMS/><HowWorks/><TMSAccordions/><WhoFor/><WaitlistSec/><FAQSec/><CTA/></main>);
 }
 function Hero(){
   const[on,sOn]=useState(false);useEffect(()=>{setTimeout(()=>sOn(true),80);},[]);
   return(
     <section className="relative min-h-[88vh] flex items-end overflow-hidden" style={{background:"linear-gradient(140deg,#2C1A0E 0%,#3D2B1F 55%,#4E3525 100%)"}}>
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{backgroundImage:`url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,backgroundSize:"180px"}}/>
-      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[52%] overflow-hidden"><img src={P.interior} alt="Clinic" className="w-full h-full object-cover opacity-28" style={{filter:"saturate(0.65)"}}/><div className="absolute inset-0" style={{background:"linear-gradient(to right,#2C1A0E 0%,#2C1A0E 12%,transparent 58%)"}}/><div className="absolute inset-0" style={{background:"linear-gradient(to top,#2C1A0E 0%,transparent 55%)"}}/></div>
+      <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[52%] overflow-hidden"><img src="/assets/tms-img.jpg" alt="Clinic" className="w-full h-full object-cover opacity-28" style={{filter:"saturate(0.65)"}}/><div className="absolute inset-0" style={{background:"linear-gradient(to right,#2C1A0E 0%,#2C1A0E 12%,transparent 58%)"}}/><div className="absolute inset-0" style={{background:"linear-gradient(to top,#2C1A0E 0%,transparent 55%)"}}/></div>
       {[{t:"10%",l:"52%",s:400,o:0.12,d:"0s"},{t:"60%",l:"5%",s:260,o:0.08,d:"5s"}].map((o,i)=>(<div key={i} className="absolute rounded-full pointer-events-none" style={{width:o.s,height:o.s,top:o.t,left:o.l,background:`radial-gradient(circle,rgba(184,146,90,${o.o}) 0%,transparent 70%)`,animation:`floatOrb ${11+i*4}s ease-in-out infinite ${o.d}`}}/>))}
       <div className="relative mx-auto max-w-7xl w-full px-5 md:px-10 xl:px-16 pb-20 pt-36 grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
         <div>
@@ -54,14 +54,14 @@ function WhatIsTMS(){
     </div>
     <div className={`relative transition-all duration-800 delay-200 ${v?"opacity-100 translate-x-0":"opacity-0 translate-x-10"}`}>
       <div className="absolute top-8 -right-4 left-8 bottom-0 bg-[#F0E8DA] -z-10"/><div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]"/>
-      <div className="overflow-hidden" style={{height:"460px"}}><img src={IMAGES.DR_GILL_HERO} alt="Dr. Japsharan Gill" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center top"}}/></div>
+      <div className="overflow-hidden" style={{height:"460px"}}><img src="/assets/tms-img.jpg" alt="TMS Therapy at Tri-Valley Clinic" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center top"}}/></div>
       <div className="absolute -bottom-6 -left-4 bg-[#B8925A] text-[#FDFAF6] px-6 py-5 shadow-xl" style={{animation:"floatBadge 5s ease-in-out infinite"}}><p className="text-2xl font-light mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>FDA-Cleared</p><p className="text-[9px] tracking-[0.2em] uppercase opacity-80">Since 2008 for MDD</p></div>
     </div>
   </div></section>);
 }
 function HowWorks(){
   const[ref,v]=useReveal();
-  const steps=[{n:"01",t:"Consultation & Mapping",d:"Dr. Gill or Dr. Gondara evaluates your history and determines if TMS is appropriate. A brain mapping session identifies the precise treatment area."},{n:"02",t:"Treatment Sessions",d:"Sessions last ~20–40 minutes. A coil is placed on your head delivering magnetic pulses. You're awake, alert, and comfortable throughout."},{n:"03",t:"5x Per Week x 6 Weeks",d:"A standard TMS course involves ~30 sessions over 6 weeks. You can drive yourself and return to work immediately after each session."},{n:"04",t:"Results & Maintenance",d:"Most patients begin noticing improvement in weeks 2–4. A maintenance TMS schedule may be recommended after the initial course."}];
+  const steps=[{n:"01",t:"Consultation / Prior Authorization",d:"Dr. Japsharan Gill or Dr. Shabeg Gondara evaluates your history and determines if TMS is appropriate. A prior authorization will be submitted to your insurance to get approval before starting your sessions."},{n:"02",t:"Initial Session / Brain Mapping",d:"The initial session is about 1 hour long and involves brain mapping to identify the precise treatment area unique to your physiology and initiate your very first treatment. We typically complete treatment to one side of the brain per session."},{n:"03",t:"Follow-Up Sessions",d:"The rest of your sessions will be about 20–30 mins depending on which side of the brain is receiving treatment that day. A standard TMS course involves 36 sessions over 6 weeks. You can drive yourself and return to work immediately after each session."},{n:"04",t:"Results & Maintenance",d:"Most patients begin noticing improvement in 2–4 weeks. Many complete therapy without need for maintenance, but it may be recommended for some."}];
   return(<section className="py-24 px-5 md:px-10" style={{background:"linear-gradient(160deg,#2C1A0E 0%,#3D2B1F 100%)"}}><div className="mx-auto max-w-7xl">
     <div ref={ref} className="text-center mb-16"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div><h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>How TMS <em className="italic text-[#C9A46A]">Works</em></h2></div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative"><div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#B8925A]/20 via-[#B8925A]/50 to-[#B8925A]/20"/>
@@ -69,6 +69,105 @@ function HowWorks(){
     </div>
   </div></section>);
 }
+function TMSAccordionSec(){
+  const[ref,v]=useReveal();
+  const[open,setOpen]=useState(null);
+  const sections=[
+    {
+      t:"How TMS Works",
+      body:`TMS sends gentle magnetic pulses to specific areas of the brain that influence mood and motivation. Most patients notice:
+
+• No anesthesia or sedation
+• Minimal side effects  
+• Outpatient sessions that fit your schedule
+
+TMS is often used with medications to boost their effects, giving your treatment plan a helpful extra push.`
+    },
+    {
+      t:"What to Expect During TMS",
+      body:`We know trying something new can feel daunting. Here's what most patients experience:
+
+First Consultation: We review your medical history, current medications, and treatment goals.
+
+Comfortable Setup: You'll sit in a cozy chair while the TMS device is positioned near your head.
+
+Gentle Pulses: You'll feel a light tapping sensation — you should not be in any pain or discomfort. Most people can read, listen to music, or just relax during sessions.
+
+Structured Treatment Plan: TMS therapy typically involves about 36 sessions, usually spread over several weeks. Each session is short and outpatient, so it fits into your routine.
+
+No Downtime: Sessions usually last 20–40 minutes, and you can return to your day immediately afterward.
+
+Gradual Progress: Changes are usually noticed over several weeks. We check in regularly and adjust your plan to make sure each session is helping.`
+    },
+    {
+      t:"Personalized Brain Care",
+      body:`No two brains are alike, so neither is our approach. We focus on what works for you:
+
+Customized Brain Mapping — Your sessions are designed around your brain activity and personal goals, not a one-size-fits-all schedule.
+
+Integrated Support — TMS works best when combined with counseling, lifestyle guidance, and your current medications.
+
+Comfort & Convenience — From relaxing treatment rooms to flexible scheduling, every part of your experience is made to feel easy and supportive.
+
+Progress You Can See — We check in regularly and adjust your treatment so every session helps you move forward.`
+    },
+    {
+      t:"Who Can Benefit",
+      body:`TMS is FDA-cleared for treatment-resistant depression and has shown promising results for anxiety, PTSD, and other mood disorders. It's especially helpful when medications alone aren't enough, giving your brain a gentle nudge toward improvement.
+
+You may be a good candidate if you:
+• Have been diagnosed with Major Depressive Disorder (MDD)
+• Have tried one or more antidepressants without adequate relief
+• Prefer to avoid or reduce medication
+• Are experiencing medication side effects that affect quality of life
+• Are looking for a proven, evidence-based alternative`
+    },
+    {
+      t:"Insurance & Coverage",
+      body:`Many insurance plans cover TMS therapy, but approval and timing can vary. Some patients may need prior authorization or a few weeks to coordinate coverage.
+
+At Tri-Valley Clinic, we'll help you navigate the insurance process and answer any questions along the way, so you know what to expect before starting treatment.
+
+Tip: Bringing your insurance information to your consultation can speed up the process.
+
+Call us at (510) 598-4921 and our team will verify your benefits before your first appointment.`
+    },
+  ];
+  return(
+    <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
+      <div className="mx-auto max-w-4xl">
+        <div ref={ref} className="text-center mb-12">
+          <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Everything You Need to <em className="italic text-[#B8925A]">Know</em></h2>
+          <p className={`text-[#7A6556] text-base font-light mt-4 max-w-lg mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Click any section to expand.</p>
+        </div>
+        <div className="space-y-3">
+          {sections.map((s,i)=>(
+            <div key={s.t} className={`border transition-all duration-500 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#F5EEE4] hover:border-[#B8925A]/30"} ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:`${i*55}ms`,transitionDuration:"600ms"}}>
+              <button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>setOpen(open===i?null:i)}>
+                <span className="text-[17px] font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif"}}>{s.t}</span>
+                <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </button>
+              <div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-[600px] pb-6":"max-h-0"}`}>
+                <div className="px-6 space-y-2">
+                  {s.body.split("\n").map((line,j)=>(
+                    line.trim()===""
+                      ? <div key={j} className="h-2"/>
+                      : <p key={j} className={`text-[#7A6556] text-sm leading-relaxed font-light ${line.startsWith("•")?"pl-3":""}`}>{line}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function WhoFor(){
   const[ref,v]=useReveal();
   const yes=["Diagnosed with Major Depressive Disorder (MDD)","Tried 1+ antidepressants without adequate relief","Not a candidate for or prefer to avoid medication","Experiencing medication side effects that affect quality of life","Looking for a proven, evidence-based alternative"];
@@ -77,7 +176,7 @@ function WhoFor(){
     <div className={`border border-[#E8D5BE] bg-[#FDFAF6] p-10 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
       <p className="text-[#7A6556] text-base font-light mb-7 leading-relaxed">TMS is FDA-cleared for adults with Major Depressive Disorder who have not responded to one or more antidepressant medications. You may be a good candidate if you:</p>
       <ul className="space-y-4 mb-8">{yes.map(t=>(<li key={t} className="flex items-start gap-3 text-sm text-[#7A6556]"><div className="w-6 h-6 border border-[#6B7C5E]/40 flex items-center justify-center text-[#6B7C5E] flex-shrink-0 mt-0.5"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>{t}</li>))}</ul>
-      <div className="border-t border-[#E8D5BE] pt-6"><p className="text-[#7A6556] text-sm font-light mb-5">Not sure if TMS is right for you? Dr. Gill or Dr. Gondara evaluates every patient individually. Join the waitlist and we'll reach out when TMS launches to schedule your consultation.</p><a href="#waitlist" className="inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">Join the TMS Waitlist →</a></div>
+      <div className="border-t border-[#E8D5BE] pt-6"><p className="text-[#7A6556] text-sm font-light mb-5">Not sure if TMS is right for you? Dr. Japsharan Gill or Dr. Shabeg Gondara evaluates every patient individually. Join the waitlist and we'll reach out when TMS launches to schedule your consultation.</p><a href="#waitlist" className="inline-flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">Join the TMS Waitlist →</a></div>
     </div>
   </div></section>);
 }
@@ -133,10 +232,109 @@ function WaitlistSec(){
 }
 function FAQSec(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
-  const faqs=[{q:"Is TMS covered by insurance?",a:"Most major insurance plans, including Medicare and many commercial plans, cover TMS therapy for treatment-resistant depression. Our staff verifies coverage before you begin. Call us to check your specific plan."},{q:"Does TMS hurt?",a:"Most patients describe TMS as a tapping or knocking sensation on the scalp. Some mild headache or scalp discomfort may occur in early sessions, typically improving as treatment progresses."},{q:"How long before I see results?",a:"Many patients begin noticing mood improvements in weeks 2–4 of treatment. Some experience results earlier or later. Dr. Gill or Dr. Gondara monitors your progress throughout the course."},{q:"Can I have TMS and take antidepressants?",a:"Yes. TMS is often used alongside medication. Dr. Gill or Dr. Gondara will review your full medication list during your evaluation and determine the optimal treatment combination."},{q:"What happens after the 6-week course?",a:"Many patients experience sustained relief after completing TMS. A maintenance protocol (periodic sessions) may be recommended. Dr. Gill or Dr. Gondara assesses each patient's needs individually."}];
+  const faqs=[{q:"Is TMS covered by insurance?",a:"Most major insurance plans, including Medicare and many commercial plans, cover TMS therapy for treatment-resistant depression. Our staff verifies coverage before you begin. Call us to check your specific plan."},{q:"Does TMS hurt?",a:"Most patients describe TMS as a tapping or knocking sensation on the scalp. Some mild headache or scalp discomfort may occur in early sessions, typically improving as treatment progresses."},{q:"How long before I see results?",a:"Many patients begin noticing mood improvements in weeks 2–4 of treatment. Some experience results earlier or later. Dr. Japsharan Gill or Dr. Shabeg Gondara monitors your progress throughout the course."},{q:"Can I have TMS and take antidepressants?",a:"Yes. TMS is often used alongside medication. Dr. Japsharan Gill or Dr. Shabeg Gondara will review your full medication list during your evaluation and determine the optimal treatment combination."},{q:"What happens after the 6-week course?",a:"Many patients experience sustained relief after completing TMS. A maintenance protocol (periodic sessions) may be recommended. Dr. Japsharan Gill or Dr. Shabeg Gondara assesses each patient's needs individually."}];
   return(<section className="py-24 px-5 md:px-10 bg-[#F5EEE4]"><div className="mx-auto max-w-4xl"><div ref={ref} className={`text-center mb-12 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><h2 className="text-5xl md:text-6xl text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>TMS <em className="italic text-[#B8925A]">Questions</em></h2></div>
   <div className="space-y-3">{faqs.map((f,i)=>(<div key={f.q} className={`border transition-all duration-500 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#FDFAF6]/70 hover:border-[#B8925A]/30"} ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:`${i*55}ms`,transitionDuration:"600ms"}}><button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>sOpen(open===i?null:i)}><span className="text-[15px] font-medium text-[#2C1A0E]">{f.q}</span><span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-60 pb-6":"max-h-0"}`}><p className="px-6 text-[#7A6556] text-sm leading-relaxed font-light">{f.a}</p></div></div>))}</div></div></section>);
 }
+function TMSAccordions(){
+  const[open,setOpen]=useState(null);
+  const sections=[
+    {
+      title:"How TMS Works",
+      content:`TMS sends gentle magnetic pulses to specific areas of the brain that influence mood and motivation. Most patients notice:
+
+• No anesthesia or sedation
+• Minimal side effects
+• Outpatient sessions that fit your schedule
+
+TMS is often used with medications to boost their effects, giving your treatment plan a helpful extra push.`
+    },
+    {
+      title:"What to Expect During TMS",
+      content:`We know trying something new can feel daunting. Here's what most patients experience:
+
+First Consultation: We review your medical history, current medications, and treatment goals.
+
+Comfortable Setup: You'll sit in a cozy chair while the TMS device is positioned near your head.
+
+Gentle Pulses: You'll feel a light tapping sensation — you should not be in any pain or discomfort. Most people can read, listen to music, or just relax during sessions.
+
+Structured Treatment Plan: TMS therapy typically involves about 36 sessions, usually spread over several weeks. Each session is short and outpatient, so it fits into your routine.
+
+No Downtime: Sessions usually last 20–40 minutes, and you can return to your day immediately afterward.
+
+Gradual Progress: Changes are usually noticed over several weeks. We check in regularly and adjust your plan to make sure each session is helping.
+
+Every brain is different. If you have questions about how TMS will feel for you, your provider will guide you through every step.`
+    },
+    {
+      title:"Personalized Brain Care",
+      content:`No two brains are alike, so neither is our approach. We focus on what works for you:
+
+Customized Brain Mapping — Your sessions are designed around your brain activity and personal goals, not a one-size-fits-all schedule.
+
+Integrated Support — TMS works best when combined with counseling, lifestyle guidance, and your current medications.
+
+Comfort & Convenience — From relaxing treatment rooms to flexible scheduling, every part of your experience is made to feel easy and supportive.
+
+Progress You Can See — We check in regularly and adjust your treatment so every session helps you move forward.`
+    },
+    {
+      title:"Who Can Benefit",
+      content:`TMS is FDA-cleared for treatment-resistant depression and has shown promising results for anxiety, PTSD, and other mood disorders. It's especially helpful when medications alone aren't enough, giving your brain a gentle nudge toward improvement.
+
+You may be a candidate if you:
+• Have been diagnosed with Major Depressive Disorder (MDD)
+• Have not responded adequately to one or more antidepressant medications
+• Prefer to avoid or reduce medication side effects
+• Are looking for a proven, evidence-based alternative to medication
+
+Dr. Japsharan Gill or Dr. Shabeg Gondara evaluates every patient individually during your consultation.`
+    },
+    {
+      title:"Insurance & Coverage",
+      content:`Many insurance plans cover TMS therapy, but approval and timing can vary. Some patients may need prior authorization or a few weeks to coordinate coverage.
+
+At Tri-Valley Clinic, we'll help you navigate the insurance process and answer any questions along the way, so you know what to expect before starting treatment.
+
+Tip: Bringing your insurance information to your consultation can speed up the process.
+
+Call us at (510) 598-4921 to verify your coverage before your first appointment.`
+    },
+  ];
+  const[ref,v]=useReveal();
+  return(
+    <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
+      <div className="mx-auto max-w-4xl">
+        <div ref={ref} className="text-center mb-12">
+          <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Everything You Need to <em className="italic text-[#B8925A]">Know</em></h2>
+        </div>
+        <div className={`space-y-2 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
+          {sections.map((s,i)=>(
+            <div key={s.title} className={`border transition-all duration-300 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#F5EEE4] hover:border-[#B8925A]/30"}`}>
+              <button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>setOpen(open===i?null:i)}>
+                <span className="text-[17px] font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{s.title}</span>
+                <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </span>
+              </button>
+              <div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-[600px] pb-6":"max-h-0"}`}>
+                <div className="px-6">
+                  {s.content.split("\n\n").map((para,pi)=>(
+                    <p key={pi} className="text-[#7A6556] text-sm leading-relaxed font-light mb-3 last:mb-0 whitespace-pre-line">{para}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 function CTA(){
   const[ref,v]=useReveal();
   return(
