@@ -70,7 +70,7 @@ export default function Navbar() {
         </a>
       </div>
 
-      {/* ══ MAIN NAVBAR */}
+      {/*  MAIN NAVBAR */}
       <nav
         ref={dropdownRef}
         className={`sticky top-0 z-50 w-full transition-all duration-500 ${
