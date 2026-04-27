@@ -63,7 +63,7 @@ export default function Navbar() {
         </span>
         <Pip />
         <a
-          href="tel:5105984921"
+          href="tel:5105984921 "
           className="flex items-center gap-1.5 text-[10px] tracking-[0.2em] uppercase font-semibold text-[#2C1A0E] hover:text-[#B8925A] transition-colors duration-200"
         >
           <PhoneIcon /> (510)&nbsp;598-4921
