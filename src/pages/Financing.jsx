@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
+import SEO from '../components/SEO';
 
 function useReveal(t = 0.12) {
   const ref = useRef(null);
@@ -43,6 +44,11 @@ function Cursor() {
 export default function Financing() {
   return (
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
+      <SEO
+  title="Financing Options"
+  description="Affordable payment plans for psychiatric care, weight loss, IV hydration, and TMS therapy at Tri-Valley Clinic. Cherry financing available with flexible monthly payments."
+  path="/financing"
+/>
       <style>{CSS}</style>
       <Cursor />
       <Hero />

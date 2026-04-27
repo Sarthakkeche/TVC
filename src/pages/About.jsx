@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../constants/images";
+import SEO from '../components/SEO';
 
 /* ─── HOOKS ─── */
 function useReveal(t = 0.12) {
@@ -87,6 +88,11 @@ function DoctorAvatars() {
 export default function About() {
   return (
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
+      <SEO
+  title="About Us"
+  description="Meet Dr. Japsharan Gill and Dr. Shabeg Gondara, board-certified psychiatrists leading Tri-Valley Clinic in Fremont, CA. 15+ years of combined experience in psychiatry, wellness, and integrative care."
+  path="/about"
+/>
       <style>{CSS}</style>
       <Cursor />
       <HeroSection />

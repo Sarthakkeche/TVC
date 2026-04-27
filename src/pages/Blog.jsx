@@ -1,6 +1,7 @@
 import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
 import { useEffect, useRef, useState } from "react";
+import SEO from '../components/SEO';
 
 // ❌ P object REMOVED — all banned photos. Using IMAGES registry only.
 
@@ -76,6 +77,11 @@ function CustomCursor() {
 export default function Blog() {
   return (
     <main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+      <SEO
+  title="Blog"
+  description="Mental health insights, weight loss tips, IV hydration benefits, and wellness advice from Dr. Japsharan Gill and Dr. Shabeg Gondara at Tri-Valley Clinic in Fremont, CA."
+  path="/blog"
+/>
       <style>{CSS}</style>
       <CustomCursor />
       <HeroSection />

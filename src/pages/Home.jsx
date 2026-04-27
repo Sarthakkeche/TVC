@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useRef, useState, useCallback } from "react";
 import IMAGES from "../constants/images";
+import SEO from '../components/SEO';
 
 /* ─── IMAGE ASSIGNMENTS FOR THIS PAGE ─────────────────────
    Hero right portrait      → DR_GILL_HERO     (Photo 1 outdoor)
@@ -69,6 +70,11 @@ function Cursor() {
 export default function Home() {
   return (
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
+      <SEO
+  title="Tri-Valley Clinic | Psychiatry & Wellness | Fremont, CA"
+  description="Board-certified psychiatry, medical weight loss, IV hydration, and TMS therapy in Fremont, CA. Led by Dr. Japsharan Gill and Dr. Shabeg Gondara. Accepting new patients. Free 15-minute consultation."
+  path="/"
+/>
       <style>{CSS}</style>
       <Cursor />
       <HeroSection />
@@ -152,7 +158,7 @@ function HeroSection() {
 
   return (
     <section className="relative overflow-hidden" style={{height:"100svh",minHeight:620}}>
-
+         
       {/* ── BLACK CURTAIN ── */}
       <div className="absolute inset-0 z-30 pointer-events-none transition-opacity duration-700"
         style={{background:"#0A0604",opacity:phase>=2?0:1}}/>

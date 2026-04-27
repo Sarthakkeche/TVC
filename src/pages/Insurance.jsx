@@ -2,6 +2,7 @@
 import IMAGES from "../constants/images";
 import DoctorAvatars from "../components/DoctorAvatars";
 import { useEffect, useRef, useState } from "react";
+import SEO from '../components/SEO';
 
 /* ── PHOTOS ── */
 const P = {
@@ -83,6 +84,11 @@ function CustomCursor() {
 export default function Insurance() {
   return (
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
+      <SEO
+  title="Insurance"
+  description="Tri-Valley Clinic accepts most major insurance plans including Aetna, Blue Shield, United Healthcare, Cigna, Anthem, Kaiser, Medicare, and Medi-Cal. Verify your coverage today."
+  path="/insurance"
+/>
       <style>{CSS}</style>
       <CustomCursor />
       <HeroSection />

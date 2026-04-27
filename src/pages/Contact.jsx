@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/static-components */
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../constants/images";
+import SEO from '../components/SEO';
 
 const REASONS=["Psychiatric Evaluation","ADHD Evaluation & Treatment","Anxiety or Depression","PTSD / Trauma","Bipolar Disorder","OCD","Insomnia","Medication Management","Medical Weight Loss / GLP-1","IV Hydration Therapy","TMS Therapy","Telehealth Appointment","Insurance Question","Financing / Cherry","General Inquiry"];
 
@@ -8,7 +9,13 @@ function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);us
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 
 export default function Contact(){
-  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}><style>{CSS}</style><Cursor/><Hero/><Marquee/><MainSection/><PhotoRow/><MapSection/><FAQ/><CTA/></main>);
+  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+    <SEO
+  title="Contact Us"
+  description="Contact Tri-Valley Clinic in Fremont, CA. Call (510) 598-4921 to schedule a free 15-minute consultation. Accepting new patients for psychiatry, weight loss, IV hydration, and TMS therapy."
+  path="/contact"
+/>
+<style>{CSS}</style><Cursor/><Hero/><Marquee/><MainSection/><PhotoRow/><MapSection/><FAQ/><CTA/></main>);
 }
 
 function Hero(){
