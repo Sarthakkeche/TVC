@@ -81,7 +81,7 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 md:px-10 h-[74px]">
 
-          {/* Logo */}
+        
           <Link to="/" className="flex-shrink-0 group">
             <img
               src="/assets/tri-valley-logo-header.png"
