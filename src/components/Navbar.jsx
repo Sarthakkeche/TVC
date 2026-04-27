@@ -6,10 +6,10 @@ const NAV_LINKS = [
   {
     label: "Services",
     dropdown: [
-      { label: "Psychiatric Services",       to: "/psychiatric"  },
-      { label: "Medical Weight Loss / GLP-1",to: "/weight-loss"  },
+      { label: "Psychiatric Services",       to: "/psychiatry"  },
+      { label: "Medical Weight Loss / GLP-1",to: "/medical-weight-loss"  },
       { label: "IV Hydration Therapy",       to: "/iv-hydration" },
-      { label: "TMS Therapy",                to: "/tms"          },
+      { label: "TMS Therapy",                to: "/tms-therapy"          },
       { label: "Telehealth",                 to: "/telehealth"   },
     ],
   },

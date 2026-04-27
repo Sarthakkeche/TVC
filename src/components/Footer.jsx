@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
 const SERVICES = [
-  { label: "Psychiatric Care",            to: "/psychiatric"  },
-  { label: "Medical Weight Loss / GLP-1", to: "/weight-loss"  },
+  { label: "Psychiatric Care",            to: "/psychiatry"  },
+  { label: "Medical Weight Loss / GLP-1", to: "/medical-weight-loss"  },
   { label: "IV Hydration Therapy",        to: "/iv-hydration" },
-  { label: "TMS Therapy",                 to: "/tms"          },
+  { label: "TMS Therapy",                 to: "/tms-therapy"          },
   { label: "Telehealth",                  to: "/telehealth"   },
-  { label: "Medication Management",       to: "/psychiatric"  },
+  { label: "Medication Management",       to: "/psychiatry"  },
 ];
 
 const QUICK_LINKS = [

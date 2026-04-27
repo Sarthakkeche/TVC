@@ -16,19 +16,19 @@ import Contact    from "./pages/Contact";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,          // App renders <Navbar /> + <Outlet /> + <Footer />
+    element: <App />,
     children: [
-      { index: true,               element: <Home />        },
-      { path: "about",             element: <About />       },
-      { path: "psychiatric",       element: <Psychiatric /> },
-      { path: "weight-loss",       element: <WeightLoss />  },
-      { path: "iv-hydration",      element: <IVHydration /> },
-      { path: "tms",               element: <TMS />         },
-      { path: "telehealth",        element: <Telehealth />  },
-      { path: "insurance",         element: <Insurance />   },
-      { path: "financing",         element: <Financing />   },
-      { path: "blog",              element: <Blog />        },
-      { path: "contact",           element: <Contact />     },
+      { index: true,                    element: <Home />        },
+      { path: "about",                  element: <About />       },
+      { path: "psychiatry",             element: <Psychiatric /> }, // was "psychiatric"
+      { path: "medical-weight-loss",    element: <WeightLoss />  }, // was "weight-loss"
+      { path: "iv-hydration",           element: <IVHydration /> }, // ✅ same
+      { path: "tms-therapy",            element: <TMS />         }, // was "tms"
+      { path: "telehealth",             element: <Telehealth />  }, // ✅ same
+      { path: "insurance",              element: <Insurance />   },
+      { path: "financing",              element: <Financing />   },
+      { path: "blog",                   element: <Blog />        },
+      { path: "contact",                element: <Contact />     },
     ],
   },
 ]);
