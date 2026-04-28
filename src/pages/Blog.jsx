@@ -76,7 +76,7 @@ function CustomCursor() {
 
 export default function Blog() {
   return (
-    <main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+    <main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",overflowX:"hidden",cursor:"none"}}>
       <SEO
   title="Blog"
   description="Mental health insights, weight loss tips, IV hydration benefits, and wellness advice from Dr. Japsharan Gill and Dr. Shabeg Gondara at Tri-Valley Clinic in Fremont, CA."
@@ -220,7 +220,7 @@ function FeaturedPost() {
                 <p className="text-[10px] tracking-[0.16em] uppercase text-[#B8925A]/70">Tri-Valley Clinic · Psychiatry & Wellness</p>
               </div>
             </div>
-            <a href={`/blog/${post.id}`}
+            <a href="tel:5105984921"
               className="group/btn inline-flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-300 self-start">
               Read Article <span className="group-hover/btn:translate-x-1.5 transition-transform duration-300">→</span>
             </a>
@@ -294,7 +294,7 @@ function BlogGrid() {
 
 function BlogCard({post,delay,vis}) {
   return (
-    <a href={`/blog/${post.id}`}
+    <a href="tel:5105984921"
       className={`group relative bg-[#FDFAF6] border border-[#E8D5BE] flex flex-col overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_16px_50px_rgba(184,146,90,0.14)] hover:border-[#B8925A]/40 ${vis?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`}
       style={{transitionDelay:`${delay}ms`,transitionDuration:"700ms"}}>
       {/* Image */}

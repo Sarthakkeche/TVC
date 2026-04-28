@@ -12,6 +12,8 @@ import Insurance  from "./pages/Insurance";
 import Financing  from "./pages/Financing";
 import Blog       from "./pages/Blog";
 import Contact    from "./pages/Contact";
+import LegalPrivacy from './pages/LegalPrivacy';
+import LegalTerms   from './pages/LegalTerms';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       { path: "insurance",              element: <Insurance />   },
       { path: "financing",              element: <Financing />   },
       { path: "blog",                   element: <Blog />        },
+     { path: "/privacy-policy", element: <LegalPrivacy /> },
+{ path: "/terms-of-use",   element: <LegalTerms /> },
       { path: "contact",                element: <Contact />     },
     ],
   },

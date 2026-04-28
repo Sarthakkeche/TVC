@@ -83,7 +83,7 @@ function CustomCursor() {
 ════════════════════════════════ */
 export default function Insurance() {
   return (
-    <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
+    <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none", overflowX: "hidden" }}>
       <SEO
   title="Insurance"
   description="Tri-Valley Clinic accepts most major insurance plans including Aetna, Blue Shield, United Healthcare, Cigna, Anthem, Kaiser, Medicare, and Medi-Cal. Verify your coverage today."
@@ -234,7 +234,7 @@ function HeroSection() {
 
 /* ══════ 2. MARQUEE STRIP ══════ */
 function MarqueeStrip() {
-  const items = ["Aetna","Blue Shield","United Healthcare","Cigna","Medicare","Medi-Cal","Anthem","Kaiser","Magellan","Optum","Beacon Health","Tricare","MHN","Evernorth","Cherry Financing"];
+  const items = ["Aetna","Blue Shield","United Healthcare","Cigna","Medicare","Medi-Cal","Anthem","Kaiser","Magellan","Optum","Beacon Health","Tricare","MHN","Evernorth","Out-of-Pocket/Self-Pay"];
   const rep = [...items, ...items];
   return (
     <div className="bg-[#2C1A0E] py-3.5 overflow-hidden">
@@ -428,6 +428,7 @@ function CoverageSection() {
     { icon: <ShieldIcon />,   title: "Anxiety & Depression",        desc: "Treatment for anxiety disorders, major depression, PTSD, OCD, and related conditions." },
     { icon: <VideoIcon />,    title: "Telehealth Visits",           desc: "Most major insurance plans now cover telehealth psychiatry visits statewide in California." },
     { icon: <WeightIcon />,   title: "Medical Weight Loss",         desc: "GLP-1 / Semaglutide programs may be covered — our staff will verify your specific plan." },
+    { icon: <NeuralIcon />,   title: "TMS Therapy",                  desc: "Non-medication treatment for treatment-resistant conditions such as depression. We submit prior authorization on your behalf." },
   ];
   return (
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
@@ -628,13 +629,13 @@ function FAQSection() {
   const [open, setOpen] = useState(null);
   const faqs = [
     { q: "How do I know if my insurance is accepted?",            a: "Call us at (510) 598-4921 and our front desk team will verify your insurance within the same business day. We contact your provider directly and confirm your specific mental health benefits, copays, and deductibles — at no cost to you." },
-    { q: "Do I need a referral to see Dr. Japsharan Gill?",                 a: "Most insurance plans do not require a referral for psychiatric care, but this varies by plan. When you call to verify your insurance, we'll confirm whether a referral is needed for your specific coverage." },
+    { q: "Do I need a referral to be seen?",                 a: "Most insurance plans do not require a referral for psychiatric care, but this varies by plan. When you call to verify your insurance, we'll confirm whether a referral is needed for your specific coverage." },
     { q: "What is my copay or deductible for psychiatry?",        a: "Copays and deductibles vary widely by insurance plan. Our staff will provide you with a clear breakdown of your expected costs before your first appointment so there are no surprises." },
     { q: "Is telehealth covered by my insurance?",                a: "Most major insurance plans now cover telehealth psychiatric visits in California at the same rate as in-person care. We verify telehealth benefits as part of our standard insurance check." },
-    { q: "Is medical weight loss (GLP-1) covered by insurance?",  a: "Coverage for GLP-1 medications and medical weight loss programs varies significantly by plan. Some commercial plans cover physician-supervised weight loss programs. We'll verify your specific benefits when you call." },
+    { q: "Is medical weight loss (GLP-1) covered by insurance?",  a: "GLP-1 medications used in our program are compounded and are not covered by insurance. We can review all costs with you during your consultation." },
     { q: "What if I don't have insurance?",                       a: "We offer Cherry Financing — flexible payment plans with 0% interest options, instant approval, and no hard credit check. You can apply online or in-office. Call us to discuss your options." },
     { q: "Do you offer a sliding-scale fee?",                     a: "We do not offer sliding-scale fees, but Cherry Financing allows you to break up any out-of-pocket costs into manageable monthly payments. Call us to learn more about your options." },
-    { q: "Does my insurance cover IV Hydration Therapy?",         a: "IV Hydration Therapy is typically a self-pay service, as most insurance plans do not cover elective wellness infusions. However, Cherry Financing is available for this service." },
+    { q: "Does my insurance cover IV Hydration Therapy?",         a: "Our IV Hydration services are not covered by insurance. We offer flexible financing options through Cherry to make treatment more accessible." },
   ];
   return (
     <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
@@ -727,6 +728,7 @@ function BrainIcon()    { return ico(<path d="M9 3a3 3 0 00-3 3 3 3 0 00-3 3 3 3
 function PillIcon()     { return ico(<><path d="M10.5 20H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v7"/><path d="M16.5 18a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/><path d="M21 21l-1.5-1.5"/></>); }
 function HeartIcon()    { return ico(<path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>); }
 function VideoIcon()    { return ico(<><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></>); }
+function NeuralIcon(){return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>;}
 function WeightIcon()   { return ico(<><path d="M12 3a3 3 0 100 6 3 3 0 000-6z"/><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><line x1="12" y1="9" x2="12" y2="21"/></>); }
 function ArrowIcon()    { return ico(<><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></>); }
 function PlusIcon()     { return ico(<><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></>); }

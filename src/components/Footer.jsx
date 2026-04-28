@@ -43,9 +43,9 @@ export default function Footer() {
       {/* ══ CONSULT BAND ══ */}
       <div className="bg-[#B8925A] px-5 md:px-10 py-7 flex flex-col md:flex-row items-center justify-between gap-5">
         <div>
-          <p className="text-[11px] tracking-[0.22em] uppercase text-[#FDFAF6]/70 mb-1">No Commitment Needed</p>
+          <p className="text-[11px] tracking-[0.22em] uppercase text-[#FDFAF6]/70 mb-1">Accepting New Patients</p>
           <p className="text-[#FDFAF6] text-lg md:text-xl" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}>
-            Ready to take the first step? Your first consultation is completely free.
+            Ready to take the next step? Our team is here to answer your questions and guide you.
           </p>
         </div>
         <a
@@ -110,7 +110,7 @@ export default function Footer() {
               <SectionHeading>Conditions We Treat</SectionHeading>
               <div className="grid grid-cols-2 gap-x-3 gap-y-2">
                 {CONDITIONS.map((c) => (
-                  <span key={c} className="text-xs text-[#7A6556]/80 leading-relaxed">{c}</span>
+                  <Link key={c} to="/psychiatry" className="text-xs text-[#7A6556]/80 leading-relaxed hover:text-[#B8925A] transition-colors duration-200">{c}</Link>
                 ))}
               </div>
             </div>
@@ -188,10 +188,14 @@ export default function Footer() {
           <div className="mt-7 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#7A6556]/60">
             <p>© {year} Tri-Valley Clinic · All rights reserved · Fremont, CA</p>
             <div className="flex items-center gap-4">
-              {["Privacy Policy", "Terms of Use", "Sitemap"].map((t, i) => (
-                <span key={t} className="flex items-center gap-4">
+              {[
+                { label: "Privacy Policy", to: "/privacy-policy" },
+                { label: "Terms of Use",   to: "/terms-of-use"   },
+                { label: "Sitemap",        to: "/about"        },
+              ].map((item, i) => (
+                <span key={item.label} className="flex items-center gap-4">
                   {i > 0 && <span className="w-px h-3 bg-[#E8D5BE]" />}
-                  <Link to="#" className="hover:text-[#B8925A] transition-colors duration-200">{t}</Link>
+                  <Link to={item.to} className="hover:text-[#B8925A] transition-colors duration-200">{item.label}</Link>
                 </span>
               ))}
             </div>

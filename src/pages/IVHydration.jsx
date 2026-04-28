@@ -7,14 +7,14 @@ const P={hero:"/assets/emptytabel.jpg",drGill:"/assets/Gill_Japsharan.jpg",insid
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 const DRIPS=[
-  {name:"The Energizer",       tag:"Energy & Vitality",   desc:"B-Complex, Vitamin C, Magnesium, Taurine. Combat fatigue and restore natural energy levels.",         price:"$149"},
-  {name:"The Immunity Shield", tag:"Immune Boost",         desc:"High-dose Vitamin C, Zinc, Glutathione, B12. Fortify your immune system from within.",               price:"$169"},
-  {name:"The Hydrator",        tag:"Pure Hydration",       desc:"Normal Saline + Electrolytes. Essential minerals for rapid rehydration and recovery.",                price:"$99" },
-  {name:"The Glow",            tag:"Skin & Beauty",        desc:"Glutathione, Biotin, Vitamin C, B-Complex. Promotes radiant skin, stronger nails and hair.",          price:"$189"},
-  {name:"The Brain Boost",     tag:"Mental Clarity",       desc:"Alpha-Lipoic Acid, B-Complex, Magnesium, Zinc. Sharpen focus and support cognitive function.",        price:"$159"},
-  {name:"The Recovery",        tag:"Muscle & Recovery",    desc:"Amino Acids, Magnesium, B-Complex, Zinc. Accelerate muscle repair and reduce inflammation.",          price:"$169"},
+  {name:"The Energizer",       tag:"Energy & Vitality",   desc:"B-Complex, Vitamin C, Magnesium, Taurine. Combat fatigue and restore natural energy levels.",         price:""},
+  {name:"The Immunity Shield", tag:"Immune Boost",         desc:"High-dose Vitamin C, Zinc, Glutathione, B12. Fortify your immune system from within.",               price:""},
+  {name:"The Hydrator",        tag:"Pure Hydration",       desc:"Normal Saline + Electrolytes. Essential minerals for rapid rehydration and recovery.",                price:"" },
+  {name:"The Glow",            tag:"Skin & Beauty",        desc:"Glutathione, Biotin, Vitamin C, B-Complex. Promotes radiant skin, stronger nails and hair.",          price:""},
+  {name:"The Brain Boost",     tag:"Mental Clarity",       desc:"Alpha-Lipoic Acid, B-Complex, Magnesium, Zinc. Sharpen focus and support cognitive function.",        price:""},
+  {name:"The Recovery",        tag:"Muscle & Recovery",    desc:"Amino Acids, Magnesium, B-Complex, Zinc. Accelerate muscle repair and reduce inflammation.",          price:""},
 ];
-const BENEFITS=["Bypasses the digestive system for 100% nutrient absorption","Rapid results — most patients feel effects within 30–60 minutes","Administered in our calm, spa-like clinic setting","All formulas overseen by Dr. Gill or Dr. Gondara personally","Sessions last approximately 45–60 minutes","Available as single sessions or package plans"];
+const BENEFITS=["Bypasses the digestive system for Direct nutrient absorption","Rapid results — most patients feel effects within 30–60 minutes","Administered in our calm, spa-like clinic setting","All formulas curated and supervised by our licensed clinicians. Custom blends available upon request.","Sessions last approximately 45–60 minutes","Available as single sessions or package plans"];
 export default function IVHydration(){
   return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
     <SEO
@@ -35,7 +35,7 @@ function Hero(){
         <div>
           <div className={`inline-flex items-center gap-2.5 border border-[#B8925A]/40 bg-[#B8925A]/8 px-4 py-2 mb-7 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"100ms"}}><span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Available Now · Physician-Supervised</span></div>
           <h1 className={`text-[48px] md:text-[62px] xl:text-[74px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>Rehydrate.<br/><em className="italic text-[#C9A46A]">Restore.</em><br/>Revive.</h1>
-          <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>Premium intravenous nutrient therapy administered in a spa-like setting at Tri-Valley Clinic. Tailored drip formulas for energy, immunity, beauty, and peak wellness — supervised by Dr. Gill or Dr. Gondara.</p>
+          <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>IV nutrient therapy delivered in a calm, comfortable setting at Tri-Valley Clinic. Whether you're looking to boost energy, support recovery, enhance immunity, or simply feel your best — our physician-supervised drip formulas are designed to deliver real results, fast.</p>
           <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
             <a href="/contact" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Book a Session <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
             <a href="#menu" className="flex items-center gap-3 border border-[#B8925A]/50 text-[#C9A46A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300">View IV Menu ↓</a>
@@ -111,7 +111,7 @@ function DripsMenu(){
       <div ref={ref} className="text-center mb-14">
         <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
         <h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Our <em className="italic text-[#C9A46A]">Drip Menu</em></h2>
-        <p className={`text-[#A89880] text-base font-light mt-4 max-w-md mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>All formulas curated and supervised by Dr. Gill or Dr. Gondara. Custom blends available on request.</p>
+        <p className={`text-[#A89880] text-base font-light mt-4 max-w-md mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>All formulas curated and supervised by our clinicians. Custom blends available upon request</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {DRIPS.map((d,i)=>(<div key={d.name} className={`group relative border border-[#E8D5BE]/15 bg-[#F5EEE4]/5 p-7 transition-all duration-700 hover:bg-[#F5EEE4]/12 hover:-translate-y-1.5 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*100}ms`,transitionDuration:"700ms"}}>
@@ -149,18 +149,32 @@ function HowItWorks(){
 }
 function WhyChoose(){
   const[ref,v]=useReveal();
-  const items=[{t:"Physician Oversight",d:"All formulas designed and supervised by Dr. Gill or Dr. Gondara personally — not a wellness influencer or unlicensed practitioner."},{t:"Clinical Setting",d:"Administered in Tri-Valley Clinic's spa-like treatment rooms — calm, private, and beautifully designed."},{t:"Custom Formulas",d:"Standard menus are a starting point. Dr. Gill or Dr. Gondara can adjust formulas based on your specific health profile and goals."},{t:"Immediate Results",d:"Unlike oral supplements, IV therapy delivers 100% bioavailability — patients feel results within 30–60 minutes."}];
-  return(<section className="py-24 px-5 md:px-10 bg-[#FDFAF6]"><div className="mx-auto max-w-7xl">
-    <div ref={ref} className="text-center mb-14"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div><h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Why <em className="italic text-[#B8925A]">Tri-Valley Clinic</em></h2></div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-      {items.map((it,i)=>(<div key={it.t} className={`group bg-[#F5EEE4] border border-[#E8D5BE] p-8 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_14px_48px_rgba(184,146,90,0.13)] hover:border-[#B8925A]/50 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*110}ms`,transitionDuration:"700ms"}}>
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B8925A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left relative"/>
-        <p className="text-[32px] text-[#B8925A]/20 leading-none mb-4" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>{String(i+1).padStart(2,"0")}</p>
-        <h3 className="text-xl text-[#2C1A0E] mb-3" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{it.t}</h3>
-        <p className="text-[#7A6556] text-sm leading-relaxed font-light">{it.d}</p>
-      </div>))}
-    </div>
-  </div></section>);
+  const items=[
+    {n:"01",t:"Physician Oversight",d:"All IV formulations are overseen by licensed physicians, with clinical review of each treatment plan."},
+    {n:"02",t:"Comfortable Clinical Setting",d:"Treatments are administered in a calm, private, spa-inspired environment designed for comfort and relaxation."},
+    {n:"03",t:"Personalized Formulas",d:"Standard IV options serve as a starting point, with adjustments made based on your health profile and goals when appropriate."},
+    {n:"04",t:"Fast Nutrient Delivery",d:"IV therapy delivers nutrients directly into the bloodstream for rapid absorption. Many patients report feeling effects within 30–60 minutes."},
+  ];
+  return(
+    <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
+      <div className="mx-auto max-w-7xl">
+        <div ref={ref} className="text-center mb-14">
+          <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Why Tri-Valley <em className="italic text-[#B8925A]">Clinic</em></h2>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {items.map((item,i)=>(
+            <div key={item.n} className={`group border border-[#E8D5BE] bg-[#F5EEE4] p-8 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_16px_48px_rgba(184,146,90,0.12)] hover:border-[#B8925A]/50 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*100}ms`,transitionDuration:"700ms"}}>
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B8925A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left relative"/>
+              <span className="text-4xl text-[#B8925A]/15 font-light leading-none block mb-4 group-hover:text-[#B8925A]/30 transition-colors duration-300" style={{fontFamily:"'Cormorant Garamond',serif"}}>{item.n}</span>
+              <h3 className="text-xl text-[#2C1A0E] mb-3" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{item.t}</h3>
+              <p className="text-[#7A6556] text-sm leading-relaxed font-light">{item.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 function FAQSec(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
@@ -188,7 +202,7 @@ function CTA(){
         </h2>
         <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>Book your IV hydration session today. Walk in, relax, and walk out feeling renewed.</p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
-          <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400"><Ph/> Call (510) 598-4921 <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
+          <a href="/contact" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400"><Ph/> Call (510) 598-4921 <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
           <a href="/contact" className="flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300">Send a Message</a>
         </div>
         <p className={`mt-7 text-[10px] tracking-[0.2em] uppercase text-[#7A6556]/45 transition-all duration-700 delay-400 ${v?"opacity-100":"opacity-0"}`}>Mon – Fri · 9:30 AM – 5:30 PM · 680 Mowry Ave, Fremont, CA · Telehealth Statewide CA</p>

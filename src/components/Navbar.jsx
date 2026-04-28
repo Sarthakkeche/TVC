@@ -117,12 +117,12 @@ export default function Navbar() {
             >
               <PhoneIcon /> (510) 598-4921
             </a>
-            {/* ✅ Free Consultation → /contact */}
+            {/* Schedule Today → /contact */}
             <Link
               to="/contact"
               className="group relative overflow-hidden px-6 py-[11px] border border-[#B8925A] text-[10px] font-bold tracking-[0.2em] uppercase bg-[#B8925A] text-[#FDFAF6] transition-all duration-300 hover:bg-transparent hover:text-[#B8925A]"
             >
-              Free Consultation
+              Schedule Today
             </Link>
           </div>
 
@@ -203,12 +203,12 @@ export default function Navbar() {
             >
               <PhoneIcon /> (510) 598-4921
             </a>
-            {/* ✅ Mobile Free Consultation → /contact */}
+            {/* Schedule Today → /contact */}
             <Link
               to="/contact"
               className="flex items-center justify-center w-full py-3.5 bg-[#B8925A] text-[#FDFAF6] text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-200"
             >
-              Free Consultation
+              Schedule Today
             </Link>
           </div>
         </div>

@@ -55,7 +55,6 @@ export default function Financing() {
       <Marquee />
       <HowCherry />
       <CherryEmbed />
-      <Compare />
       <FAQSection />
       <CTA />
     </main>
@@ -327,47 +326,7 @@ function CherryEmbed() {
 
 
 function Compare() {
-  const [ref, vis] = useReveal();
-  const rows = [
-    { f: "Credit Check",         cherry: "Soft pull only",        cc: "Hard pull",           cash: "None"        },
-    { f: "Interest",             cherry: "0% APR options",        cc: "18–29% APR typical",  cash: "None"        },
-    { f: "Monthly Payments",     cherry: "Flexible 3–24 months",  cc: "Minimum payments",    cash: "Full upfront"},
-    { f: "Approval Speed",       cherry: "60 seconds",            cc: "Instant",             cash: "Instant"     },
-    { f: "Use for Medical Care", cherry: "Yes — all services",    cc: "Yes",                 cash: "Yes"         },
-    { f: "Affects Credit Score", cherry: "No hard pull",          cc: "Yes",                 cash: "No"          },
-  ];
-  return (
-    <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
-      <div className="mx-auto max-w-5xl">
-        <div ref={ref} className="text-center mb-12">
-          <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="w-12 h-px bg-[#B8925A]/50" /><Dm size={7} /><span className="w-12 h-px bg-[#B8925A]/50" />
-          </div>
-          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-            style={{ fontFamily: "'Cormorant Garamond',serif", fontWeight: 300 }}>
-            Cherry vs. <em className="italic text-[#B8925A]">Other Options</em>
-          </h2>
-        </div>
-        <div className={`overflow-hidden border border-[#E8D5BE] transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="grid grid-cols-4 bg-[#2C1A0E]">
-            {["Feature", "Cherry ★", "Credit Card", "Pay Cash"].map((h, i) => (
-              <div key={h} className={`px-4 py-4 text-[10px] tracking-[0.18em] uppercase font-semibold ${i === 1 ? "text-[#C9A46A]" : "text-[#E8D5BE]/60"}`}>{h}</div>
-            ))}
-          </div>
-          {rows.map((r, i) => (
-            <div key={r.f} className={`grid grid-cols-4 border-t border-[#E8D5BE] hover:bg-[#F0E8DA] transition-colors ${i % 2 === 0 ? "bg-[#FDFAF6]" : "bg-[#FAF7F2]"}`}>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-medium">{r.f}</div>
-              <div className="px-4 py-4 text-sm text-[#2C1A0E] font-medium flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0" />{r.cherry}
-              </div>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-light">{r.cc}</div>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-light">{r.cash}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  return null; // Comparison table removed per client request
 }
 
 /* ══ FAQ ══ */
@@ -376,10 +335,10 @@ function FAQSection() {
   const [open, setOpen] = useState(null);
   const faqs = [
     { q: "Will applying for Cherry affect my credit score?",         a: "Cherry uses a soft credit pull for their initial application, which does not affect your credit score. Only if you proceed with certain plan types may a hard pull occur — Cherry will inform you before this happens." },
-    { q: "What services at Tri-Valley Clinic can I use Cherry for?", a: "Cherry can be used for any service at Tri-Valley Clinic, including psychiatric evaluations, medication management, medical weight loss programs, IV hydration therapy, and TMS therapy when it launches." },
-    { q: "What if my insurance covers part of the cost?",            a: "Cherry can be used alongside your insurance to cover any remaining out-of-pocket balance. Call us to discuss how to coordinate your insurance benefits with Cherry financing." },
+    { q: "What services at Tri-Valley Clinic can I use Cherry for?", a: "As of now, Cherry can be used for our medical weight loss program and IV Hydration therapy." },
+    { q: "What if my insurance covers part of the cost?",            a: "Cherry cannot be used alongside your insurance to cover any remaining out-of-pocket balances. It is intended for services not covered by insurance." },
     { q: "How quickly will I find out if I'm approved?",             a: "Cherry provides an approval decision in approximately 60 seconds after you submit your application." },
-    { q: "Is Cherry available for telehealth appointments?",         a: "Yes. Cherry financing can be applied to any Tri-Valley Clinic service, including telehealth psychiatric appointments for patients anywhere in California." },
+    { q: "Is Cherry available for psychiatry services?",         a: "No, Cherry financing can only be applied to our weight loss and IV hydration therapy services." },
   ];
   return (
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
@@ -443,7 +402,7 @@ function CTA() {
         </h2>
 
         <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          Cost should never stand between you and feeling better. Apply for Cherry in 60 seconds or call Dr. Japsharan Gill and Dr. Shabeg Gondara's office directly.
+          Cherry financing is available to help make care more accessible for certain services. Apply in minutes or call our office for details.
         </p>
 
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>

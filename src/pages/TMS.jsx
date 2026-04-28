@@ -7,13 +7,13 @@ const P={drGill:"/assets/Gill_Japsharan.jpg",drGillIn:"/assets/dr J gill-inside.
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 export default function TMS(){
-  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none",overflowX:"hidden"}}>
     <SEO
   title="TMS Therapy"
   description="FDA-cleared Transcranial Magnetic Stimulation (TMS) therapy coming soon to Tri-Valley Clinic in Fremont, CA. Non-invasive treatment for depression. No medication, no side effects. Join the waitlist."
   path="/tms-therapy"
 />
-<style>{CSS}</style><Cursor/><Hero/><Mq/><WhatIsTMS/><HowWorks/><TMSAccordions/><WhoFor/><WaitlistSec/><FAQSec/><CTA/></main>);
+<style>{CSS}</style><Cursor/><Hero/><Mq/><WhatIsTMS/><HowWorks/><WaitlistSec/><FAQSec/><CTA/></main>);
 }
 function Hero(){
   const[on,sOn]=useState(false);useEffect(()=>{setTimeout(()=>sOn(true),80);},[]);
@@ -28,9 +28,9 @@ function Hero(){
             <span className="w-2 h-2 rounded-full bg-[#C9A46A] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#C9A46A] font-bold">Coming Soon to Tri-Valley Clinic</span>
           </div>
           <h1 className={`text-[48px] md:text-[62px] xl:text-[74px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>
-            TMS Therapy.<br/><em className="italic text-[#C9A46A]">No Medication.</em><br/>No Side Effects.
+            TMS Therapy:<br/><em className="italic text-[#C9A46A]">When Depression Doesn't</em><br/>Respond to Medication.
           </h1>
-          <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>Transcranial Magnetic Stimulation (TMS) is an FDA-cleared, non-invasive treatment for treatment-resistant depression. No medication. No sedation. No systemic side effects. Launching at Tri-Valley Clinic soon — join the waitlist today.</p>
+          <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>A non-invasive, FDA-cleared treatment for depression when medication alone hasn't been effective. Offered as part of our comprehensive psychiatric care at Tri-Valley Clinic. Available soon at Tri-Valley Clinic – join the waitlist today.</p>
           <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
             <a href="#waitlist" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300">Join the Waitlist <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
             <a href="#what-is-tms" className="flex items-center gap-3 border border-[#B8925A]/50 text-[#C9A46A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300">Learn More ↓</a>
@@ -54,10 +54,32 @@ function WhatIsTMS(){
     <div ref={ref} className={`transition-all duration-800 ${v?"opacity-100 translate-x-0":"opacity-0 -translate-x-10"}`}>
       <div className="flex items-center gap-3 mb-5"><span className="w-8 h-px bg-[#B8925A]"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#B8925A] font-semibold">The Science</span></div>
       <h2 className="text-5xl md:text-6xl text-[#2C1A0E] mb-6" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.1}}>What Is <em className="italic text-[#B8925A]">TMS</em><br/>Therapy?</h2>
-      <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">Transcranial Magnetic Stimulation (TMS) uses precisely targeted magnetic pulses — similar in strength to an MRI — to stimulate nerve cells in areas of the brain associated with mood regulation. It is FDA-cleared for Major Depressive Disorder (MDD) in patients who have not responded to antidepressant medications.</p>
-      <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-8">Unlike electroconvulsive therapy (ECT), TMS requires no anesthesia, causes no memory loss, and has no systemic side effects. Patients sit comfortably in a chair, fully awake, and resume normal activities immediately after each session.</p>
-      <div className="grid grid-cols-2 gap-4">
-        {[["Non-Invasive","No surgery, no sedation, no needles"],["No Side Effects","No weight gain, no sexual dysfunction"],["Outpatient","Drive yourself home after each session"],["Covered","Most major insurance plans cover TMS"]].map(([t,s])=>(<div key={t} className="border border-[#E8D5BE] bg-[#F5EEE4] p-4"><p className="text-[#2C1A0E] font-medium text-sm mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>{t}</p><p className="text-[#7A6556] text-xs font-light">{s}</p></div>))}
+      <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">TMS (Transcranial Magnetic Stimulation) is a non-invasive treatment that uses gentle magnetic pulses to stimulate areas of the brain involved in mood regulation.</p>
+      <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-8">Treatments are done in-office while you remain awake and alert—no anesthesia, no downtime.</p>
+
+      {/* Who TMS May Help */}
+      <div className="mb-8">
+        <p className="text-[11px] tracking-[0.24em] uppercase text-[#B8925A] font-bold mb-3">Who TMS May Help</p>
+        <p className="text-[#7A6556] text-sm font-light mb-3">TMS may be appropriate for individuals experiencing:</p>
+        <ul className="space-y-2.5">
+          {["Depression that has not improved with medication","Difficulty tolerating antidepressant side effects","Ongoing symptoms despite therapy or treatment","Interest in a non-medication treatment option"].map(t=>(
+            <li key={t} className="flex items-start gap-3 text-sm text-[#7A6556] font-light">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0 mt-2"/>{t}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Potential Benefits */}
+      <div>
+        <p className="text-[11px] tracking-[0.24em] uppercase text-[#B8925A] font-bold mb-3">Potential Benefits of TMS</p>
+        <ul className="space-y-2.5">
+          {["May improve symptoms of depression","Non-medication treatment option","Well tolerated by most patients","No systemic side effects like oral medications","No downtime after sessions"].map(t=>(
+            <li key={t} className="flex items-start gap-3 text-sm text-[#7A6556] font-light">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0 mt-2"/>{t}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
     <div className={`relative transition-all duration-800 delay-200 ${v?"opacity-100 translate-x-0":"opacity-0 translate-x-10"}`}>
@@ -67,16 +89,35 @@ function WhatIsTMS(){
     </div>
   </div></section>);
 }
+
 function HowWorks(){
   const[ref,v]=useReveal();
-  const steps=[{n:"01",t:"Consultation / Prior Authorization",d:"Dr. Japsharan Gill or Dr. Shabeg Gondara evaluates your history and determines if TMS is appropriate. A prior authorization will be submitted to your insurance to get approval before starting your sessions."},{n:"02",t:"Initial Session / Brain Mapping",d:"The initial session is about 1 hour long and involves brain mapping to identify the precise treatment area unique to your physiology and initiate your very first treatment. We typically complete treatment to one side of the brain per session."},{n:"03",t:"Follow-Up Sessions",d:"The rest of your sessions will be about 20–30 mins depending on which side of the brain is receiving treatment that day. A standard TMS course involves 36 sessions over 6 weeks. You can drive yourself and return to work immediately after each session."},{n:"04",t:"Results & Maintenance",d:"Most patients begin noticing improvement in 2–4 weeks. Many complete therapy without need for maintenance, but it may be recommended for some."}];
+  const steps=[
+    {n:"01",t:"Consultation & Brain Mapping",d:"A psychiatric evaluation determines whether TMS is appropriate for you. If TMS is recommended, a prior authorization is submitted to your insurance provider before treatment begins. This process can take some time depending on your plan."},
+    {n:"02",t:"Treatment Sessions",d:"During the initial visit, a brief brain mapping session identifies the area of the brain targeted for treatment. Each session lasts approximately 20–40 minutes. A treatment coil is placed gently on the head to deliver focused magnetic pulses. You remain awake, alert, and comfortable throughout."},
+    {n:"03",t:"Treatment Schedule",d:"TMS is typically administered 5 days per week over about 6 weeks. Patients are able to drive themselves and return to normal activities immediately after each session. If time is of the essence, the frequency of these sessions are flexible to make sure you get the most out of your treatment while accommodating your schedule."},
+    {n:"04",t:"Progress & Maintenance",d:"Many patients begin noticing changes within the first few weeks of treatment. In some cases, a maintenance schedule may be recommended based on individual response."},
+  ];
   return(<section className="py-24 px-5 md:px-10" style={{background:"linear-gradient(160deg,#2C1A0E 0%,#3D2B1F 100%)"}}><div className="mx-auto max-w-7xl">
-    <div ref={ref} className="text-center mb-16"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div><h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>How TMS <em className="italic text-[#C9A46A]">Works</em></h2></div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative"><div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#B8925A]/20 via-[#B8925A]/50 to-[#B8925A]/20"/>
-    {steps.map((s,i)=>(<div key={s.n} className={`group text-center transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*140}ms`,transitionDuration:"700ms"}}><div className="relative inline-flex items-center justify-center w-24 h-24 mb-6 mx-auto"><div className="absolute inset-0 rounded-full border-2 border-[#B8925A]/30 group-hover:border-[#B8925A] transition-colors duration-500"/><div className="absolute inset-[6px] rounded-full bg-[#B8925A]/8 group-hover:bg-[#B8925A]/15 transition-all duration-500"/><span className="text-2xl text-[#C9A46A]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>{s.n}</span></div><h3 className="text-xl text-[#F0E8DA] mb-3 group-hover:text-[#C9A46A] transition-colors duration-300" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{s.t}</h3><p className="text-[#7A6556] text-sm leading-relaxed font-light max-w-[210px] mx-auto">{s.d}</p></div>))}
+    <div ref={ref} className="text-center mb-16">
+      <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
+      <h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>What to Expect <em className="italic text-[#C9A46A]">with TMS Therapy</em></h2>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative">
+      <div className="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-[#B8925A]/20 via-[#B8925A]/50 to-[#B8925A]/20"/>
+      {steps.map((s,i)=>(<div key={s.n} className={`group text-center transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*140}ms`,transitionDuration:"700ms"}}>
+        <div className="relative inline-flex items-center justify-center w-24 h-24 mb-6 mx-auto">
+          <div className="absolute inset-0 rounded-full border-2 border-[#B8925A]/30 group-hover:border-[#B8925A] transition-colors duration-500"/>
+          <div className="absolute inset-[6px] rounded-full bg-[#B8925A]/8 group-hover:bg-[#B8925A]/15 transition-all duration-500"/>
+          <span className="text-2xl text-[#C9A46A]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>{s.n}</span>
+        </div>
+        <h3 className="text-xl text-[#F0E8DA] mb-3 group-hover:text-[#C9A46A] transition-colors duration-300" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{s.t}</h3>
+        <p className="text-[#7A6556] text-sm leading-relaxed font-light max-w-[210px] mx-auto">{s.d}</p>
+      </div>))}
     </div>
   </div></section>);
 }
+
 function TMSAccordionSec(){
   const[ref,v]=useReveal();
   const[open,setOpen]=useState(null);
@@ -146,7 +187,7 @@ Call us at (510) 598-4921 and our team will verify your benefits before your fir
       <div className="mx-auto max-w-4xl">
         <div ref={ref} className="text-center mb-12">
           <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
-          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Everything You Need to <em className="italic text-[#B8925A]">Know</em></h2>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>TMS <em className="italic text-[#B8925A]">FAQs</em></h2>
           <p className={`text-[#7A6556] text-base font-light mt-4 max-w-lg mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Click any section to expand.</p>
         </div>
         <div className="space-y-3">
@@ -221,7 +262,7 @@ function WaitlistSec(){
   };
   return(<section id="waitlist" className="py-24 px-5 md:px-10" style={{background:"linear-gradient(160deg,#2C1A0E 0%,#3D2B1F 100%)"}}>
     <div className="mx-auto max-w-4xl">
-      <div ref={ref} className="text-center mb-12"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-2 h-2 rounded-full bg-[#C9A46A] animate-pulse"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#C9A46A] font-semibold">TMS Launching Soon</span></div><h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Join the <em className="italic text-[#C9A46A]">Waitlist</em></h2><p className={`text-[#A89880] text-base font-light mt-4 max-w-md mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Be among the first patients to receive TMS therapy at Tri-Valley Clinic. We'll contact you as soon as we have an opening date.</p></div>
+      <div ref={ref} className="text-center mb-12"><div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-2 h-2 rounded-full bg-[#C9A46A] animate-pulse"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#C9A46A] font-semibold">TMS Launching Soon</span></div><h2 className={`text-5xl md:text-6xl text-[#F0E8DA] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Join the <em className="italic text-[#C9A46A]">Waitlist</em></h2><p className={`text-[#A89880] text-base font-light mt-4 max-w-md mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Not sure if TMS is right for you? Our clinical team evaluates each patient individually. Join the waitlist and we'll contact you to schedule a consultation when appointments become available.</p></div>
       <div className={`border border-[#E8D5BE]/15 bg-[#F5EEE4]/5 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
         <div className="h-[3px] bg-gradient-to-r from-transparent via-[#B8925A] to-transparent"/>
         <div className="p-8 md:p-12">
@@ -240,108 +281,30 @@ function WaitlistSec(){
 }
 function FAQSec(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
-  const faqs=[{q:"Is TMS covered by insurance?",a:"Most major insurance plans, including Medicare and many commercial plans, cover TMS therapy for treatment-resistant depression. Our staff verifies coverage before you begin. Call us to check your specific plan."},{q:"Does TMS hurt?",a:"Most patients describe TMS as a tapping or knocking sensation on the scalp. Some mild headache or scalp discomfort may occur in early sessions, typically improving as treatment progresses."},{q:"How long before I see results?",a:"Many patients begin noticing mood improvements in weeks 2–4 of treatment. Some experience results earlier or later. Dr. Japsharan Gill or Dr. Shabeg Gondara monitors your progress throughout the course."},{q:"Can I have TMS and take antidepressants?",a:"Yes. TMS is often used alongside medication. Dr. Japsharan Gill or Dr. Shabeg Gondara will review your full medication list during your evaluation and determine the optimal treatment combination."},{q:"What happens after the 6-week course?",a:"Many patients experience sustained relief after completing TMS. A maintenance protocol (periodic sessions) may be recommended. Dr. Japsharan Gill or Dr. Shabeg Gondara assesses each patient's needs individually."}];
-  return(<section className="py-24 px-5 md:px-10 bg-[#F5EEE4]"><div className="mx-auto max-w-4xl"><div ref={ref} className={`text-center mb-12 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><h2 className="text-5xl md:text-6xl text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>TMS <em className="italic text-[#B8925A]">Questions</em></h2></div>
-  <div className="space-y-3">{faqs.map((f,i)=>(<div key={f.q} className={`border transition-all duration-500 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#FDFAF6]/70 hover:border-[#B8925A]/30"} ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:`${i*55}ms`,transitionDuration:"600ms"}}><button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>sOpen(open===i?null:i)}><span className="text-[15px] font-medium text-[#2C1A0E]">{f.q}</span><span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-60 pb-6":"max-h-0"}`}><p className="px-6 text-[#7A6556] text-sm leading-relaxed font-light">{f.a}</p></div></div>))}</div></div></section>);
-}
-function TMSAccordions(){
-  const[open,setOpen]=useState(null);
-  const sections=[
-    {
-      title:"How TMS Works",
-      content:`TMS sends gentle magnetic pulses to specific areas of the brain that influence mood and motivation. Most patients notice:
-
-• No anesthesia or sedation
-• Minimal side effects
-• Outpatient sessions that fit your schedule
-
-TMS is often used with medications to boost their effects, giving your treatment plan a helpful extra push.`
-    },
-    {
-      title:"What to Expect During TMS",
-      content:`We know trying something new can feel daunting. Here's what most patients experience:
-
-First Consultation: We review your medical history, current medications, and treatment goals.
-
-Comfortable Setup: You'll sit in a cozy chair while the TMS device is positioned near your head.
-
-Gentle Pulses: You'll feel a light tapping sensation — you should not be in any pain or discomfort. Most people can read, listen to music, or just relax during sessions.
-
-Structured Treatment Plan: TMS therapy typically involves about 36 sessions, usually spread over several weeks. Each session is short and outpatient, so it fits into your routine.
-
-No Downtime: Sessions usually last 20–40 minutes, and you can return to your day immediately afterward.
-
-Gradual Progress: Changes are usually noticed over several weeks. We check in regularly and adjust your plan to make sure each session is helping.
-
-Every brain is different. If you have questions about how TMS will feel for you, your provider will guide you through every step.`
-    },
-    {
-      title:"Personalized Brain Care",
-      content:`No two brains are alike, so neither is our approach. We focus on what works for you:
-
-Customized Brain Mapping — Your sessions are designed around your brain activity and personal goals, not a one-size-fits-all schedule.
-
-Integrated Support — TMS works best when combined with counseling, lifestyle guidance, and your current medications.
-
-Comfort & Convenience — From relaxing treatment rooms to flexible scheduling, every part of your experience is made to feel easy and supportive.
-
-Progress You Can See — We check in regularly and adjust your treatment so every session helps you move forward.`
-    },
-    {
-      title:"Who Can Benefit",
-      content:`TMS is FDA-cleared for treatment-resistant depression and has shown promising results for anxiety, PTSD, and other mood disorders. It's especially helpful when medications alone aren't enough, giving your brain a gentle nudge toward improvement.
-
-You may be a candidate if you:
-• Have been diagnosed with Major Depressive Disorder (MDD)
-• Have not responded adequately to one or more antidepressant medications
-• Prefer to avoid or reduce medication side effects
-• Are looking for a proven, evidence-based alternative to medication
-
-Dr. Japsharan Gill or Dr. Shabeg Gondara evaluates every patient individually during your consultation.`
-    },
-    {
-      title:"Insurance & Coverage",
-      content:`Many insurance plans cover TMS therapy, but approval and timing can vary. Some patients may need prior authorization or a few weeks to coordinate coverage.
-
-At Tri-Valley Clinic, we'll help you navigate the insurance process and answer any questions along the way, so you know what to expect before starting treatment.
-
-Tip: Bringing your insurance information to your consultation can speed up the process.
-
-Call us at (510) 598-4921 to verify your coverage before your first appointment.`
-    },
+  const faqs=[
+    {q:"Does TMS hurt?",a:"Most patients describe the sensation as a light tapping or clicking on the scalp. It is generally well tolerated, though mild discomfort or sensitivity may occur during the first few sessions. This usually improves as you adjust to treatment."},
+    {q:"Can I continue taking my medications during TMS therapy?",a:"Yes. Most patients continue their current psychiatric medications during TMS treatment. Your provider will review your medications during your evaluation and make recommendations based on your individual care plan."},
+    {q:"Will insurance cover TMS therapy?",a:"If TMS is recommended, our team will submit a prior authorization request to your insurance provider. Approval is required before treatment begins, and timing varies depending on your plan."},
+    {q:"How long does it take to start treatment?",a:"After your evaluation, treatment begins once insurance authorization is approved. The timeline varies depending on your insurance provider."},
+    {q:"When will I start to feel results?",a:"Many patients begin noticing improvements within the first few weeks of treatment, though response varies from person to person."},
+    {q:"What happens after I finish treatment?",a:"Some patients maintain their improvement after the initial course, while others may benefit from maintenance sessions depending on their response and clinical recommendations."},
   ];
-  const[ref,v]=useReveal();
-  return(
-    <section className="py-24 px-5 md:px-10 bg-[#FDFAF6]">
-      <div className="mx-auto max-w-4xl">
-        <div ref={ref} className="text-center mb-12">
-          <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
-          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Everything You Need to <em className="italic text-[#B8925A]">Know</em></h2>
-        </div>
-        <div className={`space-y-2 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
-          {sections.map((s,i)=>(
-            <div key={s.title} className={`border transition-all duration-300 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#F5EEE4] hover:border-[#B8925A]/30"}`}>
-              <button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>setOpen(open===i?null:i)}>
-                <span className="text-[17px] font-medium text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{s.title}</span>
-                <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </span>
-              </button>
-              <div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-[600px] pb-6":"max-h-0"}`}>
-                <div className="px-6">
-                  {s.content.split("\n\n").map((para,pi)=>(
-                    <p key={pi} className="text-[#7A6556] text-sm leading-relaxed font-light mb-3 last:mb-0 whitespace-pre-line">{para}</p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+  return(<section className="py-24 px-5 md:px-10 bg-[#F5EEE4]"><div className="mx-auto max-w-4xl">
+    <div ref={ref} className={`text-center mb-12 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
+      <div className="flex items-center justify-center gap-3 mb-5"><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
+      <h2 className="text-5xl md:text-6xl text-[#2C1A0E]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>TMS <em className="italic text-[#B8925A]">FAQs</em></h2>
+    </div>
+    <div className="space-y-3">{faqs.map((f,i)=>(
+      <div key={f.q} className={`border transition-all duration-500 ${open===i?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#FDFAF6]/70 hover:border-[#B8925A]/30"} ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:`${i*55}ms`,transitionDuration:"600ms"}}>
+        <button className="w-full flex items-center justify-between px-6 py-5 text-left gap-4" onClick={()=>sOpen(open===i?null:i)}>
+          <span className="text-[15px] font-medium text-[#2C1A0E]">{f.q}</span>
+          <span className={`flex-shrink-0 w-7 h-7 border flex items-center justify-center transition-all duration-300 ${open===i?"border-[#B8925A] bg-[#B8925A] text-[#FDFAF6] rotate-45":"border-[#E8D5BE] text-[#B8925A]"}`}><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div className={`overflow-hidden transition-all duration-400 ${open===i?"max-h-60 pb-6":"max-h-0"}`}><p className="px-6 text-[#7A6556] text-sm leading-relaxed font-light">{f.a}</p></div>
       </div>
-    </section>
-  );
+    ))}</div>
+  </div></section>);
 }
-
 
 function CTA(){
   const[ref,v]=useReveal();

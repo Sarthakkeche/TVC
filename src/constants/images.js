@@ -37,6 +37,9 @@ const IMAGES = {
   BG_SHADOW_3: "/assets/counsalting.jpg",
   BG_MICHELLE: "/assets/dr J gill-inside.jpg",
 
+  // ── SERVICE PHOTOS ────────────────────────────────────────────────
+  WEIGHT_LOSS_BG:     "/assets/weightloss-bg.jpg",      // ✅ weight loss room with scale
+
   // ── LOGO ──────────────────────────────────────────────────────────
   LOGO: "/assets/tri-valley-logo-header.png",
 };

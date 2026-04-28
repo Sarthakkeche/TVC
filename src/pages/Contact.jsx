@@ -9,10 +9,10 @@ function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);us
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 
 export default function Contact(){
-  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",overflowX:"hidden",cursor:"none"}}>
     <SEO
   title="Contact Us"
-  description="Contact Tri-Valley Clinic in Fremont, CA. Call (510) 598-4921 to schedule a free 15-minute consultation. Accepting new patients for psychiatry, weight loss, IV hydration, and TMS therapy."
+  description="Contact Tri-Valley Clinic in Fremont, CA. Call (510) 598-4921 to schedule an appointment. Accepting new patients for psychiatry, weight loss, IV hydration, and TMS therapy."
   path="/contact"
 />
 <style>{CSS}</style><Cursor/><Hero/><Marquee/><MainSection/><PhotoRow/><MapSection/><FAQ/><CTA/></main>);
@@ -39,13 +39,13 @@ function Hero(){
       <div className="relative mx-auto max-w-7xl w-full px-5 md:px-10 xl:px-16 pb-20 pt-32 grid grid-cols-1 lg:grid-cols-2 gap-10 items-end">
         <div>
           <div className={`inline-flex items-center gap-2.5 border border-[#B8925A]/40 bg-[#B8925A]/8 px-4 py-2 mb-7 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"100ms"}}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Mon–Fri · 9:30 AM–5:30 PM · Same-Day Response</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/><span className="text-[10px] tracking-[0.24em] uppercase text-[#B8925A] font-semibold">Mon–Fri · 9:30 AM–5:30 PM</span>
           </div>
           <h1 className={`text-[50px] md:text-[66px] xl:text-[78px] text-[#F0E8DA] leading-[0.98] mb-5 transition-all duration-900 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,transitionDelay:"200ms"}}>
             Let's Start<br/><em className="italic text-[#C9A46A]">Your Journey.</em>
           </h1>
           <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>
-            Reach out by phone, email, or form below. Dr. Gill and Dr. Gondara's team responds same-day. Your first consultation is completely free.
+            Reach out to our office by phone, email, or form below. Our team will get to your inquiry in a timely manner during our business hours.
           </p>
           <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"560ms"}}>
             {[
@@ -53,9 +53,9 @@ function Hero(){
               {icon:<Mail/>, val:"contact@trivalleyclinic.com",lab:"Email Us", href:"mailto:contact@trivalleyclinic.com"},
               {icon:<Clock/>,val:"Mon–Fri 9:30–5:30",         lab:"Hours",    href:"#map"},
             ].map(i=>(
-              <a key={i.lab} href={i.href} className="group flex items-center gap-3 bg-[#FDFAF6]/8 border border-[#E8D5BE]/15 px-4 py-3.5 hover:bg-[#FDFAF6]/15 hover:border-[#B8925A]/30 transition-all duration-300">
+              <a key={i.lab} href={i.href} className="group flex items-center gap-3 bg-[#FDFAF6]/8 border border-[#E8D5BE]/15 px-3 py-3.5 hover:bg-[#FDFAF6]/15 hover:border-[#B8925A]/30 transition-all duration-300 min-w-0">
                 <div className="text-[#B8925A] flex-shrink-0">{i.icon}</div>
-                <div><p className="text-[8px] tracking-[0.18em] uppercase text-[#A89880]/60">{i.lab}</p><p className="text-[#E8D5BE] text-xs font-medium truncate">{i.val}</p></div>
+                <div><p className="text-[8px] tracking-[0.18em] uppercase text-[#A89880]/60">{i.lab}</p><p className="text-[#E8D5BE] text-[11px] font-medium break-all leading-tight">{i.val}</p></div>
               </a>
             ))}
           </div>
@@ -71,7 +71,7 @@ function Hero(){
 }
 
 function Marquee(){
-  const items=["Free Consultation","Same-Day Response","Next-Day Appointments","Accepting New Patients","Telehealth Statewide CA","Insurance Verified Free","Cherry Financing Available","Mon–Fri 9:30–5:30 PM","680 Mowry Ave · Fremont","Dr. Gill & Dr. Gondara"];
+  const items=["Schedule today","Next-Day Appointments","Accepting New Patients","Accepting New Patients","Telehealth Statewide CA","Insurance Verified Free","Cherry Financing Available","Mon–Fri 9:30–5:30 PM","680 Mowry Ave · Fremont","Dr. Gill & Dr. Gondara"];
   const rep=[...items,...items];
   return(<div className="bg-[#2C1A0E] py-3.5 overflow-hidden"><div className="flex whitespace-nowrap" style={{animation:"marquee 36s linear infinite",width:"max-content"}}>{rep.map((t,i)=><span key={i} className="inline-flex items-center gap-3 text-[#E8D5BE]/60 text-[10px] tracking-[0.22em] uppercase font-medium px-3">{t}<Dm/></span>)}</div></div>);
 }
@@ -132,7 +132,7 @@ function MainSection(){
             <h2 className="text-5xl md:text-[56px] text-[#2C1A0E] mb-4" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.08}}>
               We'd Love to<br/><em className="italic text-[#B8925A]">Hear From You.</em>
             </h2>
-            <p className="text-[#7A6556] text-base font-light leading-relaxed mb-10">Dr. Gill and Dr. Gondara's team responds same-day during business hours.</p>
+            <p className="text-[#7A6556] text-base font-light leading-relaxed mb-10">Our team will be in touch during business hours.</p>
             <div className="space-y-4">
               <InfoCard icon={<Ph/>} label="Phone"><a href="tel:5105984921" className="text-[#2C1A0E] font-medium hover:text-[#B8925A] transition-colors">(510) 598-4921</a><p className="text-[#7A6556] text-xs font-light mt-0.5">Mon–Fri · 9:30 AM – 5:30 PM</p></InfoCard>
               <InfoCard icon={<Mail/>} label="Email"><a href="mailto:contact@trivalleyclinic.com" className="text-[#2C1A0E] font-medium hover:text-[#B8925A] transition-colors text-sm">contact@trivalleyclinic.com</a><p className="text-[#7A6556] text-xs font-light mt-0.5">We respond within one business day</p></InfoCard>
@@ -192,7 +192,7 @@ function MainSection(){
               </div>
             </div>
             <div className="mt-5 flex items-center gap-4"><span className="flex-1 h-px bg-[#E8D5BE]"/><span className="text-[10px] tracking-[0.2em] uppercase text-[#7A6556]/50 flex-shrink-0">or call directly</span><span className="flex-1 h-px bg-[#E8D5BE]"/></div>
-            <a href="tel:5105984921" className="group mt-5 flex items-center justify-center gap-3 border-2 border-[#B8925A] text-[#B8925A] py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] hover:text-[#FDFAF6] transition-all duration-300"><Ph/> (510) 598-4921 — Free Consultation</a>
+            <a href="tel:5105984921" className="group mt-5 flex items-center justify-center gap-3 border-2 border-[#B8925A] text-[#B8925A] py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] hover:text-[#FDFAF6] transition-all duration-300"><Ph/> (510) 598-4921 — Schedule today</a>
           </div>
         </div>
       </div>
@@ -279,12 +279,11 @@ function FAQ(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
   const faqs=[
     {q:"How do I book my first appointment?",              a:"Call us at (510) 598-4921 or submit the contact form above. Our front desk team will verify your insurance, discuss your needs, and schedule your first appointment — next-day availability for most patients."},
-    {q:"Is my first consultation really free?",            a:"Yes. Dr. Gill offers a complimentary 15-minute phone consultation to all new patients. This is a genuine conversation about your needs — no sales pitch, no obligation to book."},
     {q:"How long does a typical appointment last?",        a:"Initial psychiatric evaluations are typically 45–60 minutes. Follow-up appointments for medication management are usually 20–30 minutes. IV Hydration sessions take approximately 45–60 minutes."},
-    {q:"Do you accept walk-ins?",                          a:"We operate by appointment only to ensure every patient receives Dr. Gill's and Dr. Gondara's full attention. We offer next-day appointments and same-day scheduling when availability permits."},
-    {q:"Do you offer telehealth appointments?",            a:"Yes. Dr. Gill and Dr. Gondara offer secure telehealth appointments for all psychiatric services, available to patients anywhere in California."},
+    {q:"Do you accept walk-ins?",                          a:"We operate by appointment only to ensure each patient receives focused, individualized care. We offer next-day appointments for initial consultations. Same-day appointments may be available depending on urgency and provider availability. You are more than welcome to walk in for any other inquiries."},
+    {q:"Do you offer telehealth appointments?",            a:"Yes, our providers offer secure telehealth appointments for most psychiatric services, available to all patients in California."},
     {q:"What should I bring to my first appointment?",     a:"Please bring a valid photo ID, your insurance card, a list of any current medications, and any prior psychiatric or medical records you feel are relevant. Arrive 10 minutes early to complete intake forms."},
-    {q:"How quickly will someone respond to my message?",  a:"Our team responds to all contact form submissions within one business day. For same-day responses, call us directly at (510) 598-4921 during business hours."},
+    {q:"How quickly will someone respond to my message?",  a:"Our team responds to all contact form submissions within one business day. For faster responses, call us directly at (510) 598-4921 during business hours."},
   ];
   return(
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
@@ -340,8 +339,8 @@ function CTA(){
           </div>
         </div>
         <div className={`flex items-center justify-center gap-3 mb-6 transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-16 h-px bg-[#B8925A]/40"/><Dm/><span className="w-16 h-px bg-[#B8925A]/40"/></div>
-        <h2 className={`text-5xl md:text-[64px] text-[#2C1A0E] mb-5 transition-all duration-700 delay-150 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.05}}>Your First Call<br/><em className="italic text-[#B8925A]">Is Always Free.</em></h2>
-        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>15 minutes with Dr. Gill — no commitment, no pressure. Just a genuine conversation about how Tri-Valley Clinic can help you.</p>
+        <h2 className={`text-5xl md:text-[64px] text-[#2C1A0E] mb-5 transition-all duration-700 delay-150 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.05}}>Connect With<br/><em className="italic text-[#B8925A]">Our Team.</em></h2>
+        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>Reach out to our office by phone or send us a message. Our team is here to help guide you to the right next step.</p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
           <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400"><Ph/> Call (510) 598-4921 <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
           <a href="#form" className="flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300">Use the Form Above ↑</a>

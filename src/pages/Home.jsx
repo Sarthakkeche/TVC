@@ -72,7 +72,7 @@ export default function Home() {
     <main style={{ fontFamily: "'Jost', sans-serif", background: "#FDFAF6", cursor: "none" }}>
       <SEO
   title="Tri-Valley Clinic | Psychiatry & Wellness | Fremont, CA"
-  description="Board-certified psychiatry, medical weight loss, IV hydration, and TMS therapy in Fremont, CA. Led by Dr. Japsharan Gill and Dr. Shabeg Gondara. Accepting new patients. Free 15-minute consultation."
+  description="Board-certified psychiatry, medical weight loss, IV hydration, and TMS therapy in Fremont, CA. Led by Dr. Japsharan Gill and Dr. Shabeg Gondara. Accepting new patients."
   path="/"
 />
       <style>{CSS}</style>
@@ -87,7 +87,6 @@ export default function Home() {
       <ClinicStripSection />
       <DoctorSpotlight />
       <ConsultBand />
-      <WhyUsSection />
       <ServiceMiniSpotlight />
       <TestimonialsSection />
       <InsuranceSection />
@@ -154,7 +153,7 @@ function HeroSection() {
     return ()=>{cancelAnimationFrame(raf);window.removeEventListener("resize",resize);};
   }, []);
 
-  const words = ["Where","Healing","Meets","Luxury."];
+  const words = ["Elevated ","Care","for the ","Mind and Body."];
 
   return (
     <section className="relative overflow-hidden" style={{height:"100svh",minHeight:620}}>
@@ -257,14 +256,14 @@ function HeroSection() {
             </a>
             <a href="/contact"
               className="flex items-center justify-center gap-2 border border-[#B8925A]/50 text-[#C9A46A] px-5 py-3.5 text-[9px] font-bold tracking-[0.22em] uppercase hover:border-[#B8925A] transition-colors duration-300 flex-1">
-              Free Consult
+              Schedule today
             </a>
           </div>
 
           {/* Trust row */}
           <div className={`flex gap-5 mt-4 pt-4 border-t border-[#B8925A]/15 transition-all duration-700 ${phase>=4?"opacity-100":"opacity-0"}`}
             style={{transitionDelay:"850ms"}}>
-            {[{n:"15+",l:"Yrs"},{n:"Free",l:"Consult"},{n:"5★",l:"Rating"},{n:"CA",l:"Telehealth"}].map(t=>(
+            {[{n:"15+",l:"Yrs"},{n:"2",l:"Physicians"},{n:"5★",l:"Rating"},{n:"CA",l:"Telehealth"}].map(t=>(
               <div key={t.l} className="flex items-baseline gap-1">
                 <span className="text-base text-[#B8925A]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{t.n}</span>
                 <span className="text-[7px] tracking-[0.14em] uppercase text-[#7A6556]">{t.l}</span>
@@ -338,13 +337,13 @@ function HeroSection() {
             </a>
             <a href="/contact"
               className="flex items-center gap-2 border border-[#B8925A]/40 text-[#C9A46A] px-7 py-3.5 text-[10px] font-bold tracking-[0.22em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/8 transition-all duration-300">
-              Free Consultation
+              Schedule Today
             </a>
           </div>
 
           <div className={`flex flex-wrap gap-5 transition-all duration-700 ${phase>=4?"opacity-100":"opacity-0"}`}
             style={{transitionDelay:"1000ms"}}>
-            {[{n:"15+",l:"Yrs Exp"},{n:"Free",l:"Consult"},{n:"5★",l:"Rating"},{n:"CA",l:"Telehealth"}].map(t=>(
+            {[{n:"15+",l:"Yrs Exp"},{n:"2",l:"Physicians"},{n:"5★",l:"Rating"},{n:"CA",l:"Telehealth"}].map(t=>(
               <div key={t.l} className="flex items-baseline gap-1.5">
                 <p className="text-xl text-[#B8925A]" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{t.n}</p>
                 <p className="text-[8px] tracking-[0.16em] uppercase text-[#7A6556]">{t.l}</p>
@@ -388,7 +387,7 @@ function HeroSection() {
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <div className="flex items-center gap-1.5 mb-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/>
-                  <span className="text-[8px] tracking-[0.18em] uppercase text-[#6B7C5E] font-semibold">Available Today</span>
+                  <span className="text-[8px] tracking-[0.18em] uppercase text-[#6B7C5E] font-semibold">Accepting Patients</span>
                 </div>
                 <p className="text-[#F0E8DA] text-[11px]" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Japsharan Gill</p>
                 <p className="text-[#F0E8DA] text-[11px]" style={{fontFamily:"'Cormorant Garamond',serif"}}>&amp; Dr. Shabeg Gondara</p>
@@ -420,7 +419,7 @@ function HeroSection() {
 }
 
 function MarqueeTicker() {
-  const items=["Psychiatric Care","Medical Weight Loss","GLP-1 Therapy","IV Hydration","TMS Therapy","Telehealth · Statewide CA","ADHD","Anxiety & Depression","Free 15-Min Consultation","Next-Day Appointments","Dr. Gill & Dr. Gondara","Fremont, California"];
+  const items=["Psychiatric Care","Medical Weight Loss","GLP-1 Therapy","IV Hydration","TMS Therapy","Telehealth · Statewide CA","ADHD","Anxiety & Depression","Next-Day Appointments","Dr. Gill & Dr. Gondara","Fremont, California"];
   const rep=[...items,...items];
   return(<div className="bg-[#2C1A0E] py-3.5 overflow-hidden"><div className="flex whitespace-nowrap" style={{ animation:"marquee 38s linear infinite",width:"max-content" }}>{rep.map((t,i)=><span key={i} className="inline-flex items-center gap-3 text-[#E8D5BE]/70 text-[10px] tracking-[0.22em] uppercase font-medium px-2">{t}<Dm/></span>)}</div></div>);
 }
@@ -472,10 +471,10 @@ function ExperienceSection() {
               <p className="text-[9px] tracking-[0.3em] uppercase text-[#C9A46A] font-semibold mb-3">A Space Designed for Healing</p>
               <h2 className="text-[#F0E8DA] text-4xl md:text-[44px] leading-[1.08] mb-3"
                 style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>
-                Luxury Care<br/><em className="italic text-[#C9A46A]">Reimagined</em>
+                For your<br/><em className="italic text-[#C9A46A]">wellbeing.</em>
               </h2>
               <p className="text-[#A89880] text-sm leading-relaxed max-w-[340px] font-light">
-                A clinic designed like a sanctuary — where the environment itself is part of the healing.
+                A space designed to support your mental and physical wellbeing.
               </p>
             </div>
           </div>
@@ -491,7 +490,7 @@ function ExperienceSection() {
                 {[
                   {n:"15+",  l:"Years of Practice"},
                   {n:"2",    l:"Physicians on Staff"},
-                  {n:"Free", l:"First Consultation"},
+                  {n:"CA",   l:"Telehealth Statewide"},
                   {n:"CA",   l:"Telehealth Statewide"},
                 ].map((s)=>(
                   <div key={s.l}>
@@ -576,8 +575,8 @@ function ServicesSection() {
   const [ref,vis]=useReveal();
   const svcs=[
     { title:"Psychiatric Services",    sub:"Comprehensive Mental Health Care",  img:IMAGES.DR_GILL_CARD,     tag:"Core",         href:"/psychiatry",  desc:"Anxiety, depression, ADHD, PTSD, bipolar disorder — precise diagnosis and personalized treatment.",          accent:"#C9A46A" },
-    { title:"Medical Weight Loss",     sub:"GLP-1 / Semaglutide Programs",      img:IMAGES.DR_GILL_HERO_2,   tag:"Now Available", href:"/medical-weight-loss",  desc:"Physician-supervised weight loss with FDA-approved GLP-1 medications, monitored by Dr. Gill or Dr. Gondara personally.", accent:"#B8925A" },
-    { title:"IV Hydration Therapy",    sub:"Restore · Revive · Rehydrate",      img:IMAGES.CLINIC_TABLE,     tag:"Unique",        href:"/iv-hydration", desc:"Premium IV nutrient therapy in a spa-like setting — tailored formulas for energy, immunity, and wellness.", accent:"#A8C59A" },
+    { title:"Medical Weight Loss",     sub:"GLP-1 / Semaglutide Programs",      img:"/assets/weightloss-bg.jpg", tag:"Now Available", href:"/medical-weight-loss",  desc:"Physician-led weight loss program tailored to your needs. Structured, evidence-based care with medical oversight.", accent:"#B8925A" },
+    { title:"IV Hydration Therapy",    sub:"Restore · Revive · Rehydrate",      img:IMAGES.CLINIC_TABLE,     tag:"Unique",        href:"/iv-hydration", desc:"First psychiatric clinic in Fremont offering premium IV nutrient therapy supervised by our trusted team of licensed clinicians.", accent:"#A8C59A" },
     { title:"TMS Therapy",             sub:"Non-Invasive · No Side Effects",    img:IMAGES.CLINIC_CHAIRS,    tag:"Coming Soon",   href:"/tms-therapy",          desc:"FDA-cleared transcranial magnetic stimulation for treatment-resistant depression. Launching soon.",          accent:"#C9A46A" },
   ];
   return(
@@ -634,11 +633,11 @@ function SpotlightSection() {
   const INTERVAL = 5200;
 
   const SVCS = [
-    { n:"01", title:"Psychiatric Care",    tag:"Mental Health",     sub:"Anxiety · Depression · ADHD · PTSD · Bipolar · OCD",           stat:"Free Consult",    href:"/psychiatry",  img: IMAGES.DR_GONDARA_WORKING, imgPos:"center 15%", color:"#C9A46A" },
-    { n:"02", title:"Medical Weight Loss", tag:"GLP-1 Therapy",     sub:"Physician-Supervised · Semaglutide & Tirzepatide",              stat:"Now Available",   href:"/medical-weight-loss",  img: IMAGES.BOTH_OUTDOOR,       imgPos:"center 10%", color:"#B8925A" },
+    { n:"01", title:"Psychiatric Care",    tag:"Mental Health",     sub:"Anxiety · Depression · ADHD · PTSD · Bipolar · OCD",           stat:"Accepting New Patients", href:"/psychiatry",  img: IMAGES.DR_GONDARA_WORKING, imgPos:"center 15%", color:"#C9A46A" },
+    { n:"02", title:"Medical Weight Loss", tag:"GLP-1 Therapy",     sub:"Physician-Supervised · Semaglutide & Tirzepatide",              stat:"Now Available",   href:"/medical-weight-loss",  img: IMAGES.BOTH_OUTDOOR,       imgPos:"center 10%", color:"#B8925A", desc:"Physician-led weight loss program tailored to your needs. Structured, evidence-based GLP-1 care with medical oversight." },
     { n:"03", title:"IV Hydration",        tag:"Wellness Infusion", sub:"12 Custom Drip Formulas · Energy · Immunity · Glow · Recovery", stat:"Walk-In Welcome", href:"/iv-hydration", img: "/assets/iv-img.jpg",      imgPos:"center 30%", color:"#A8C59A" },
     { n:"04", title:"TMS Therapy",         tag:"Brain Stimulation", sub:"FDA-Cleared · Non-Invasive · No Medication · No Side Effects",  stat:"Join Waitlist",   href:"/tms-therapy",          img: "/assets/tms-img.jpg",     imgPos:"center 40%", color:"#C9A46A" },
-    { n:"05", title:"Telehealth",          tag:"Virtual Care",      sub:"Secure HIPAA Video · All Psychiatric Services · All of CA",    stat:"Available Today", href:"/telehealth",   img: IMAGES.BOTH_ARMS_CROSSED,  imgPos:"center top",  color:"#B8925A" },
+    { n:"05", title:"Telehealth",          tag:"Virtual Care",      sub:"Secure HIPAA Video · All Psychiatric Services · All of CA",    stat:"Statewide CA", href:"/telehealth",   img: IMAGES.BOTH_ARMS_CROSSED,  imgPos:"center top",  color:"#B8925A" },
   ];
 
   useEffect(() => {
@@ -762,7 +761,7 @@ function SpotlightSection() {
         <div className="mt-7 pt-5 border-t border-[#E8D5BE]">
           <a href="/contact"
             className="group flex items-center justify-center gap-3 w-full bg-[#2C1A0E] text-[#F0E8DA] py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400 mb-2">
-            <Ph/> Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+            <Ph/> Schedule today <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
           </a>
           <p className="text-[8px] text-center text-[#7A6556]/50 tracking-wider mt-2">Next-day available · Most insurance accepted</p>
         </div>
@@ -803,14 +802,15 @@ function DrGillSection() {
               </div>
             </div>
 
-            {/* Floating both-doctors card */}
-            <div className="absolute -bottom-10 right-0 md:-right-6 w-[180px] md:w-[210px] overflow-hidden border-[3px] border-[#FDFAF6] shadow-[0_20px_60px_rgba(44,26,14,0.18)] z-10"
-              style={{height:"250px",animation:"floatBadge 5s ease-in-out infinite"}}>
+            {/* Floating both-doctors card — bigger per client request */}
+            <div className="absolute -bottom-12 right-0 md:-right-8 w-[220px] md:w-[280px] overflow-hidden border-[3px] border-[#FDFAF6] shadow-[0_24px_64px_rgba(44,26,14,0.22)] z-10"
+              style={{height:"320px",animation:"floatBadge 5s ease-in-out infinite"}}>
               <img src={IMAGES.BOTH_OUTDOOR} alt="Dr. Japsharan Gill and Dr. Shabeg Gondara"
-                className="w-full h-full object-cover object-top"/>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/60 to-transparent"/>
-              <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
-                <p className="text-[8px] tracking-[0.2em] uppercase text-[#E8D5BE]/80">Dr. Japsharan Gill & Dr. Shabeg Gondara</p>
+                className="w-full h-full object-cover" style={{objectPosition:"center 12%"}}/>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2C1A0E]/75 to-transparent"/>
+              <div className="absolute bottom-0 left-0 right-0 px-4 py-4">
+                <p className="text-[9px] tracking-[0.18em] uppercase text-[#C9A46A] font-semibold mb-0.5">Our Physicians</p>
+                <p className="text-[10px] text-[#E8D5BE]/80" style={{fontFamily:"'Cormorant Garamond',serif"}}>Dr. Japsharan Gill & Dr. Shabeg Gondara</p>
               </div>
             </div>
 
@@ -829,11 +829,25 @@ function DrGillSection() {
               <span className="w-8 h-px bg-[#B8925A]"/>
               <span className="text-[10px] tracking-[0.28em] uppercase text-[#B8925A] font-semibold">Meet the Team</span>
             </div>
-            <h2 className="text-[#2C1A0E] text-5xl md:text-6xl leading-[1.08] mb-2" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>
-              Dr. Japsharan<br/><em className="italic text-[#B8925A]">Gill, MD</em>
-            </h2>
-            <p className="text-[11px] tracking-[0.24em] uppercase text-[#7A6556] mb-1 font-medium">Founder & CEO</p>
-            <p className="text-[11px] tracking-[0.24em] uppercase text-[#7A6556]/60 mb-8 font-medium">& Dr. Shabeg Gondara · President</p>
+            {/* Both doctors — equal weight */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:gap-8 mb-8">
+              {/* Dr. Gill */}
+              <div className="flex-1">
+                <h2 className="text-[#2C1A0E] text-4xl md:text-5xl leading-[1.08] mb-1" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>
+                  Dr. Japsharan<br/><em className="italic text-[#B8925A]">Gill, MD</em>
+                </h2>
+                <p className="text-[10px] tracking-[0.22em] uppercase text-[#7A6556] font-semibold">Founder & CEO</p>
+              </div>
+              {/* Divider */}
+              <div className="hidden sm:block w-px self-stretch bg-[#E8D5BE] mx-2 mt-1" />
+              {/* Dr. Gondara */}
+              <div className="flex-1 mt-4 sm:mt-0">
+                <h2 className="text-[#2C1A0E] text-4xl md:text-5xl leading-[1.08] mb-1" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>
+                  Dr. Shabeg<br/><em className="italic text-[#B8925A]">Gondara, MD</em>
+                </h2>
+                <p className="text-[10px] tracking-[0.22em] uppercase text-[#7A6556] font-semibold">President</p>
+              </div>
+            </div>
 
             <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">
               I built Tri-Valley Clinic for people who wanted more than a quick appointment and a prescription — for people who wanted a physician who actually listens.
@@ -859,7 +873,7 @@ function DrGillSection() {
 
             <div className="flex flex-wrap gap-4">
               <a href="/contact" className="group inline-flex items-center gap-3 border border-[#B8925A] text-[#B8925A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] hover:text-[#FDFAF6] transition-all duration-300">
-                <Ph/> Free Consultation <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                <Ph/> Schedule today <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </a>
               <a href="/about" className="flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#7A6556] hover:text-[#B8925A] transition-colors duration-300 px-4 py-4">
                 Meet the Team ↗
@@ -1003,7 +1017,7 @@ function DoctorSpotlight() {
                 Full Biography <span className="group-hover:translate-x-1 transition-transform">→</span>
               </a>
               <a href="/contact" className="inline-flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A]/5 hover:border-[#B8925A] transition-all duration-300">
-                <Ph/> Book Free Consult
+                <Ph/> Schedule Today
               </a>
             </div>
           </div>
@@ -1018,45 +1032,33 @@ function DoctorSpotlight() {
 
 function ConsultBand() {
   const [ref,vis]=useReveal();
-  const [slot,setSlot]=useState(3);
-  // Simulate "spots" countdown for urgency
-  useEffect(()=>{
-    const id=setInterval(()=>setSlot(s=>s>1?s-1:3),8000);
-    return()=>clearInterval(id);
-  },[]);
   return(
     <section className="relative py-20 px-5 md:px-10 overflow-hidden" style={{background:"linear-gradient(110deg,#2C1A0E 0%,#3D2B1F 55%,#B8925A 150%)"}}>
       <div className="absolute inset-0 opacity-[0.05]" style={{backgroundImage:`url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23B8925A'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")`}}/>
 
       <div ref={ref} className={`mx-auto max-w-7xl transition-all duration-700 ${vis?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
 
-        {/* Top availability strip */}
+        {/* Top strip — hours only */}
         <div className="flex flex-wrap items-center gap-4 mb-8 pb-6 border-b border-[#B8925A]/20">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#6B7C5E] animate-pulse"/>
-            <span className="text-[9px] tracking-[0.24em] uppercase text-[#6B7C5E] font-semibold">Available Today</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#6B7C5E] animate-pulse"/>
+            <span className="text-[9px] tracking-[0.24em] uppercase text-[#6B7C5E] font-semibold">Accepting New Patients</span>
           </div>
           <span className="w-px h-3 bg-[#B8925A]/30"/>
-          <div className="flex items-center gap-2">
-            <span className="text-[9px] tracking-[0.2em] uppercase text-[#C9A46A]">
-              {slot} consultation slot{slot!==1?"s":""} remaining today
-            </span>
-          </div>
-          <span className="w-px h-3 bg-[#B8925A]/30 hidden sm:block"/>
-          <span className="hidden sm:block text-[9px] tracking-[0.2em] uppercase text-[#7A6556]">Mon–Fri · 9:30 AM – 5:30 PM</span>
-          <span className="hidden md:block w-px h-3 bg-[#B8925A]/30"/>
+          <span className="text-[9px] tracking-[0.2em] uppercase text-[#7A6556]">Mon–Fri · 9:30 AM – 5:30 PM</span>
+          <span className="w-px h-3 bg-[#B8925A]/30 hidden md:block"/>
           <span className="hidden md:block text-[9px] tracking-[0.2em] uppercase text-[#7A6556]">Telehealth Available Statewide CA</span>
         </div>
 
         {/* Main content */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           <div className="max-w-2xl">
-            <p className="text-[10px] tracking-[0.28em] uppercase text-[#C9A46A]/60 mb-4">No Commitment · Completely Free</p>
+            <p className="text-[10px] tracking-[0.28em] uppercase text-[#C9A46A]/60 mb-4">Accepting New Patients · Fremont, CA</p>
             <h2 className="text-[#F0E8DA] text-4xl md:text-5xl lg:text-6xl leading-[1.05] mb-4" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>
               Your healing journey begins<br/>with a single <em className="italic text-[#C9A46A]">phone call.</em>
             </h2>
             <p className="text-[#A89880] text-base font-light mb-0">
-              Dr. Japsharan Gill and Dr. Shabeg Gondara offer a free 15-minute consultation to every new patient — a genuine conversation, not a sales pitch.
+              Our team is always here to assist you. We're just a call away to answer any questions or help you schedule your appointment—no pressure, just genuine care and support.
             </p>
           </div>
 
@@ -1079,9 +1081,9 @@ function ConsultBand() {
 function WhyUsSection() {
   const [ref,vis]=useReveal();
   const items=[
-    { icon:"💬", num:"Free",  numSub:"Consultation",  title:"15-Minute Free Call",   text:"A genuine consultation before you commit — no pressure, no obligation. We want to ensure we're the right fit for you.",    cta:"Book Free Call",href:"/contact" },
-    { icon:"📅", num:"Next",  numSub:"Day Available",  title:"Next-Day Scheduling",   text:"Once insurance is verified, next-day availability for in-person and telehealth visits. No waitlists. No months of delay.",  cta:"Check Availability",href:"tel:5105984921" },
-    { icon:"💳", num:"Most",  numSub:"Plans Accepted", title:"Insurance Accepted",    text:"We accept most major insurance plans. Cherry financing also available for out-of-pocket needs — apply in 60 seconds.",      cta:"Verify Insurance",href:"/insurance" },
+    { icon:"💬", num:"Call",  numSub:"Us Today",      title:"Schedule Your Visit",   text:"Contact our office by phone or form. We'll verify your insurance and work to get you scheduled for a next-day or same-day appointment.",    cta:"Call Now",href:"tel:5105984921" },
+    { icon:"📅", num:"Next",  numSub:"Day Available",  title:"Next-Day Scheduling",   text:"Once insurance is verified, next-day availability for in-person and telehealth visits. We work to accommodate your schedule.",  cta:"Check Availability",href:"tel:5105984921" },
+    { icon:"💳", num:"Most",  numSub:"Plans Accepted", title:"Insurance Accepted",    text:"We accept most major insurances for our psychiatry services including TMS and Telehealth. Cherry financing available for wellness services — apply in seconds.",      cta:"Verify Insurance",href:"/insurance" },
     { icon:"📍", num:"1",     numSub:"Dedicated Clinic",title:"One Beautiful Location",text:"680 Mowry Ave, Fremont — one dedicated space where every resource is focused entirely on your care and comfort.",           cta:"Get Directions",href:"https://maps.google.com/?q=680+Mowry+Ave+Fremont+CA" },
     { icon:"🖥️", num:"58+",  numSub:"CA Cities",       title:"Statewide Telehealth",  text:"Secure, HIPAA-compliant video visits available to all California residents. Same expert care from wherever you are.",       cta:"Book Telehealth",href:"/telehealth" },
     { icon:"👥", num:"2",     numSub:"Physicians",      title:"Two Doctors, One Mission",text:"Dr. Japsharan Gill and Dr. Shabeg Gondara — both board-eligible, both accepting new patients, both personally invested.", cta:"Meet the Team",href:"/about" },
@@ -1133,7 +1135,7 @@ function WhyUsSection() {
         {/* Bottom CTA */}
         <div className={`mt-12 text-center transition-all duration-700 delay-700 ${vis?"opacity-100":"opacity-0"}`}>
           <a href="/contact" className="group inline-flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400">
-            <Ph/> Book Your Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
+            <Ph/> Book Your Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span>
           </a>
         </div>
       </div>
@@ -1154,25 +1156,25 @@ function ServiceMiniSpotlight() {
       imgPos:"center 30%",
       color:"#A8C59A",
       href:"/iv-hydration",
-      detail:"The only psychiatric clinic in Fremont offering premium IV nutrient therapy — supervised by Dr. Japsharan Gill or Dr. Shabeg Gondara.",
+      detail:"First psychiatric clinic in Fremont offering premium IV nutrient therapy supervised by our licensed clinicians.",
     },
     {
       title:"Medical Weight Loss",
       headline:"GLP-1 Programs.|Physician-Led.",
       sub:"Semaglutide · Tirzepatide · Monthly Check-ins · No Contracts",
       badge:"Now Available",
-      img:IMAGES.BOTH_OUTDOOR,
-      imgPos:"center 12%",
+      img:"/assets/weightloss-bg.jpg",
+      imgPos:"center 40%",
       color:"#C9A46A",
       href:"/medical-weight-loss",
-      detail:"Not a med spa. Not an online service. A real physician — Dr. Japsharan Gill or Dr. Shabeg Gondara — supervising your entire weight loss program.",
+      detail:"Physician-led weight loss program tailored to your needs. Structured, science-backed GLP-1 care with full medical oversight.",
     },
     {
       title:"TMS Therapy",
       headline:"No Medication.|No Side Effects.",
       sub:"FDA-Cleared · Non-Invasive · Treatment-Resistant Depression",
       badge:"Launching Soon",
-      img:"/assets/tms-therapy-img.jpg",
+      img:"/assets/tms-img.jpg",
       imgPos:"center 40%",
       color:"#B8925A",
       href:"/tms-therapy",
@@ -1515,7 +1517,7 @@ function FinalCTA() {
             Begin Your Journey<br/><em className="italic text-[#B8925A]">Today.</em>
           </h2>
           <p className={`text-[#7A6556] text-lg leading-relaxed mb-10 font-light max-w-xl mx-auto transition-all duration-700 delay-200 ${vis?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
-            Your first consultation is completely free. A 15-minute conversation with Dr. Japsharan Gill or Dr. Shabeg Gondara — no commitment, no pressure.
+            Reach out to our office by phone or send us a message. Our team is here to help guide you to the right next step.
           </p>
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 transition-all duration-700 delay-300 ${vis?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
             <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400">

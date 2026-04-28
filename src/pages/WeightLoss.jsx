@@ -4,19 +4,19 @@ import DoctorAvatars from "../components/DoctorAvatars";
 import { useEffect, useRef, useState } from "react";
 import SEO from '../components/SEO';
 
-const P={hero:"/assets/dr-gill-outdoor.jpg",drGill:"/assets/dr-gill-white.jpg",drGillIn:"/assets/dr J gill-inside.jpg",interior:"/assets/inetrioir clinic.jpg",inside:"/assets/inside clinic1.jpg",table:"/assets/emptytabel.jpg"};
+const P={hero:"/assets/weightloss-bg.jpg",drGill:"/assets/dr-gill-white.jpg",drGillIn:"/assets/dr J gill-inside.jpg",interior:"/assets/inetrioir clinic.jpg",inside:"/assets/inside clinic1.jpg",table:"/assets/emptytabel.jpg"};
 
 function useReveal(t=0.12){const ref=useRef(null);const[v,sv]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){sv(true);o.unobserve(el);}},{threshold:t,rootMargin:"0px 0px -60px 0px"});o.observe(el);return()=>o.disconnect();},[t]);return[ref,v];}
 function Cursor(){const d=useRef(null),r=useRef(null),p=useRef({x:0,y:0}),f=useRef(null);useEffect(()=>{const mv=e=>{p.current={x:e.clientX,y:e.clientY};};const tk=()=>{if(d.current)d.current.style.transform=`translate(${p.current.x-4}px,${p.current.y-4}px)`;if(r.current)r.current.style.transform=`translate(${p.current.x-16}px,${p.current.y-16}px)`;f.current=requestAnimationFrame(tk);};window.addEventListener("mousemove",mv);f.current=requestAnimationFrame(tk);return()=>{window.removeEventListener("mousemove",mv);cancelAnimationFrame(f.current);};},[]);return(<><div ref={d} className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#B8925A] z-[9999] pointer-events-none" style={{transition:"none"}}/><div ref={r} className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#B8925A]/50 z-[9998] pointer-events-none" style={{transition:"transform 0.12s ease-out"}}/></>);}
 
 export default function WeightLoss(){
-  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none"}}>
+  return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none",overflowX:"hidden"}}>
     <SEO
   title="Medical Weight Loss"
   description="Physician-supervised GLP-1 weight loss program with Semaglutide and Tirzepatide in Fremont, CA. Personalized treatment plans by Dr. Gill. Evidence-based, safe, and effective."
   path="/medical-weight-loss"
 />
-<style>{CSS}</style><Cursor/><Hero/><Marquee/><WhatAreGLP1s/><HowProgramWorks/><OurProgram/><EligibilitySection/><FAQSection/><CTA/></main>);
+<style>{CSS}</style><Cursor/><Hero/><Marquee/><WhatAreGLP1s/><HowProgramWorks/><OurProgram/><WhatSetsApartSection/><EligibilitySection/><FAQSection/><CTA/></main>);
 }
 
 function Hero(){
@@ -47,20 +47,20 @@ function Hero(){
             <span className="w-10 h-px bg-[#B8925A]/60"/><span className="text-[10px] tracking-[0.22em] uppercase text-[#A89880] font-light">GLP-1 Therapy · Physician-Supervised Weight Loss Program</span>
           </div>
           <p className={`text-[#A89880] text-lg leading-relaxed max-w-lg font-light mb-10 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"440ms"}}>
-            Physician-Guided. Personalized. Sustainable. At Tri-Valley Clinic, we offer medically supervised weight loss programs designed to help you achieve lasting results — without extreme dieting or guesswork.
+            Tri-Valley Clinic now offers a unique, structured GLP-1 program designed to support both physical and behavioral change—guided by licensed clinicians and built around your individual needs. Safe, effective and science-backed.
           </p>
           <div className={`flex flex-wrap gap-4 mb-8 transition-all duration-700 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`} style={{transitionDelay:"540ms"}}>
             <a href="/contact" className="group flex items-center gap-3 bg-[#B8925A] text-[#FDFAF6] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#C9A46A] transition-colors duration-300"><Ph/> Free Consultation <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
             <a href="#how-it-works" className="flex items-center gap-3 border border-[#B8925A]/50 text-[#C9A46A] px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300">How It Works ↓</a>
           </div>
           <div className={`flex flex-wrap gap-3 transition-all duration-700 ${on?"opacity-100":"opacity-0"}`} style={{transitionDelay:"640ms"}}>
-            {["Physician-Monitored","Compounded GLP-1","No Contracts","Free Consultation"].map(t=>(
+            {["Physician-Led","Compounded GLP-1","No Contracts","Free Consultation"].map(t=>(
               <span key={t} className="text-[9px] tracking-[0.18em] uppercase border border-[#B8925A]/25 text-[#C9A46A]/60 px-3 py-1.5">{t}</span>
             ))}
           </div>
         </div>
         <div className={`hidden lg:flex flex-col gap-4 items-end transition-all duration-1000 ${on?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:"380ms"}}>
-          {[{val:"GLP-1",lab:"Medication Program",sub:"Physician-supervised treatment"},{val:"MD",lab:"Supervised Program",sub:"Dr. Japsharan Gill or Dr. Shabeg Gondara personally monitors"},{val:"Real",lab:"Clinical Results",sub:"Evidence-based approach"}].map((c,i)=>(
+          {[{val:"GLP-1",lab:"Personalized GLP-1 Therapy",sub:"Semaglutide & tirzepatide, tailored to your response"},{val:"MD",lab:"Physician-Led Program",sub:"Medical oversight with dedicated clinical support"},{val:"01",lab:"Structured Evidence-Based Care",sub:"Ongoing monitoring to support safe, sustainable progress"}].map((c,i)=>(
             <div key={c.lab} className="bg-[#FDFAF6]/8 border border-[#E8D5BE]/15 px-6 py-5 flex items-center gap-5 w-full max-w-xs" style={{animation:`fadeUp 0.8s ease ${0.5+i*0.12}s both`}}>
               <p className="text-3xl text-[#C9A46A] flex-shrink-0" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>{c.val}</p>
               <div><p className="text-[#F0E8DA] text-sm font-medium">{c.lab}</p><p className="text-[#A89880] text-xs font-light mt-0.5">{c.sub}</p></div>
@@ -93,8 +93,8 @@ function WhatAreGLP1s(){
           <div ref={ref} className={`transition-all duration-800 ${v?"opacity-100 translate-x-0":"opacity-0 -translate-x-10"}`}>
             <div className="flex items-center gap-3 mb-5"><span className="w-8 h-px bg-[#B8925A]"/><span className="text-[10px] tracking-[0.28em] uppercase text-[#B8925A] font-semibold">Physician-Guided. Personalized. Sustainable.</span></div>
             <h2 className="text-5xl md:text-6xl text-[#2C1A0E] mb-6" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.1}}>What Are <em className="italic text-[#B8925A]">GLP-1</em><br/>Medications?</h2>
-            <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">GLP-1 medications, such as Semaglutide and Tirzepatide, work by mimicking natural hormones that regulate appetite, digestion, and blood sugar levels. When used under medical supervision, they can help support consistent, sustainable weight loss.</p>
-            <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-6">Our approach combines clinical expertise, GLP-1 medications, and personalized lifestyle support to address the underlying factors that influence weight, metabolism, and long-term health. Weight management is not one-size-fits-all — our programs are tailored to your body, your health history, and your goals.</p>
+            <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-4">GLP-1 medications — including Semaglutide (the active ingredient in Ozempic® and Wegovy®) and Tirzepatide (the active ingredient in Mounjaro® and Zepbound®) — are a class of medications that work by mimicking natural gut hormones. These hormones help regulate appetite, slow digestion, and support blood sugar control, leading to reduced calorie intake and gradual, meaningful weight loss.</p>
+            <p className="text-[#7A6556] text-base leading-[1.95] font-light mb-6">At Tri-Valley Clinic, our program uses pharmacy-compounded GLP-1 medications prescribed and monitored by our physicians. Compounded versions allow for individualized dosing and are not the same as retail branded products. Our approach is physician-led from start to finish — no online questionnaires, no auto-shipments, just structured clinical care.</p>
 
             {/* GLP-1 How It Works accordion */}
             <div className={`border transition-all duration-300 mb-6 ${glpOpen?"border-[#B8925A]/50 bg-[#FDFAF6]":"border-[#E8D5BE] bg-[#F5EEE4] hover:border-[#B8925A]/30"}`}>
@@ -115,7 +115,7 @@ function WhatAreGLP1s(){
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              {[["Semaglutide","GLP-1 receptor agonist for weight loss"],["Tirzepatide","Dual GIP/GLP-1 receptor agonist"],["Physician Prescribed","Dr. Japsharan Gill or Dr. Shabeg Gondara monitors all patients"],["Monthly Check-ins","Ongoing safety & dosage review"]].map(([t,s])=>(
+              {[["Semaglutide","GLP-1 receptor agonist for weight loss"],["Tirzepatide","Dual GIP/GLP-1 receptor agonist"],["Physician-Led","One-on-one monitoring throughout your program"],["Structured Check-ins","Ongoing safety & dosage review"]].map(([t,s])=>(
                 <div key={t} className="border border-[#E8D5BE] bg-[#F5EEE4] p-4">
                   <p className="text-[#2C1A0E] font-medium text-sm mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>{t}</p>
                   <p className="text-[#7A6556] text-xs font-light">{s}</p>
@@ -127,7 +127,7 @@ function WhatAreGLP1s(){
             <div className="absolute top-8 -right-4 left-8 bottom-0 bg-[#F0E8DA] -z-10"/>
             <div className="absolute top-0 right-0 w-[3px] h-24 bg-[#B8925A]"/>
             <div className="overflow-hidden" style={{height:"460px"}}>
-              <img src={IMAGES.BOTH_OUTDOOR} alt="Dr. Japsharan Gill & Dr. Shabeg Gondara" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 15%"}}/>
+              <img src="/assets/weightloss-bg.jpg" alt="Weight Loss Program at Tri-Valley Clinic" className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.04]" style={{objectPosition:"center 40%"}}/>
             </div>
             <div className="absolute -bottom-6 -left-4 bg-[#B8925A] text-[#FDFAF6] px-6 py-5 shadow-xl" style={{animation:"floatBadge 5s ease-in-out infinite"}}>
               <p className="text-4xl font-light mb-0.5" style={{fontFamily:"'Cormorant Garamond',serif"}}>15–22%</p>
@@ -144,17 +144,16 @@ function OurProgram(){
   const[ref,v]=useReveal();
   const[open,setOpen]=useState(null);
   const steps=[
-    {t:"Initial Consultation",d:"Your care begins with a comprehensive medical evaluation to understand your health history, goals, and any underlying factors affecting weight. We review your full profile to determine if GLP-1 therapy is appropriate for you."},
-    {t:"Personalized Treatment Plan",d:"Based on your assessment, we create a personalized plan that may include GLP-1 therapy, nutrition guidance, and lifestyle recommendations — tailored to your body and goals, not a generic protocol."},
-    {t:"Ongoing Monitoring & Adjustments",d:"Regular follow-ups allow us to monitor your progress, adjust treatment as needed, and ensure safe, effective results over time. We check in to make sure the plan continues working for you."},
-    {t:"Lifestyle & Behavioral Support",d:"Weight management is influenced by both biological and behavioral factors. Our program integrates medical treatment with behavioral health support when appropriate, addressing the whole person — not just the number on the scale."},
+    {t:"Consultation",d:"Your care begins with a comprehensive medical evaluation. We review your health history, goals, and current health status to determine if GLP-1 therapy is appropriate for you. If it is, we create a personalized treatment plan and submit for any required insurance authorization."},
+    {t:"Weekly Care",d:"Once your program begins, you receive your compounded GLP-1 medication with clear instructions. Our team checks in with you regularly to review how you are responding, address any questions, and adjust your dosing as needed."},
+    {t:"Ongoing Support",d:"Your progress is monitored throughout the program. We track your results, make clinical adjustments, and provide guidance on maintaining long-term success — not just during treatment, but beyond it."},
   ];
   return(
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
       <div className="mx-auto max-w-4xl">
         <div ref={ref} className="text-center mb-12">
           <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
-          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Our Program: <em className="italic text-[#B8925A]">What to Expect</em></h2>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>How the Program <em className="italic text-[#B8925A]">Works</em></h2>
         </div>
         <div className={`space-y-2 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
           {steps.map((s,i)=>(
@@ -252,7 +251,7 @@ function ProgramAccordion(){
 function HowProgramWorks(){
   const[ref,v]=useReveal();
   const steps=[
-    {n:"01",t:"Free Consult",     d:"Quick 15-minute consultation to see if GLP-1 therapy is a good fit for you, review your goals, and answer questions."},
+    {n:"01",t:"Consultation",     d:"Your care begins with a medical evaluation to review your health history and goals, and determine if GLP-1 therapy is appropriate for you."},
     {n:"02",t:"Personalized Plan",d:"We review your health history and create a treatment plan tailored to you, including the right GLP-1 and dosing approach."},
     {n:"03",t:"Ongoing Support",  d:"Regular structured check-ins and clinical monitoring to track progress, adjust dose as needed, and support you along the way."},
   ];
@@ -286,36 +285,28 @@ function HowProgramWorks(){
   );
 }
 
-function CompareSection(){
+function WhatSetsApartSection(){
   const[ref,v]=useReveal();
-  const rows=[
-    {f:"Medical Supervision",  doc:"Dr. Japsharan Gill or Dr. Shabeg Gondara personally",    spa:"Often an NP/PA",   diy:"None"},
-    {f:"Medication Type",      doc:"Physician-prescribed",    spa:"Varies / compound",diy:"OTC supplements"},
-    {f:"Safety Monitoring",    doc:"Monthly labs & check-ins",spa:"Minimal",          diy:"None"},
-    {f:"Dosage Adjustments",   doc:"Physician-directed",     spa:"Limited",           diy:"None"},
-    {f:"Financing Available",  doc:"Cherry Financing",       spa:"Usually cash-pay",  diy:"No"},
-    {f:"Psychiatric Co-care",  doc:"Integrated at TVC",      spa:"Not available",     diy:"Not available"},
+  const cards=[
+    {n:"01",t:"A Whole-Person Approach",d:"We treat weight as a health issue — not a willpower issue. Our program considers your medical history, metabolic health, and lifestyle to build a plan that is realistic and sustainable for you."},
+    {n:"02",t:"Physician-Led From Start to Finish",d:"Every patient is seen and managed by a licensed physician. We do not delegate care to non-physician staff for prescribing or medical decision-making."},
+    {n:"03",t:"Structured Clinical Monitoring",d:"Regular check-ins allow us to track your progress, adjust dosing as needed, and ensure you are responding well to treatment. Safety and effectiveness are monitored throughout."},
+    {n:"04",t:"Integrated Care When Appropriate",d:"As a psychiatric and wellness clinic, we are uniquely positioned to address both the physical and emotional aspects of weight management when relevant to your care."},
   ];
   return(
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
-      <div className="mx-auto max-w-5xl">
-        <div ref={ref} className="text-center mb-12">
+      <div className="mx-auto max-w-7xl">
+        <div ref={ref} className="text-center mb-14">
           <div className={`flex items-center justify-center gap-3 mb-5 transition-all duration-700 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}><span className="w-12 h-px bg-[#B8925A]/50"/><Dm size={7}/><span className="w-12 h-px bg-[#B8925A]/50"/></div>
-          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>Physician vs. <em className="italic text-[#B8925A]">Med Spa</em></h2>
-          <p className={`text-[#7A6556] text-base font-light mt-4 max-w-lg mx-auto transition-all duration-700 delay-200 ${v?"opacity-100":"opacity-0"}`}>Not all GLP-1 programs are equal. Here's why physician supervision matters.</p>
+          <h2 className={`text-5xl md:text-6xl text-[#2C1A0E] transition-all duration-700 delay-100 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`} style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300}}>What Sets Our Program <em className="italic text-[#B8925A]">Apart</em></h2>
         </div>
-        <div className={`overflow-hidden border border-[#E8D5BE] transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-8"}`}>
-          <div className="grid grid-cols-4 bg-[#2C1A0E]">
-            {["Feature","Dr. Japsharan Gill / Dr. Shabeg Gondara (TVC) ★","Med Spa","DIY / Online"].map((h,i)=>(
-              <div key={h} className={`px-4 py-4 text-[10px] tracking-[0.18em] uppercase font-semibold ${i===1?"text-[#C9A46A]":"text-[#E8D5BE]/60"}`}>{h}</div>
-            ))}
-          </div>
-          {rows.map((r,i)=>(
-            <div key={r.f} className={`grid grid-cols-4 border-t border-[#E8D5BE] hover:bg-[#F0E8DA] transition-colors ${i%2===0?"bg-[#FDFAF6]":"bg-[#FAF7F2]"}`}>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-medium">{r.f}</div>
-              <div className="px-4 py-4 text-sm text-[#2C1A0E] font-medium flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#B8925A] flex-shrink-0"/>{r.doc}</div>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-light">{r.spa}</div>
-              <div className="px-4 py-4 text-sm text-[#7A6556] font-light">{r.diy}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {cards.map((card,i)=>(
+            <div key={card.n} className={`group border border-[#E8D5BE] bg-[#FDFAF6] p-8 transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_16px_48px_rgba(184,146,90,0.12)] hover:border-[#B8925A]/50 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-10"}`} style={{transitionDelay:`${i*100}ms`,transitionDuration:"700ms"}}>
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#B8925A] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left relative"/>
+              <span className="text-4xl text-[#B8925A]/15 font-light leading-none block mb-4 group-hover:text-[#B8925A]/30 transition-colors duration-300" style={{fontFamily:"'Cormorant Garamond',serif"}}>{card.n}</span>
+              <h3 className="text-xl text-[#2C1A0E] mb-3" style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:500}}>{card.t}</h3>
+              <p className="text-[#7A6556] text-sm leading-relaxed font-light">{card.d}</p>
             </div>
           ))}
         </div>
@@ -362,10 +353,10 @@ function EligibilitySection(){
 function FAQSection(){
   const[ref,v]=useReveal();const[open,sOpen]=useState(null);
   const faqs=[
-    {q:"How quickly will I see results?",a:"Results vary, but many patients begin to notice changes within the first few weeks, with more significant progress over several months."},
-    {q:"Are GLP-1 medications safe?",a:"When prescribed and monitored by a qualified medical provider, GLP-1 medications are generally safe and well-tolerated. We closely monitor for effectiveness and any side effects."},
-    {q:"Will I need to stay on medication long-term?",a:"Treatment duration varies by individual. Our goal is to support sustainable results and long-term health, with or without ongoing medication."},
-    {q:"Do I need to follow a strict diet?",a:"No extreme dieting is required. We focus on realistic, sustainable changes that fit your lifestyle."},
+    {q:"How much weight can I expect to lose?",a:"Clinical studies on GLP-1 medications have shown average weight reductions of 15–22% of body weight over 68 weeks in patients with obesity. Individual results vary based on starting weight, adherence, and other health factors. Our program is designed to support meaningful, sustained progress — not a quick fix."},
+    {q:"Does insurance cover this program?",a:"GLP-1 medications used in our program are compounded and are not covered by insurance. We can review all costs with you during your consultation. Cherry financing is available for this service."},
+    {q:"What are the side effects?",a:"The most common side effects of GLP-1 medications are gastrointestinal, including nausea, reduced appetite, and occasional mild digestive discomfort. These effects are typically most noticeable when starting or increasing the dose and tend to improve over time. Your provider will discuss what to expect and how to manage symptoms at each stage of your treatment."},
+    {q:"Why should I choose Tri-Valley Clinic for this program?",a:"Our GLP-1 program is offered within a licensed medical practice — not a med spa or online service. Every patient is seen by a physician, not a non-physician provider. We provide in-person care, structured monitoring, and the ability to coordinate treatment alongside any psychiatric or other health needs you may have."},
   ];
   return(
     <section className="py-24 px-5 md:px-10 bg-[#F5EEE4]">
@@ -402,7 +393,7 @@ function CTA(){
           style={{fontFamily:"'Cormorant Garamond',serif",fontWeight:300,lineHeight:1.05}}>
           Start Your Weight Loss<br/><em className="italic text-[#B8925A]">Journey.</em>
         </h2>
-        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>Take the first step toward a healthier, more balanced life with physician-guided support. Schedule a confidential consultation to learn whether GLP-1 therapy is right for you.</p>
+        <p className={`text-[#7A6556] text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed transition-all duration-700 delay-200 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>We offer a free initial consultation to see if our program is right for you. Call us to get started today.</p>
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-300 ${v?"opacity-100 translate-y-0":"opacity-0 translate-y-6"}`}>
           <a href="tel:5105984921" className="group flex items-center gap-3 bg-[#2C1A0E] text-[#F0E8DA] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-[#B8925A] transition-colors duration-400"><Ph/> Call (510) 598-4921 <span className="group-hover:translate-x-1.5 transition-transform duration-300">→</span></a>
           <a href="/contact" className="flex items-center gap-2 border border-[#B8925A]/50 text-[#B8925A] px-10 py-[18px] text-[11px] font-bold tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/5 transition-all duration-300">Send a Message</a>
