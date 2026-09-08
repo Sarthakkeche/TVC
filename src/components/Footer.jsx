@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const BLOG_URL = "https://trivalleyclinic.com/blog/";
 
 const SERVICES = [
-  { label: "Psychiatric Care",            to: "/psychiatry"  },
+  { label: "Psychiatric Care",            to: "/psychiatric"  },
   { label: "Medical Weight Loss / GLP-1", to: "/medical-weight-loss"  },
   { label: "IV Hydration Therapy",        to: "/iv-hydration" },
   { label: "TMS Therapy",                 to: "/tms-therapy"          },
   { label: "Telehealth",                  to: "/telehealth"   },
-  { label: "Medication Management",       to: "/psychiatry"  },
+  { label: "Medication Management",       to: "/psychiatric"  },
 ];
 
 const QUICK_LINKS = [
@@ -115,7 +115,7 @@ export default function Footer() {
               <SectionHeading>Conditions We Treat</SectionHeading>
               <div className="grid grid-cols-2 gap-x-3 gap-y-2">
                 {CONDITIONS.map((c) => (
-                  <Link key={c} to="/psychiatry" className="text-xs text-[#7A6556]/80 leading-relaxed hover:text-[#B8925A] transition-colors duration-200">{c}</Link>
+                  <Link key={c} to="/psychiatric" className="text-xs text-[#7A6556]/80 leading-relaxed hover:text-[#B8925A] transition-colors duration-200">{c}</Link>
                 ))}
               </div>
             </div>

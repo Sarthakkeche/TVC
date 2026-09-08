@@ -666,7 +666,7 @@ function ExperienceSection() {
 function ServicesSection() {
   const [ref,vis]=useReveal();
   const svcs=[
-    { title:"Psychiatric Services",    sub:"Comprehensive Mental Health Care",  img:IMAGES.DR_GILL_CARD,     tag:"Core",         href:"/psychiatry",  desc:"Anxiety, depression, ADHD, PTSD, bipolar disorder — precise diagnosis and personalized treatment.",          accent:"#C9A46A" },
+    { title:"Psychiatric Services",    sub:"Comprehensive Mental Health Care",  img:IMAGES.DR_GILL_CARD,     tag:"Core",         href:"/psychiatric",  desc:"Anxiety, depression, ADHD, PTSD, bipolar disorder — precise diagnosis and personalized treatment.",          accent:"#C9A46A" },
     { title:"Medical Weight Loss",     sub:"GLP-1 / Semaglutide Programs",      img:"/assets/weightloss-bg.jpg", tag:"Now Available", href:"/medical-weight-loss",  desc:"Physician-led weight loss program tailored to your needs. Structured, evidence-based care with medical oversight.", accent:"#B8925A" },
     { title:"IV Hydration Therapy",    sub:"Restore · Revive · Rehydrate",      img:IMAGES.CLINIC_TABLE,     tag:"Unique",        href:"/iv-hydration", desc:"First psychiatric clinic in Fremont offering premium IV nutrient therapy supervised by our trusted team of licensed clinicians.", accent:"#A8C59A" },
     { title:"TMS Therapy",             sub:"Non-Invasive · No Side Effects",    img:IMAGES.CLINIC_CHAIRS,    tag:"Now Available",   href:"/tms-therapy",          desc:"FDA-cleared transcranial magnetic stimulation for treatment-resistant depression.",          accent:"#C9A46A" },
@@ -681,7 +681,7 @@ function ServicesSection() {
               Our <em className="italic text-[#C9A46A]">Signature</em><br/>Services
             </h2>
           </div>
-          <a href="/psychiatry" className={`inline-flex items-center gap-2 border border-[#B8925A]/40 text-[#C9A46A] px-6 py-3 text-[10px] tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300 ${vis?"opacity-100":"opacity-0"}`}>View All Services →</a>
+          <a href="/psychiatric" className={`inline-flex items-center gap-2 border border-[#B8925A]/40 text-[#C9A46A] px-6 py-3 text-[10px] tracking-[0.2em] uppercase hover:border-[#B8925A] hover:bg-[#B8925A]/10 transition-all duration-300 ${vis?"opacity-100":"opacity-0"}`}>View All Services →</a>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {svcs.map((s,i)=><ServiceCard key={s.title} {...s} delay={i*130} vis={vis}/>)}
@@ -725,7 +725,7 @@ function SpotlightSection() {
   const INTERVAL = 5200;
 
   const SVCS = [
-    { n:"01", title:"Psychiatric Care",    tag:"Mental Health",     sub:"Anxiety · Depression · ADHD · PTSD · Bipolar · OCD",           stat:"Accepting New Patients", href:"/psychiatry",  img: IMAGES.DR_GONDARA_WORKING, imgPos:"center 15%", color:"#C9A46A" },
+    { n:"01", title:"Psychiatric Care",    tag:"Mental Health",     sub:"Anxiety · Depression · ADHD · PTSD · Bipolar · OCD",           stat:"Accepting New Patients", href:"/psychiatric",  img: IMAGES.DR_GONDARA_WORKING, imgPos:"center 15%", color:"#C9A46A" },
     { n:"02", title:"Medical Weight Loss", tag:"GLP-1 Therapy",     sub:"Physician-Supervised · Semaglutide & Tirzepatide",              stat:"Now Available",   href:"/medical-weight-loss",  img: IMAGES.BOTH_OUTDOOR,       imgPos:"center 10%", color:"#B8925A", desc:"Physician-led weight loss program tailored to your needs. Structured, evidence-based GLP-1 care with medical oversight." },
     { n:"03", title:"IV Hydration",        tag:"Wellness Infusion", sub:"12 Custom Drip Formulas · Energy · Immunity · Glow · Recovery", stat:"Walk-In Welcome", href:"/iv-hydration", img: "/assets/iv-img.jpg",      imgPos:"center 30%", color:"#A8C59A" },
     { n:"04", title:"TMS Therapy",         tag:"Brain Stimulation", sub:"FDA-Cleared · Non-Invasive · No Medication · No Side Effects",  stat:"Now Available",   href:"/tms-therapy",          img: "/assets/tms-img.jpg",     imgPos:"center 40%", color:"#C9A46A" },

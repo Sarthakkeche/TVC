@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 /* eslint-disable react-hooks/static-components */
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../constants/images";

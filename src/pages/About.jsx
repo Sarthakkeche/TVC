@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useRef, useState } from "react";
 import IMAGES from "../constants/images";
 import SEO from '../components/SEO';
