@@ -14,8 +14,8 @@ function Cursor(){const[en,setEn]=useState(false);const d=useRef(null),r=useRef(
 
 export default function WeightLoss(){
   return(<main style={{fontFamily:"'Jost',sans-serif",background:"#FDFAF6",cursor:"none",overflowX:"hidden"}}>
-    <SEO
-  title="Medical Weight Loss"
+       <SEO
+  title="GLP-1 Weight Loss Program Fremont CA"
   description="Physician-supervised GLP-1 weight loss program with Semaglutide and Tirzepatide in Fremont, CA. Personalized treatment plans by Dr. Gill. Evidence-based, safe, and effective."
   path="/medical-weight-loss"
 />
